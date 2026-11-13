@@ -117,13 +117,12 @@
                     <a href="#education" class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50" data-i18n="nav-education">Ausbildung</a>
                     <a href="#skills" class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50" data-i18n="nav-skills">Kompetenzen</a>
                     <a href="#3d-demo" class="px-3 py-2 text-sky-400 hover:text-sky-300 transition-colors rounded-lg hover:bg-slate-800/50 flex items-center gap-1.5">
-                        <i class="fa-solid fa-cube text-xs"></i> <span data-i18n="nav-3d">3D PointCloud</span>
+                        <i class="fa-solid fa-cube text-xs"></i> <span data-i18n="nav-3d">Campus-Brücke 3D</span>
                     </a>
                 </nav>
 
                 <!-- Language Selector & Contact Button -->
                 <div class="hidden md:flex items-center gap-3">
-                    <!-- Language Dropdown Switcher -->
                     <div class="relative">
                         <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-800/90 text-sky-400 font-mono text-xs font-bold border border-slate-700 px-3 py-2 rounded-lg cursor-pointer outline-none hover:bg-slate-700 transition-all">
                             <option value="de" selected>🇩🇪 DE - Deutsch</option>
@@ -150,7 +149,7 @@
             <a href="#experience" class="block px-3 py-2 text-slate-300 hover:text-orangeAccent rounded-lg" data-i18n="nav-experience">Erfahrung</a>
             <a href="#education" class="block px-3 py-2 text-slate-300 hover:text-orangeAccent rounded-lg" data-i18n="nav-education">Ausbildung</a>
             <a href="#skills" class="block px-3 py-2 text-slate-300 hover:text-orangeAccent rounded-lg" data-i18n="nav-skills">Kompetenzen</a>
-            <a href="#3d-demo" class="block px-3 py-2 text-sky-400 hover:text-sky-300 rounded-lg" data-i18n="nav-3d">3D Scan Visualizer</a>
+            <a href="#3d-demo" class="block px-3 py-2 text-sky-400 hover:text-sky-300 rounded-lg" data-i18n="nav-3d">Campus-Brücke 3D</a>
             <div class="pt-2 flex flex-col gap-2">
                 <select id="mobileLangSelect" onchange="changeLanguage(this.value)" class="bg-slate-800 text-sky-400 font-mono text-xs font-bold border border-slate-700 px-3 py-2.5 rounded-lg w-full outline-none">
                     <option value="de" selected>🇩🇪 DE - Deutsch</option>
@@ -162,7 +161,7 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION WITH PROFILE PICTURE -->
     <section class="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden grid-pattern">
         
         <div class="absolute top-1/4 left-10 w-96 h-96 bg-sky-600/15 rounded-full blur-3xl pointer-events-none"></div>
@@ -209,48 +208,25 @@
                         </a>
 
                         <a href="#3d-demo" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-800/90 text-sky-400 hover:text-sky-300 font-mono text-xs border border-sky-500/30 hover:border-sky-400 flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-play"></i> 3D Demo
+                            <i class="fa-solid fa-cube"></i> Campus-Brücke 3D
                         </a>
                     </div>
                 </div>
 
-                <div class="lg:col-span-5">
-                    <div class="glass-panel p-6 rounded-2xl relative shadow-2xl border border-slate-700/50">
-                        <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
-                            <div class="flex items-center gap-2">
-                                <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
-                                <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
-                                <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
-                            </div>
-                            <span class="text-xs font-mono text-slate-400"><i class="fa-solid fa-satellite mr-1 text-sky-400"></i> GNSS / RTK ACTIVE</span>
+                <!-- Profile Picture & Status Card -->
+                <div class="lg:col-span-5 flex flex-col items-center">
+                    <div class="relative mb-6 group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-sky-500 to-orangeAccent rounded-3xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
+                        <div class="relative w-64 h-64 sm:w-72 sm:h-72 rounded-3xl overflow-hidden border-2 border-slate-700 glass-panel shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop" alt="Amr Azab" class="w-full h-full object-cover object-center filter saturate-105" onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&auto=format&fit=crop&q=80'">
                         </div>
+                    </div>
 
-                        <div class="space-y-4">
-                            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
-                                <div class="text-xs font-mono text-slate-400 uppercase tracking-wider" data-i18n="card-curr-title">Aktuelle Position</div>
-                                <div class="text-sm font-semibold text-white flex items-center justify-between">
-                                    <span>Eurovia Niederlassung Koblenz</span>
-                                    <span class="text-xs text-orangeAccent font-mono"><i class="fa-solid fa-location-dot"></i> Koblenz, DE</span>
-                                </div>
-                                <div class="text-xs text-slate-400" data-i18n="card-curr-desc">Infrastruktur-, Straßen- und Tiefbauprojekte</div>
-                            </div>
-
-                            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
-                                <div class="text-xs font-mono text-slate-400 uppercase tracking-wider" data-i18n="card-master-title">Masterabschluss</div>
-                                <div class="text-sm font-semibold text-white flex items-center justify-between">
-                                    <span>Hochschule Mainz</span>
-                                    <span class="text-xs text-sky-400 font-mono">23.02.2024</span>
-                                </div>
-                                <div class="text-xs text-slate-400" data-i18n="card-master-desc">M.Eng. Geoinformatik (Campus-Brücke Scan-to-BIM)</div>
-                            </div>
-
-                            <div class="p-3 rounded-lg bg-slate-950 font-mono text-xs text-slate-400 flex justify-between items-center border border-slate-800/80">
-                                <div><span class="text-emerald-400">E:</span> 2591400.12 m</div>
-                                <div><span class="text-sky-400">N:</span> 5582310.85 m</div>
-                                <div><span class="text-orangeAccent">Z:</span> 184.32 m</div>
-                            </div>
+                    <div class="glass-persnl glass-panel p-4 rounded-2xl w-full max-w-sm text-center border border-slate-700/60 shadow-xl">
+                        <div class="text-xs font-mono text-slate-400 uppercase tracking-wider" data-i18n="card-master-desc">M.Eng. Geoinformatik | Masterthesis Campus-Brücke Mainz</div>
+                        <div class="mt-2 text-xs font-mono text-emerald-400 flex items-center justify-center gap-1">
+                            <i class="fa-solid fa-circle-check"></i> NavVis VLX2 & Autodesk Certified
                         </div>
-
                     </div>
                 </div>
 
@@ -459,7 +435,7 @@
                         <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orangeAccent text-xs"></i> iTWO civil</li>
                         <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orangeAccent text-xs"></i> Trimble Access & TerraFlex</li>
                         <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orangeAccent text-xs"></i> NavVis Technology</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orangeAccent text-xs"></i> AutoCAD & CAD Tools</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orangeAccent text-xs"></i> Autodesk Revit & Civil 3D</li>
                     </ul>
                 </div>
 
@@ -480,27 +456,32 @@
         </div>
     </section>
 
-    <!-- 3D POINT CLOUD VISUALIZER SECTION -->
+    <!-- 3D POINT CLOUD VISUALIZER SECTION (CAMPUS-BRÜCKE MAINZ MASTERARBEIT MODEL) -->
     <section id="3d-demo" class="py-20 relative bg-slate-900/50 border-t border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-xs font-mono font-bold text-sky-400 uppercase tracking-widest mb-2"><i class="fa-solid fa-cube text-xs mr-1"></i> Interactive Demo</h2>
-                <p class="text-3xl font-extrabold text-white sm:text-4xl" data-i18n="demo-title">3D Punktwolken & Scan-to-BIM Simulation</p>
-                <p class="text-slate-400 text-sm mt-2" data-i18n="demo-subtitle">Interaktives 3D-Modell in Anlehnung an die Masterarbeit (Campus-Brücke Mainz)</p>
+                <h2 class="text-xs font-mono font-bold text-sky-400 uppercase tracking-widest mb-2"><i class="fa-solid fa-cube text-xs mr-1"></i> Masterarbeit Simulation</h2>
+                <p class="text-3xl font-extrabold text-white sm:text-4xl" data-i18n="demo-title">Campus-Brücke Mainz | 3D Scan-to-BIM</p>
+                <p class="text-slate-400 text-sm mt-2" data-i18n="demo-subtitle">Interaktive 3D Punktwolken- & Volumenkörper-Simulation (NavVis VLX2 & Civil 3D Loft)</p>
             </div>
 
             <div class="glass-panel p-4 rounded-2xl max-w-4xl mx-auto relative border border-slate-700/80">
-                <div id="three-container" class="w-full h-[400px] rounded-xl overflow-hidden bg-slate-950"></div>
+                <div id="three-container" class="w-full h-[420px] rounded-xl overflow-hidden bg-slate-950 relative"></div>
                 
                 <div class="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-900/90 backdrop-blur-md p-4 rounded-xl border border-slate-800">
                     <div class="text-xs font-mono text-slate-300 flex items-center gap-2">
-                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400 animate-ping"></span>
-                        <span data-i18n="demo-caption">Live 3D PointCloud Mesh (Campus-Brücke Mainz)</span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-orangeAccent animate-ping"></span>
+                        <span data-i18n="demo-caption">Campus-Brücke Mainz – As-Built Modell & Querschnitte</span>
                     </div>
-                    <button onclick="resetCamera()" class="px-4 py-2 rounded-lg bg-survey-600 hover:bg-survey-500 text-white font-mono text-xs font-bold transition-all shadow-md">
-                        <i class="fa-solid fa-rotate mr-1"></i> <span data-i18n="demo-reset">Ansicht zurücksetzen</span>
-                    </button>
+                    <div class="flex items-center gap-2">
+                        <button onclick="toggleBridgeMode()" id="mode-btn" class="px-3 py-2 rounded-lg bg-orangeAccent hover:bg-orange-600 text-white font-mono text-xs font-bold transition-all shadow-md">
+                            <span data-i18n="demo-mode">Modell umschalten</span>
+                        </button>
+                        <button onclick="resetCamera()" class="px-3 py-2 rounded-lg bg-survey-600 hover:bg-survey-500 text-white font-mono text-xs font-bold transition-all shadow-md">
+                            <i class="fa-solid fa-rotate mr-1"></i> <span data-i18n="demo-reset">Reset</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -534,9 +515,8 @@
         <p data-i18n="footer">&copy; 2026 Amr Azab, M.Eng. | Vermessungsingenieur & Geoinformatiker. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <!-- TRANSLATIONS & THREE.JS SCRIPT -->
+    <!-- TRANSLATIONS & ADVANCED THREE.JS SCRIPT -->
     <script>
-        // Dictionary for Multilingual Support (DE as default)
         const translations = {
             de: {
                 "nav-subtitle": "Vermessungsingenieur",
@@ -544,7 +524,7 @@
                 "nav-experience": "Erfahrung",
                 "nav-education": "Ausbildung",
                 "nav-skills": "Kompetenzen",
-                "nav-3d": "3D PointCloud",
+                "nav-3d": "Campus-Brücke 3D",
                 "nav-contact": "Kontakt",
                 "hero-status": "Eurovia Niederlassung Koblenz",
                 "hero-subtitle": "Vermessungsingenieur & Geoinformatiker",
@@ -553,10 +533,7 @@
                 "tag-4": "DGM & Massen",
                 "btn-contact": "Kontakt Aufnehmen",
                 "btn-exp": "Berufserfahrung",
-                "card-curr-title": "Aktuelle Position",
-                "card-curr-desc": "Infrastruktur-, Straßen- und Tiefbauprojekte",
-                "card-master-title": "Masterabschluss",
-                "card-master-desc": "M.Eng. Geoinformatik (Campus-Brücke Scan-to-BIM)",
+                "card-master-desc": "M.Eng. Geoinformatik | Masterthesis Campus-Brücke Mainz",
                 "about-badge": "Über mich",
                 "about-title": "Präzisionsvermessung trifft moderne Digitalisierung",
                 "about-box1-title": "Praxis auf der Baustelle",
@@ -591,10 +568,11 @@
                 "lang-de": "Deutsch (Fließend / C1)",
                 "lang-en": "Englisch (Verhandlungssicher)",
                 "lang-ar": "Arabisch (Muttersprache)",
-                "demo-title": "3D Punktwolken & Scan-to-BIM Simulation",
-                "demo-subtitle": "Interaktives 3D-Modell in Anlehnung an die Masterarbeit (Campus-Brücke Mainz)",
-                "demo-caption": "Live 3D PointCloud Mesh (Campus-Brücke Mainz)",
-                "demo-reset": "Ansicht zurücksetzen",
+                "demo-title": "Campus-Brücke Mainz | 3D Scan-to-BIM",
+                "demo-subtitle": "Interaktive 3D Punktwolken- & Volumenkörper-Simulation (NavVis VLX2 & Civil 3D Loft)",
+                "demo-caption": "Campus-Brücke Mainz – As-Built Modell & Querschnitte",
+                "demo-mode": "Modell umschalten",
+                "demo-reset": "Reset",
                 "contact-title": "Lassen Sie uns zusammenarbeiten",
                 "contact-desc": "Haben Sie Fragen zu Projekten im Bereich Ingenieurvermessung, UAV-Photogrammetrie oder Scan-to-BIM? Schreiben Sie mir direkt.",
                 "footer": "© 2026 Amr Azab, M.Eng. | Vermessungsingenieur & Geoinformatiker. Alle Rechte vorbehalten."
@@ -605,7 +583,7 @@
                 "nav-experience": "Experience",
                 "nav-education": "Education",
                 "nav-skills": "Skills",
-                "nav-3d": "3D PointCloud",
+                "nav-3d": "Campus Bridge 3D",
                 "nav-contact": "Contact",
                 "hero-status": "Eurovia Branch Koblenz",
                 "hero-subtitle": "Surveying Engineer & Geoinformatics",
@@ -614,10 +592,7 @@
                 "tag-4": "DTM & Volumes",
                 "btn-contact": "Get in Touch",
                 "btn-exp": "Work Experience",
-                "card-curr-title": "Current Position",
-                "card-curr-desc": "Infrastructure, road, and civil engineering projects",
-                "card-master-title": "Master's Degree",
-                "card-master-desc": "M.Eng. Geoinformatics (Campus Bridge Scan-to-BIM)",
+                "card-master-desc": "M.Eng. Geoinformatics | Master Thesis Campus Bridge Mainz",
                 "about-badge": "About Me",
                 "about-title": "Precision Surveying Meets Modern Digitalization",
                 "about-box1-title": "On-Site Practice",
@@ -652,10 +627,11 @@
                 "lang-de": "German (Fluent / C1)",
                 "lang-en": "English (Professional Working)",
                 "lang-ar": "Arabic (Native)",
-                "demo-title": "3D Point Cloud & Scan-to-BIM Simulation",
-                "demo-subtitle": "Interactive 3D model based on Master's thesis (Campus Bridge Mainz)",
-                "demo-caption": "Live 3D PointCloud Mesh (Campus Bridge Mainz)",
-                "demo-reset": "Reset View",
+                "demo-title": "Campus Bridge Mainz | 3D Scan-to-BIM",
+                "demo-subtitle": "Interactive 3D Point Cloud & Solid Simulation (NavVis VLX2 & Civil 3D Loft)",
+                "demo-caption": "Campus Bridge Mainz – As-Built Model & Cross Sections",
+                "demo-mode": "Toggle Model",
+                "demo-reset": "Reset",
                 "contact-title": "Let's Work Together",
                 "contact-desc": "Do you have questions about projects in engineering surveying, UAV photogrammetry, or Scan-to-BIM? Drop me a message directly.",
                 "footer": "© 2026 Amr Azab, M.Eng. | Surveying Engineer & Geoinformatics. All rights reserved."
@@ -666,7 +642,7 @@
                 "nav-experience": "الخبرة المهنية",
                 "nav-education": "التعليم",
                 "nav-skills": "المهارات",
-                "nav-3d": "سحابة النقاط 3D",
+                "nav-3d": "جسر ماينتس 3D",
                 "nav-contact": "اتصل بي",
                 "hero-status": "فرع يوروفيا كوبلنز",
                 "hero-subtitle": "مهندس مساحة وخبير جيوماتكس",
@@ -675,16 +651,13 @@
                 "tag-4": "النماذج الرقمية والحسابات",
                 "btn-contact": "تواصل معي",
                 "btn-exp": "الخبرة المهنية",
-                "card-curr-title": "المنصب الحالي",
-                "card-curr-desc": "مشاريع البنية التحتية، الطرق، والأعمال المدنية",
-                "card-master-title": "درجة الماجستير",
-                "card-master-desc": "ماجستير الجيوماتكس (نمذجة جسر ماينتس بتقنية Scan-to-BIM)",
+                "card-master-desc": "ماجستير الجيوماتكس | رسالة الماجستير عن جسر ماينتس الجامعي",
                 "about-badge": "نبذة تعريفيّة",
                 "about-title": "دقة المساحة تلتقي بالتحول الرقمي الحديث",
                 "about-box1-title": "التطبيق العملي بالموقع",
                 "about-box1-desc": "خبرة يومية في مشاريع الطرق والأعمال المدنية في يوروفيا كوبلنز. مسؤول عن المساحة التنفيذية، التوقيع المساحي، توجيه الآلات، وحساب الكميات بدقة عالية.",
                 "about-box2-title": "الطائرات بدون طيار (Drohnen)",
-                "about-box2-desc": " شغف بتوظيف أنظمة الدرون الحديثة لجمع بيانات ثلاثية الأبعاد بكفاءة، إنشاء النماذج الرقمية لسطح الأرض (DTM)، وسحب النقاط فائقة الدقة.",
+                "about-box2-desc": "شغف بتوظيف أنظمة الدرون الحديثة لجمع بيانات ثلاثية الأبعاد بكفاءة، إنشاء النماذج الرقمية لسطح الأرض (DTM)، وسحب النقاط فائقة الدقة.",
                 "about-box3-title": "تقنية Scan-to-BIM والأبحاث",
                 "about-box3-desc": "خلفية أكاديمية متقدمة (ماجستير الجيوماتكس) مع تخصص في نمذجة المنشآت القائمة باستخدام تقنية NavVis في جسر ماينتس الجامعي.",
                 "exp-badge": "الخبرة العملية",
@@ -713,10 +686,11 @@
                 "lang-de": "الألمانية (متقن / C1)",
                 "lang-en": "الإنجليزية (مهني متقدم)",
                 "lang-ar": "العربية (اللغة الأم)",
-                "demo-title": "محاكاة سحابة النقاط ثلاثية الأبعاد",
-                "demo-subtitle": "نموذج ثلاثي الأبعاد تفاعلي مستوحى من رسالة الماجستير (جسر ماينتس)",
-                "demo-caption": "محاكاة حية لسحابة النقاط (جسر ماينتس الجامعي)",
-                "demo-reset": "إعادة ضبط العرض",
+                "demo-title": "جسر ماينتس الجامعي | نمذجة 3D Scan-to-BIM",
+                "demo-subtitle": "محاكاة تفاعلية ثلاثية الأبعاد لسحابة النقاط والكتلة الهندسية (NavVis VLX2 & Civil 3D)",
+                "demo-caption": "جسر ماينتس الجامعي – نموذج As-Built والمقاطع العرضية",
+                "demo-mode": "تغيير الشكل",
+                "demo-reset": "إعادة تعيين",
                 "contact-title": "دعنا نتعاون معاً",
                 "contact-desc": "هل لديك استفسارات حول مشاريع المساحة الهندسية، المساحة التصويرية بالدرون، أو تقنية Scan-to-BIM؟ راسلني مباشرة.",
                 "footer": "© 2026 عمرو عزب، ماجستير هندسة | مهندس مساحة وجيوماتكس. جميع الحقوق محفوظة."
@@ -733,11 +707,9 @@
                 htmlRoot.setAttribute('dir', 'ltr');
             }
 
-            // Sync selectors value
             document.getElementById('langSelect').value = lang;
             document.getElementById('mobileLangSelect').value = lang;
 
-            // Translate elements
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang] && translations[lang][key]) {
@@ -751,71 +723,123 @@
             menu.classList.toggle('hidden');
         }
 
-        // Three.js 3D Point Cloud Visualizer Setup
-        let scene, camera, renderer, pointCloud;
+        // Advanced Three.js Simulation of Campus-Brücke Mainz (Master Thesis)
+        let scene, camera, renderer, bridgeGroup;
+        let isSolidMode = false;
 
         function init3D() {
             const container = document.getElementById('three-container');
             if (!container) return;
 
             scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera = new THREE.PerspectiveCamera(55, container.clientWidth / container.clientHeight, 0.1, 1000);
             
             renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
             renderer.setSize(container.clientWidth, container.clientHeight);
             renderer.setPixelRatio(window.devicePixelRatio);
             container.appendChild(renderer.domElement);
 
-            // Create Engineering Point Cloud Mesh Simulation (Bridge Structure representation)
-            const geometry = new THREE.BufferGeometry();
-            const count = 3000;
-            const positions = new Float32Array(count * 3);
-            const colors = new Float32Array(count * 3);
+            bridgeGroup = new THREE.Group();
+            scene.add(bridgeGroup);
 
-            for (let i = 0; i < count * 3; i += 3) {
-                positions[i] = (Math.random() - 0.5) * 10;
-                positions[i + 1] = (Math.random() - 0.5) * 4;
-                positions[i + 2] = (Math.random() - 0.5) * 10;
+            createBridgeModel();
 
-                // Color gradient (Surveying Blue / Orange accents)
-                colors[i] = 0.1 + Math.random() * 0.2;     // R
-                colors[i + 1] = 0.5 + Math.random() * 0.5; // G
-                colors[i + 2] = 0.9;                       // B
-            }
-
-            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-            const material = new THREE.PointsMaterial({
-                size: 0.06,
-                vertexColors: true,
-                transparent: true,
-                opacity: 0.85
-            });
-
-            pointCloud = new THREE.Points(geometry, material);
-            scene.add(pointCloud);
-
-            camera.position.z = 7;
-            camera.position.y = 2;
+            camera.position.set(6, 4, 8);
             camera.lookAt(0, 0, 0);
 
             animate3D();
-
             window.addEventListener('resize', onWindowResize);
+        }
+
+        function createBridgeModel() {
+            // Clear existing children
+            while(bridgeGroup.children.length > 0){ 
+                bridgeGroup.remove(bridgeGroup.children[0]); 
+            }
+
+            if (!isSolidMode) {
+                // Point Cloud Simulation representing Campus-Brücke Mainz point cloud data
+                const particleCount = 4500;
+                const geometry = new THREE.BufferGeometry();
+                const positions = new Float32Array(particleCount * 3);
+                const colors = new Float32Array(particleCount * 3);
+
+                for (let i = 0; i < particleCount * 3; i += 3) {
+                    const x = (Math.random() - 0.5) * 8;
+                    const z = (Math.random() - 0.5) * 3;
+                    // Bridge deck profile with unique architectural slope
+                    const y = Math.sin(x * 0.8) * 0.4 - Math.abs(z) * 0.2;
+
+                    positions[i] = x;
+                    positions[i + 1] = y;
+                    positions[i + 2] = z;
+
+                    // Surveying gradient colors (Cyan/Blue & Orange accents)
+                    colors[i] = 0.02 + Math.random() * 0.1; 
+                    colors[i + 1] = 0.5 + Math.random() * 0.3; 
+                    colors[i + 2] = 0.9; 
+                }
+
+                geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+                geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+                const material = new THREE.PointsMaterial({
+                    size: 0.05,
+                    vertexColors: true,
+                    transparent: true,
+                    opacity: 0.9
+                });
+
+                const pointCloud = new THREE.Points(geometry, material);
+                bridgeGroup.add(pointCloud);
+
+            } else {
+                // Solid Civil 3D Loft Bridge Body Simulation
+                const bridgeDeckGeo = new THREE.BoxGeometry(7, 0.4, 2.5);
+                const bridgeMat = new THREE.MeshStandardMaterial({ color: 0x334155, roughness: 0.4 });
+                const deck = new THREE.Mesh(bridgeDeckGeo, bridgeMat);
+                deck.position.y = 0.5;
+                bridgeGroup.add(deck);
+
+                // Piers / Stützen (matching Master thesis inclined bridge piers)
+                const pierGeo = new THREE.BoxGeometry(0.5, 2.5, 0.8);
+                const pierMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, roughness: 0.3 });
+                
+                const pierLeft = new THREE.Mesh(pierGeo, pierMat);
+                pierLeft.position.set(-1.5, -0.8, 0);
+                pierLeft.rotation.z = 0.35;
+                bridgeGroup.add(pierLeft);
+
+                const pierRight = new THREE.Mesh(pierGeo, pierMat);
+                pierRight.position.set(1.5, -0.8, 0);
+                pierRight.rotation.z = -0.35;
+                bridgeGroup.add(pierRight);
+            }
+
+            // Lighting for solid mode
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+            scene.add(ambientLight);
+            const directionalLight = new THREE.DirectionalLight(0xf97316, 1);
+            directionalLight.position.set(5, 10, 7);
+            scene.add(directionalLight);
+        }
+
+        function toggleBridgeMode() {
+            isSolidMode = !isSolidMode;
+            createBridgeModel();
         }
 
         function animate3D() {
             requestAnimationFrame(animate3D);
-            if (pointCloud) {
-                pointCloud.rotation.y += 0.002;
+            if (bridgeGroup) {
+                bridgeGroup.rotation.y += 0.003;
             }
             renderer.render(scene, camera);
         }
 
         function resetCamera() {
             if (camera) {
-                camera.position.set(0, 2, 7);
+                camera.position.set(6, 4, 8);
                 camera.lookAt(0, 0, 0);
             }
         }
