@@ -121,13 +121,16 @@
                     </a>
                 </nav>
 
-                <!-- Language Switcher & Contact Button -->
+                <!-- Language Selector & Contact Button -->
                 <div class="hidden md:flex items-center gap-3">
-                    <!-- Language Switch Button -->
-                    <button id="lang-toggle-btn" onclick="toggleLanguage()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-sky-400 font-mono text-xs font-bold border border-slate-700 flex items-center gap-1.5 transition-all">
-                        <i class="fa-solid fa-globe"></i>
-                        <span id="lang-label">EN / AR</span>
-                    </button>
+                    <!-- Language Dropdown Switcher -->
+                    <div class="relative">
+                        <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-800/90 text-sky-400 font-mono text-xs font-bold border border-slate-700 px-3 py-2 rounded-lg cursor-pointer outline-none hover:bg-slate-700 transition-all">
+                            <option value="de" selected>🇩🇪 DE - Deutsch</option>
+                            <option value="en">🇬🇧 EN - English</option>
+                            <option value="ar">🇪🇬 AR - العربية</option>
+                        </select>
+                    </div>
 
                     <a href="#contact" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-gradient-to-r from-survey-600 to-survey-800 hover:from-survey-500 hover:to-survey-700 rounded-lg shadow-md transition-all border border-sky-500/30 flex items-center gap-2">
                         <i class="fa-regular fa-paper-plane"></i> <span data-i18n="nav-contact">Kontakt</span>
@@ -135,7 +138,7 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-2 rounded-lg focus:outline-none">
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white p-2 rounded-lg focus:outline-none">
                     <i class="fa-solid fa-bars text-xl"></i>
                 </button>
             </div>
@@ -148,10 +151,12 @@
             <a href="#education" class="block px-3 py-2 text-slate-300 hover:text-orangeAccent rounded-lg" data-i18n="nav-education">Ausbildung</a>
             <a href="#skills" class="block px-3 py-2 text-slate-300 hover:text-orangeAccent rounded-lg" data-i18n="nav-skills">Kompetenzen</a>
             <a href="#3d-demo" class="block px-3 py-2 text-sky-400 hover:text-sky-300 rounded-lg" data-i18n="nav-3d">3D Scan Visualizer</a>
-            <div class="flex items-center justify-between pt-2">
-                <button onclick="toggleLanguage()" class="px-4 py-2 rounded bg-slate-800 text-sky-400 font-mono text-xs font-bold border border-slate-700 w-full mr-2">
-                    <i class="fa-solid fa-globe mr-1"></i> <span id="mobile-lang-label">Switch to Arabic</span>
-                </button>
+            <div class="pt-2 flex flex-col gap-2">
+                <select id="mobileLangSelect" onchange="changeLanguage(this.value)" class="bg-slate-800 text-sky-400 font-mono text-xs font-bold border border-slate-700 px-3 py-2.5 rounded-lg w-full outline-none">
+                    <option value="de" selected>🇩🇪 DE - Deutsch</option>
+                    <option value="en">🇬🇧 EN - English</option>
+                    <option value="ar">🇪🇬 AR - العربية</option>
+                </select>
                 <a href="#contact" class="px-4 py-2 text-center text-white bg-orangeAccent rounded-lg font-semibold w-full" data-i18n="nav-contact">Kontakt</a>
             </div>
         </div>
@@ -314,74 +319,71 @@
         </div>
     </section>
 
-    <!-- EXPERIENCE SECTION -->
+    <!-- EXPERIENCE SECTION (Eurovia, Trimble, Petrojet) -->
     <section id="experience" class="py-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
-                <div>
-                    <h2 class="text-xs font-mono font-bold text-orangeAccent uppercase tracking-widest mb-2"><i class="fa-solid fa-briefcase text-xs mr-1"></i> <span data-i18n="exp-badge">Werdegang</span></h2>
-                    <p class="text-3xl font-extrabold text-white sm:text-4xl" data-i18n="exp-title">Berufserfahrung</p>
-                </div>
-                <div class="mt-4 md:mt-0 text-slate-400 text-sm font-mono" data-i18n="exp-subtitle">
-                    Straßenbau • Tiefbau • Ingenieurvermessung
-                </div>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-mono font-bold text-orangeAccent uppercase tracking-widest mb-2"><i class="fa-solid fa-briefcase text-xs mr-1"></i> <span data-i18n="exp-badge">Berufserfahrung</span></h2>
+                <p class="text-3xl font-extrabold text-white sm:text-4xl" data-i18n="exp-title">Stationen meiner Karriere</p>
             </div>
 
-            <div class="space-y-8 relative before:absolute before:inset-0 before:left-8 md:before:left-1/2 before:-ml-px before:w-0.5 before:bg-slate-800">
+            <div class="space-y-6 max-w-4xl mx-auto">
                 
-                <div class="relative flex flex-col md:flex-row items-center group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-orangeAccent text-white shadow-lg shadow-orangeAccent/30 z-10 md:order-1 md:group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-hard-hat text-sm"></i>
-                    </div>
-
-                    <div class="w-full md:w-1/2 pl-16 md:pl-0 md:pr-12 md:text-end md:order-0 mb-8 md:mb-0">
-                        <div class="glass-panel p-6 rounded-2xl glass-panel-hover border border-slate-700/60 inline-block text-start w-full">
-                            <div class="flex items-center justify-between gap-4 mb-2">
-                                <span class="px-2.5 py-1 rounded bg-orangeAccent/10 text-orangeAccent text-xs font-mono font-bold border border-orangeAccent/20" data-i18n="exp-current">Aktuelle Position</span>
-                                <span class="text-xs font-mono text-slate-400"><i class="fa-regular fa-calendar mr-1"></i> Seit 2024</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-white" data-i18n="exp-pos1-title">Vermessungsingenieur</h3>
-                            <h4 class="text-sm font-medium text-sky-400 mb-4">Eurovia Niederlassung Koblenz</h4>
-                            
-                            <ul class="space-y-2 text-sm text-slate-300 list-disc list-inside rtl:list-inside">
-                                <li data-i18n="exp-pos1-li1">Durchführung von Ingenieur- und Bauvermessungen im Straßen- und Tiefbau.</li>
-                                <li data-i18n="exp-pos1-li2">Erstellung und Weiterverarbeitung digitaler Geländemodelle (DGM) für Maschinensteuerungen.</li>
-                                <li data-i18n="exp-pos1-li3">Massenermittlung und Abrechnungsgrundlagen für Großprojekte im Raum Koblenz.</li>
-                                <li data-i18n="exp-pos1-li4">Einsatz moderner Messgeräte (Tachymeter, GNSS-Empfänger) und Auswertesoftware.</li>
-                            </ul>
+                <!-- Eurovia -->
+                <div class="glass-panel p-6 sm:p-8 rounded-2xl glass-panel-hover border-l-4 border-l-orangeAccent">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                        <div>
+                            <span class="text-xs font-mono text-orangeAccent font-semibold" data-i18n="exp-1-date">Aktuelle Position (Seit 2024)</span>
+                            <h3 class="text-xl font-bold text-white mt-1" data-i18n="exp-1-title">Vermessungsingenieur</h3>
                         </div>
+                        <span class="px-3 py-1 rounded-full bg-slate-800 text-sky-400 font-mono text-xs border border-slate-700 w-fit">Eurovia | Koblenz, DE</span>
                     </div>
-
-                    <div class="w-full md:w-1/2 pl-16 md:pl-12 md:order-2 hidden md:block text-start">
-                        <div class="text-xs font-mono text-slate-500 uppercase tracking-wider" data-i18n="exp-side1-top">Infrastruktur & Bauausführung</div>
-                        <div class="text-sm text-slate-400 mt-1" data-i18n="exp-side1-bot">Sicherstellung höchster geometrischer Qualität auf der Baustelle.</div>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4" data-i18n="exp-1-desc">
+                        Gesamtverantwortung für die vermessungstechnischen Abläufe im Straßen- und Tiefbau. Erstellung von Bestandsplänen, DGM, Massenermittlung mit iTWO, 3D-Baggersteuerung und Baustellen-Absteckung.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">iTWO civil</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">MTS Baggersteuerung</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">Straßenbau</span>
                     </div>
                 </div>
 
-                <div class="relative flex flex-col md:flex-row items-center group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-sky-600 text-white shadow-lg shadow-sky-600/30 z-10 md:order-1 md:group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-graduation-cap text-sm"></i>
-                    </div>
-
-                    <div class="w-full md:w-1/2 pl-16 md:pl-12 md:order-2 mb-8 md:mb-0 text-start">
-                        <div class="glass-panel p-6 rounded-2xl glass-panel-hover border border-slate-700/60 inline-block text-start w-full">
-                            <div class="flex items-center justify-between gap-4 mb-2">
-                                <span class="px-2.5 py-1 rounded bg-sky-500/10 text-sky-400 text-xs font-mono font-bold border border-sky-500/20" data-i18n="exp-master">Masterarbeit & Forschung</span>
-                                <span class="text-xs font-mono text-slate-400"><i class="fa-regular fa-calendar mr-1"></i> 2022 - 2024</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-white" data-i18n="exp-pos2-title">3D-Punktwolken & Scan-to-BIM</h3>
-                            <h4 class="text-sm font-medium text-sky-400 mb-4">Hochschule Mainz</h4>
-                            
-                            <p class="text-sm text-slate-300 leading-relaxed mb-3" data-i18n="exp-pos2-desc">
-                                Intensiver Fokus auf 3D-Laserscanning, Punktwolkenprozessierung und Modellierung von Ingenieurbauwerken. Praktische Anwendung an der Campus-Brücke Mainz.
-                            </p>
+                <!-- Trimble -->
+                <div class="glass-panel p-6 sm:p-8 rounded-2xl glass-panel-hover border-l-4 border-l-sky-500">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                        <div>
+                            <span class="text-xs font-mono text-sky-400 font-semibold">2018 – 2022</span>
+                            <h3 class="text-xl font-bold text-white mt-1" data-i18n="exp-2-title">Software QA & Testing Engineer</h3>
                         </div>
+                        <span class="px-3 py-1 rounded-full bg-slate-800 text-sky-400 font-mono text-xs border border-slate-700 w-fit">Trimble</span>
                     </div>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4" data-i18n="exp-2-desc">
+                        Qualitätssicherung und Applikationstests für Trimble Mobile Manager, Trimble Access Monitoring und TerraFlex. Durchführung technischer Messkampagnen und internationale Teamarbeit.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">Trimble Access</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">TerraFlex</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">QA / Testing</span>
+                    </div>
+                </div>
 
-                    <div class="w-full md:w-1/2 pl-16 md:pr-12 md:text-end md:order-0 hidden md:block">
-                        <div class="text-xs font-mono text-slate-500 uppercase tracking-wider" data-i18n="exp-side2-top">3D Geodaten & Photogrammetrie</div>
-                        <div class="text-sm text-slate-400 mt-1" data-i18n="exp-side2-bot">Verbindung von akademischer Innovation und Ingenieurpraxis.</div>
+                <!-- Petrojet -->
+                <div class="glass-panel p-6 sm:p-8 rounded-2xl glass-panel-hover border-l-4 border-l-emerald-500">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                        <div>
+                            <span class="text-xs font-mono text-emerald-400 font-semibold" data-i18n="exp-3-date">Nach dem Bachelorabschluss</span>
+                            <h3 class="text-xl font-bold text-white mt-1" data-i18n="exp-3-title">Vermessungsingenieur (Surveyor)</h3>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-slate-800 text-sky-400 font-mono text-xs border border-slate-700 w-fit">Petrojet</span>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4" data-i18n="exp-3-desc">
+                        Mitwirkung an großen Gas-, Petrochemie- und Infrastrukturprojekten (darunter West Nile Delta Gas Development, Ethydco Complex und Raffinerieprojekte). Präzise Absteckungen und Kontrollmessungen.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">Ingenieurvermessung</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">Großprojekte</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">Oil & Gas / Infrastructure</span>
                     </div>
                 </div>
 
@@ -390,66 +392,33 @@
         </div>
     </section>
 
-    <!-- EDUCATION & RESEARCH SECTION -->
+    <!-- EDUCATION SECTION -->
     <section id="education" class="py-20 relative bg-slate-900/50 border-t border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-xs font-mono font-bold text-sky-400 uppercase tracking-widest mb-2"><i class="fa-solid fa-book-bookmark text-xs mr-1"></i> <span data-i18n="edu-badge">Bildungsweg</span></h2>
-                <p class="text-3xl font-extrabold text-white sm:text-4xl" data-i18n="edu-title">Akademische Qualifikation</p>
+                <h2 class="text-xs font-mono font-bold text-orangeAccent uppercase tracking-widest mb-2"><i class="fa-solid fa-graduation-cap text-xs mr-1"></i> <span data-i18n="edu-badge">Ausbildung & Studium</span></h2>
+                <p class="text-3xl font-extrabold text-white sm:text-4xl" data-i18n="edu-title">Akademischer Hintergrund</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 
-                <div class="glass-panel p-8 rounded-2xl border border-sky-500/30 relative overflow-hidden text-start">
-                    <div class="absolute top-0 right-0 p-6 opacity-10 text-sky-400 text-8xl pointer-events-none rtl:left-0 rtl:right-auto">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-                    
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="px-3 py-1 rounded bg-sky-500/10 text-sky-400 text-xs font-mono font-bold border border-sky-500/20" data-i18n="edu-m-deg">Master of Engineering</span>
-                        <span class="text-xs font-mono text-slate-400" data-i18n="edu-m-date">Abschluss: 23.02.2024</span>
-                    </div>
-
-                    <h3 class="text-2xl font-bold text-white mb-1">Geoinformatik (M.Eng.)</h3>
-                    <h4 class="text-base text-sky-400 font-medium mb-6">Hochschule Mainz</h4>
-
-                    <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 mb-6">
-                        <div class="text-xs font-mono text-orangeAccent uppercase font-semibold" data-i18n="edu-thesis-label">Masterarbeit (Master Thesis)</div>
-                        <p class="text-sm font-semibold text-white leading-snug">
-                            „Modellierung technischer Bestandsbauwerke aus 3D-Punktwolken – Scan-To-BIM“
-                        </p>
-                        <p class="text-xs text-slate-400 leading-relaxed" data-i18n="edu-thesis-desc">
-                            Geometrische Auswertung und 3D-Modellierung der Campus-Brücke Mainz unter Nutzung von Punktwolken hochpräziser NavVis Mobile Mapping Systeme.
-                        </p>
-                    </div>
-
-                    <div class="text-xs text-slate-400 space-y-1 font-mono">
-                        <div><i class="fa-solid fa-check text-emerald-400 mr-2 rtl:ml-2 rtl:mr-0"></i><span data-i18n="edu-chk1">3D-Punktwolkenanalyse & Registrierung</span></div>
-                        <div><i class="fa-solid fa-check text-emerald-400 mr-2 rtl:ml-2 rtl:mr-0"></i><span data-i18n="edu-chk2">Scan-to-BIM Rekonstruktion</span></div>
-                    </div>
+                <div class="glass-panel p-8 rounded-2xl glass-panel-hover">
+                    <div class="text-xs font-mono text-sky-400 mb-2">23.02.2024</div>
+                    <h3 class="text-xl font-bold text-white mb-1" data-i18n="edu-1-title">Master of Engineering (M.Eng.)</h3>
+                    <div class="text-sm font-semibold text-orangeAccent mb-4" data-i18n="edu-1-inst">Hochschule Mainz (Geoinformatik)</div>
+                    <p class="text-slate-400 text-sm leading-relaxed" data-i18n="edu-1-desc">
+                        Masterthesis über Scan-to-BIM technischer Bauwerke am Beispiel der Campus-Brücke Mainz mit Einsatz modernster NavVis-Scantechnologie.
+                    </p>
                 </div>
 
-                <div class="glass-panel p-8 rounded-2xl border border-slate-700/60 relative overflow-hidden text-start">
-                    <div class="absolute top-0 right-0 p-6 opacity-10 text-slate-400 text-8xl pointer-events-none rtl:left-0 rtl:right-auto">
-                        <i class="fa-solid fa-building-columns"></i>
-                    </div>
-
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="px-3 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono font-bold border border-slate-700" data-i18n="edu-b-deg">Bachelor of Engineering</span>
-                    </div>
-
-                    <h3 class="text-2xl font-bold text-white mb-1" data-i18n="edu-b-title">Vermessungswesen & Geodäsie</h3>
-                    <h4 class="text-base text-slate-400 font-medium mb-6" data-i18n="edu-b-uni">Universität Alexandria (Alexandria University)</h4>
-
-                    <p class="text-sm text-slate-300 leading-relaxed mb-6" data-i18n="edu-b-desc">
-                        Fundierte ingenieurwissenschaftliche Ausbildung in klassischer Geodäsie, Tachymetrie, Ausgleichungsrechnung, Photogrammetrie und Katastervermessung.
+                <div class="glass-panel p-8 rounded-2xl glass-panel-hover">
+                    <div class="text-xs font-mono text-sky-400 mb-2">2015</div>
+                    <h3 class="text-xl font-bold text-white mb-1" data-i18n="edu-2-title">Bachelor of Engineering (B.Eng.)</h3>
+                    <div class="text-sm font-semibold text-orangeAccent mb-4" data-i18n="edu-2-inst">Alexandria University (Ägypten)</div>
+                    <p class="text-slate-400 text-sm leading-relaxed" data-i18n="edu-2-desc">
+                        Fundierte Ausbildung in Vermessungswesen, Geodäsie, Kartographie und mathematischen Grundlagen des Ingenieurbaus.
                     </p>
-
-                    <div class="text-xs text-slate-400 space-y-1 font-mono">
-                        <div><i class="fa-solid fa-check text-emerald-400 mr-2 rtl:ml-2 rtl:mr-0"></i><span data-i18n="edu-bchk1">Ingenieurgeodäsie & Netzmessung</span></div>
-                        <div><i class="fa-solid fa-check text-emerald-400 mr-2 rtl:ml-2 rtl:mr-0"></i><span data-i18n="edu-bchk2">Satellitengeodäsie (GNSS)</span></div>
-                    </div>
                 </div>
 
             </div>
@@ -462,57 +431,47 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-xs font-mono font-bold text-orangeAccent uppercase tracking-widest mb-2"><i class="fa-solid fa-screwdriver-wrench text-xs mr-1"></i> <span data-i18n="skills-badge">Werkzeuge & Know-how</span></h2>
-                <p class="text-3xl font-extrabold text-white sm:text-4xl" data-i18n="skills-title">Kompetenzen & Technologien</p>
+                <h2 class="text-xs font-mono font-bold text-orangeAccent uppercase tracking-widest mb-2"><i class="fa-solid fa-gears text-xs mr-1"></i> <span data-i18n="skills-badge">Fachkompetenzen</span></h2>
+                <p class="text-3xl font-extrabold text-white sm:text-4xl" data-i18n="skills-title">Technisches Know-how & Software</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-start">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <div class="glass-panel p-6 rounded-2xl border border-slate-800">
-                    <div class="text-orangeAccent text-2xl mb-4"><i class="fa-solid fa-crosshairs"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-4" data-i18n="sk-cat1-title">Vermessungstechnik</h3>
-                    <ul class="space-y-2.5 text-xs font-mono text-slate-300">
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-orangeAccent"></span> Tachymeter / Totalstation</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-orangeAccent"></span> GNSS (RTK / PPK)</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-orangeAccent"></span> NavVis Mobile Mapping</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-orangeAccent"></span> Terrestrischer Laserscanner (TLS)</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-orangeAccent"></span> Nivellement (Präzision)</li>
+                <div class="glass-panel p-8 rounded-2xl">
+                    <div class="w-10 h-10 rounded-lg bg-survey-500/10 text-survey-500 flex items-center justify-center font-bold text-lg mb-4">
+                        <i class="fa-solid fa-code-merge"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4" data-i18n="skills-col1-title">Vermessung & BIM</h3>
+                    <ul class="space-y-2.5 text-sm text-slate-300">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orangeAccent text-xs"></i> Scan-to-BIM Workflows</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orangeAccent text-xs"></i> UAV Photogrammetrie</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orangeAccent text-xs"></i> DGM & Massenberechnung</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orangeAccent text-xs"></i> Baustellen-Absteckung</li>
                     </ul>
                 </div>
 
-                <div class="glass-panel p-6 rounded-2xl border border-slate-800">
-                    <div class="text-sky-400 text-2xl mb-4"><i class="fa-solid fa-plane-up"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-4" data-i18n="sk-cat2-title">UAV & Drohnentechnik</h3>
-                    <ul class="space-y-2.5 text-xs font-mono text-slate-300">
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span> UAV Flugplanung & Korridor</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span> Passpunktverteilung (GCP)</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span> Photogrammetrie Auswertung</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span> Doming-Effekt Vermeidung</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span> Agisoft Metashape / Pix4D</li>
+                <div class="glass-panel p-8 rounded-2xl">
+                    <div class="w-10 h-10 rounded-lg bg-orangeAccent/10 text-orangeAccent flex items-center justify-center font-bold text-lg mb-4">
+                        <i class="fa-solid fa-desktop"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4" data-i18n="skills-col2-title">Software & Tools</h3>
+                    <ul class="space-y-2.5 text-sm text-slate-300">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orangeAccent text-xs"></i> iTWO civil</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orangeAccent text-xs"></i> Trimble Access & TerraFlex</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orangeAccent text-xs"></i> NavVis Technology</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orangeAccent text-xs"></i> AutoCAD & CAD Tools</li>
                     </ul>
                 </div>
 
-                <div class="glass-panel p-6 rounded-2xl border border-slate-800">
-                    <div class="text-emerald-400 text-2xl mb-4"><i class="fa-solid fa-laptop-code"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-4" data-i18n="sk-cat3-title">Software & CAD/BIM</h3>
-                    <ul class="space-y-2.5 text-xs font-mono text-slate-300">
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> AutoCAD & Civil 3D</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> iTWO civil</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> CloudCompare</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Revit (Scan-to-BIM)</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> QGIS / ArcGIS</li>
-                    </ul>
-                </div>
-
-                <div class="glass-panel p-6 rounded-2xl border border-slate-800">
-                    <div class="text-purple-400 text-2xl mb-4"><i class="fa-solid fa-road"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-4" data-i18n="sk-cat4-title">Infrastruktur & Praxis</h3>
-                    <ul class="space-y-2.5 text-xs font-mono text-slate-300">
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> Trassierung & DGM-Erstellung</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> Massenermittlung (Volumen)</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> 3D-Maschinensteuerung</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> Bauabrechnung & REB</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> QC / Genauigkeitsanalyse</li>
+                <div class="glass-panel p-8 rounded-2xl">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-lg mb-4">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-4" data-i18n="skills-col3-title">Sprachen</h3>
+                    <ul class="space-y-2.5 text-sm text-slate-300">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orangeAccent text-xs"></i> <span data-i18n="lang-de">Deutsch (Fließend / C1)</span></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orangeAccent text-xs"></i> <span data-i18n="lang-en">Englisch (Verhandlungssicher)</span></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orangeAccent text-xs"></i> <span data-i18n="lang-ar">Arabisch (Muttersprache)</span></li>
                     </ul>
                 </div>
 
@@ -521,104 +480,125 @@
         </div>
     </section>
 
-    <!-- 3D POINT CLOUD DEMO INTERACTIVE CANVAS SECTION -->
-    <section id="3d-demo" class="py-20 relative bg-slate-900/80 border-t border-slate-800">
+    <!-- 3D POINT CLOUD VISUALIZER SECTION -->
+    <section id="3d-demo" class="py-20 relative bg-slate-900/50 border-t border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
-                <div>
-                    <span class="px-3 py-1 rounded bg-sky-500/10 text-sky-400 text-xs font-mono font-bold border border-sky-500/20 mb-3 inline-block">Interactive 3D Preview</span>
-                    <h2 class="text-3xl font-extrabold text-white" data-i18n="demo-title">3D Punktwolken & Scan-to-BIM Simulation</h2>
-                </div>
-                <div class="mt-4 md:mt-0 flex items-center gap-2">
-                    <button id="btn-model-bridge" class="px-3 py-1.5 rounded bg-sky-600 hover:bg-sky-500 text-white font-mono text-xs font-bold transition-all">Campus-Brücke</button>
-                    <button id="btn-model-terrain" class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 font-mono text-xs transition-all" data-i18n="demo-btn-terrain">Trassen-DGM</button>
-                    <button id="btn-model-drone" class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 font-mono text-xs transition-all" data-i18n="demo-btn-drone">UAV Flugpfad</button>
-                </div>
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-mono font-bold text-sky-400 uppercase tracking-widest mb-2"><i class="fa-solid fa-cube text-xs mr-1"></i> Interactive Demo</h2>
+                <p class="text-3xl font-extrabold text-white sm:text-4xl" data-i18n="demo-title">3D Punktwolken & Scan-to-BIM Simulation</p>
+                <p class="text-slate-400 text-sm mt-2" data-i18n="demo-subtitle">Interaktives 3D-Modell in Anlehnung an die Masterarbeit (Campus-Brücke Mainz)</p>
             </div>
 
-            <div class="glass-panel rounded-2xl p-2 border border-slate-700/80 relative overflow-hidden shadow-2xl">
+            <div class="glass-panel p-4 rounded-2xl max-w-4xl mx-auto relative border border-slate-700/80">
+                <div id="three-container" class="w-full h-[400px] rounded-xl overflow-hidden bg-slate-950"></div>
                 
-                <div id="canvas-container" class="w-full h-[480px] rounded-xl bg-slate-950 relative cursor-grab active:cursor-grabbing">
-                    <div class="absolute top-4 left-4 rtl:left-auto rtl:right-4 z-10 glass-panel p-3 rounded-lg text-xs font-mono text-slate-300 space-y-1">
-                        <div><i class="fa-solid fa-hand-pointer text-orangeAccent mr-1"></i> <span data-i18n="demo-hint1">Gedrückt halten & Ziehen zum Drehen</span></div>
-                        <div><i class="fa-solid fa-circle-info text-sky-400 mr-1"></i> <span data-i18n="demo-hint2">Interaktives 3D-Geodaten-Modell</span></div>
+                <div class="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-900/90 backdrop-blur-md p-4 rounded-xl border border-slate-800">
+                    <div class="text-xs font-mono text-slate-300 flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400 animate-ping"></span>
+                        <span data-i18n="demo-caption">Live 3D PointCloud Mesh (Campus-Brücke Mainz)</span>
                     </div>
-
-                    <div class="absolute bottom-4 right-4 rtl:right-auto rtl:left-4 z-10 glass-panel p-3 rounded-lg text-xs font-mono text-slate-300 space-y-1 text-end rtl:text-start">
-                        <div><span data-i18n="demo-pts">Punkte</span>: <span id="point-count-display" class="text-emerald-400 font-bold">25,000</span></div>
-                        <div><span data-i18n="demo-sensor">Sensor</span>: <span id="sensor-type-display" class="text-sky-400">NavVis Mobile Scanner</span></div>
-                        <div><span data-i18n="demo-acc">Genauigkeit</span>: <span class="text-orangeAccent font-bold">&lt; 5 mm</span></div>
-                    </div>
+                    <button onclick="resetCamera()" class="px-4 py-2 rounded-lg bg-survey-600 hover:bg-survey-500 text-white font-mono text-xs font-bold transition-all shadow-md">
+                        <i class="fa-solid fa-rotate mr-1"></i> <span data-i18n="demo-reset">Ansicht zurücksetzen</span>
+                    </button>
                 </div>
-
             </div>
 
         </div>
     </section>
 
     <!-- CONTACT SECTION -->
-    <section id="contact" class="py-20 relative grid-pattern border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="contact" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="max-w-4xl mx-auto text-center space-y-6">
-                
-                <span class="w-12 h-12 rounded-2xl bg-orangeAccent/10 border border-orangeAccent/30 inline-flex items-center justify-center text-orangeAccent text-2xl">
-                    <i class="fa-solid fa-paper-plane"></i>
-                </span>
-
-                <h2 class="text-3xl font-extrabold text-white sm:text-4xl" data-i18n="contact-title">Lass uns in Kontakt treten</h2>
-                
-                <p class="text-slate-400 text-base sm:text-lg max-w-xl mx-auto leading-relaxed" data-i18n="contact-desc">
-                    Ob fachlicher Austausch über UAV-Photogrammetrie, Scan-to-BIM Projekte oder berufliche Anfragen – ich freue mich über Ihre Nachricht!
+            <div class="glass-panel p-8 sm:p-12 rounded-3xl max-w-4xl mx-auto border border-slate-700/80 text-center space-y-6">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-i18n="contact-title">Lassen Sie uns zusammenarbeiten</h2>
+                <p class="text-slate-400 text-base max-w-xl mx-auto" data-i18n="contact-desc">
+                    Haben Sie Fragen zu Projekten im Bereich Ingenieurvermessung, UAV-Photogrammetrie oder Scan-to-BIM? Schreiben Sie mir direkt.
                 </p>
-
-                <div class="pt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                    
-                    <a href="mailto:amr.azab@eurovia.de" class="glass-panel p-6 rounded-2xl glass-panel-hover flex items-center gap-4 rtl:space-x-reverse text-start group">
-                        <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div>
-                            <div class="text-xs font-mono text-slate-400 uppercase">E-Mail</div>
-                            <div class="text-sm font-semibold text-white group-hover:text-sky-400 transition-colors" data-i18n="contact-email">E-Mail Senden</div>
-                        </div>
+                <div class="pt-4 flex flex-wrap justify-center gap-4">
+                    <a href="mailto:amr.azab@eurovia.de" class="px-8 py-4 rounded-xl bg-orangeAccent hover:bg-orange-600 text-white font-semibold text-sm shadow-lg shadow-orangeAccent/25 transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-envelope"></i> amr.azab@eurovia.de
                     </a>
-
-                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="glass-panel p-6 rounded-2xl glass-panel-hover flex items-center gap-4 rtl:space-x-reverse text-start group">
-                        <div class="w-12 h-12 rounded-xl bg-blue-600/10 text-blue-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </div>
-                        <div>
-                            <div class="text-xs font-mono text-slate-400 uppercase">LinkedIn</div>
-                            <div class="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors" data-i18n="contact-linkedin">Profil Besuchen</div>
-                        </div>
+                    <a href="https://www.linkedin.com" target="_blank" class="px-8 py-4 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold text-sm hover:bg-slate-800/80 transition-all border border-slate-700 flex items-center gap-2">
+                        <i class="fa-brands fa-linkedin text-sky-400"></i> LinkedIn Profil
                     </a>
-
                 </div>
-
             </div>
 
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-8 bg-slate-950 border-t border-slate-900 text-slate-500 text-xs font-mono">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-start">
-            <div>
-                © <span id="year">2026</span> Amr Azab, M.Eng. • <span data-i18n="footer-role">Vermessungsingenieur</span>
-            </div>
-            <div class="flex items-center gap-4">
-                <span>Eurovia Koblenz</span>
-                <span>•</span>
-                <span data-i18n="footer-uni">Hochschule Mainz Alumni</span>
-            </div>
-        </div>
+    <footer class="py-8 bg-slate-950 border-t border-slate-800 text-center text-xs text-slate-500 font-mono">
+        <p data-i18n="footer">&copy; 2026 Amr Azab, M.Eng. | Vermessungsingenieur & Geoinformatiker. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <!-- LOCALIZATION DICTIONARY & JAVASCRIPT -->
+    <!-- TRANSLATIONS & THREE.JS SCRIPT -->
     <script>
+        // Dictionary for Multilingual Support (DE as default)
         const translations = {
+            de: {
+                "nav-subtitle": "Vermessungsingenieur",
+                "nav-about": "Über mich",
+                "nav-experience": "Erfahrung",
+                "nav-education": "Ausbildung",
+                "nav-skills": "Kompetenzen",
+                "nav-3d": "3D PointCloud",
+                "nav-contact": "Kontakt",
+                "hero-status": "Eurovia Niederlassung Koblenz",
+                "hero-subtitle": "Vermessungsingenieur & Geoinformatiker",
+                "hero-desc": "Spezialisiert auf Ingenieurvermessung, UAV-Photogrammetrie und Scan-to-BIM Workflows im modernen Straßen- und Infrastrukturbau.",
+                "tag-1": "Straßen- & Tiefbau",
+                "tag-4": "DGM & Massen",
+                "btn-contact": "Kontakt Aufnehmen",
+                "btn-exp": "Berufserfahrung",
+                "card-curr-title": "Aktuelle Position",
+                "card-curr-desc": "Infrastruktur-, Straßen- und Tiefbauprojekte",
+                "card-master-title": "Masterabschluss",
+                "card-master-desc": "M.Eng. Geoinformatik (Campus-Brücke Scan-to-BIM)",
+                "about-badge": "Über mich",
+                "about-title": "Präzisionsvermessung trifft moderne Digitalisierung",
+                "about-box1-title": "Praxis auf der Baustelle",
+                "about-box1-desc": "Tägliche Erfahrung im Straßen- und Tiefbau bei Eurovia Koblenz. Verantwortung für Bauvermessung, Absteckung, Maschinensteuerung und exakte Massenermittlung vor Ort.",
+                "about-box2-title": "Drohnen & Photogrammetrie",
+                "about-box2-desc": "Begeisterung für den Einsatz moderner UAV-Drohnensysteme zur effizienten 3D-Datenerfassung, Erstellung digitaler Geländemodelle (DGM) und hochgenauer Punktwolken.",
+                "about-box3-title": "Scan-to-BIM & Forschung",
+                "about-box3-desc": "Wissenschaftlicher Hintergrund (M.Eng. Geoinformatik) mit Spezialisierung auf die Modellierung von Bestandsbauwerken (Campus-Brücke Mainz mit NavVis-Technologie).",
+                "exp-badge": "Berufserfahrung",
+                "exp-title": "Stationen meiner Karriere",
+                "exp-1-date": "Aktuelle Position (Seit 2024)",
+                "exp-1-title": "Vermessungsingenieur",
+                "exp-1-desc": "Gesamtverantwortung für die vermessungstechnischen Abläufe im Straßen- und Tiefbau. Erstellung von Bestandsplänen, DGM, Massenermittlung mit iTWO, 3D-Baggersteuerung und Baustellen-Absteckung.",
+                "exp-2-title": "Software QA & Testing Engineer",
+                "exp-2-desc": "Qualitätssicherung und Applikationstests für Trimble Mobile Manager, Trimble Access Monitoring und TerraFlex. Durchführung technischer Messkampagnen und internationale Teamarbeit.",
+                "exp-3-date": "Nach dem Bachelorabschluss",
+                "exp-3-title": "Vermessungsingenieur (Surveyor)",
+                "exp-3-desc": "Mitwirkung an großen Gas-, Petrochemie- und Infrastrukturprojekten (darunter West Nile Delta Gas Development, Ethydco Complex und Raffinerieprojekte). Präzise Absteckungen und Kontrollmessungen.",
+                "edu-badge": "Ausbildung & Studium",
+                "edu-title": "Akademischer Hintergrund",
+                "edu-1-title": "Master of Engineering (M.Eng.)",
+                "edu-1-inst": "Hochschule Mainz (Geoinformatik)",
+                "edu-1-desc": "Masterthesis über Scan-to-BIM technischer Bauwerke am Beispiel der Campus-Brücke Mainz mit Einsatz modernster NavVis-Scantechnologie.",
+                "edu-2-title": "Bachelor of Engineering (B.Eng.)",
+                "edu-2-inst": "Alexandria University (Ägypten)",
+                "edu-2-desc": "Fundierte Ausbildung in Vermessungswesen, Geodäsie, Kartographie und mathematischen Grundlagen des Ingenieurbaus.",
+                "skills-badge": "Fachkompetenzen",
+                "skills-title": "Technisches Know-how & Software",
+                "skills-col1-title": "Vermessung & BIM",
+                "skills-col2-title": "Software & Tools",
+                "skills-col3-title": "Sprachen",
+                "lang-de": "Deutsch (Fließend / C1)",
+                "lang-en": "Englisch (Verhandlungssicher)",
+                "lang-ar": "Arabisch (Muttersprache)",
+                "demo-title": "3D Punktwolken & Scan-to-BIM Simulation",
+                "demo-subtitle": "Interaktives 3D-Modell in Anlehnung an die Masterarbeit (Campus-Brücke Mainz)",
+                "demo-caption": "Live 3D PointCloud Mesh (Campus-Brücke Mainz)",
+                "demo-reset": "Ansicht zurücksetzen",
+                "contact-title": "Lassen Sie uns zusammenarbeiten",
+                "contact-desc": "Haben Sie Fragen zu Projekten im Bereich Ingenieurvermessung, UAV-Photogrammetrie oder Scan-to-BIM? Schreiben Sie mir direkt.",
+                "footer": "© 2026 Amr Azab, M.Eng. | Vermessungsingenieur & Geoinformatiker. Alle Rechte vorbehalten."
+            },
             en: {
                 "nav-subtitle": "Surveying Engineer",
                 "nav-about": "About",
@@ -628,7 +608,7 @@
                 "nav-3d": "3D PointCloud",
                 "nav-contact": "Contact",
                 "hero-status": "Eurovia Branch Koblenz",
-                "hero-subtitle": "Surveying & Geoinformatics Engineer",
+                "hero-subtitle": "Surveying Engineer & Geoinformatics",
                 "hero-desc": "Specialized in engineering surveying, UAV photogrammetry, and Scan-to-BIM workflows in modern road and infrastructure construction.",
                 "tag-1": "Road & Civil Engineering",
                 "tag-4": "DTM & Volumes",
@@ -640,485 +620,215 @@
                 "card-master-desc": "M.Eng. Geoinformatics (Campus Bridge Scan-to-BIM)",
                 "about-badge": "About Me",
                 "about-title": "Precision Surveying Meets Modern Digitalization",
-                "about-box1-title": "Site Practice",
-                "about-box1-desc": "Daily hands-on experience in road and civil engineering at Eurovia Koblenz. Responsible for construction surveying, stakeout, machine control, and exact volume determination on-site.",
+                "about-box1-title": "On-Site Practice",
+                "about-box1-desc": "Daily experience in road and civil construction at Eurovia Koblenz. Responsible for site surveying, layout, machine control, and exact volume calculation.",
                 "about-box2-title": "Drones & Photogrammetry",
-                "about-box2-desc": "Passion for UAV drone technology for efficient 3D data acquisition, generation of digital terrain models (DTM), and high-accuracy point clouds.",
+                "about-box2-desc": "Passion for utilizing modern UAV drone systems for efficient 3D data acquisition, generation of digital terrain models (DTM), and high-precision point clouds.",
                 "about-box3-title": "Scan-to-BIM & Research",
-                "about-box3-desc": "Academic background (M.Eng. Geoinformatics) specialized in modeling as-built structures (Campus Bridge Mainz using NavVis technology).",
-                "exp-badge": "Career",
-                "exp-title": "Professional Experience",
-                "exp-subtitle": "Road Construction • Civil Engineering • Surveying",
-                "exp-current": "Current Position",
-                "exp-pos1-title": "Surveying Engineer",
-                "exp-pos1-li1": "Execution of engineering and construction surveys in road and civil engineering.",
-                "exp-pos1-li2": "Creation and processing of digital terrain models (DTM) for machine control systems.",
-                "exp-pos1-li3": "Volume calculation and billing bases for major projects in the Koblenz region.",
-                "exp-pos1-li4": "Application of modern measuring equipment (total stations, GNSS receivers) and processing software.",
-                "exp-side1-top": "Infrastructure & Execution",
-                "exp-side1-bot": "Ensuring highest geometrical quality on construction sites.",
-                "exp-master": "Master Thesis & Research",
-                "exp-pos2-title": "3D Point Clouds & Scan-to-BIM",
-                "exp-pos2-desc": "Intensive focus on 3D laser scanning, point cloud processing, and modeling of civil structures. Practical application at the Campus Bridge Mainz.",
-                "exp-side2-top": "3D Geodata & Photogrammetry",
-                "exp-side2-bot": "Bridging academic innovation and engineering practice.",
-                "edu-badge": "Education",
-                "edu-title": "Academic Qualification",
-                "edu-m-deg": "Master of Engineering",
-                "edu-m-date": "Graduation: 23.02.2024",
-                "edu-thesis-label": "Master Thesis",
-                "edu-thesis-desc": "Geometric evaluation and 3D modeling of the Campus Bridge Mainz using point clouds from high-precision NavVis Mobile Mapping systems.",
-                "edu-chk1": "3D Point Cloud Analysis & Registration",
-                "edu-chk2": "Scan-to-BIM Reconstruction",
-                "edu-b-deg": "Bachelor of Engineering",
-                "edu-b-title": "Surveying & Geodesy",
-                "edu-b-uni": "Alexandria University",
-                "edu-b-desc": "Comprehensive engineering education in classical geodesy, tachymetry, adjustment theory, photogrammetry, and cadastral surveying.",
-                "edu-bchk1": "Engineering Geodesy & Network Measurement",
-                "edu-bchk2": "Satellite Geodesy (GNSS)",
-                "skills-badge": "Tools & Know-how",
-                "skills-title": "Competencies & Technologies",
-                "sk-cat1-title": "Surveying Technology",
-                "sk-cat2-title": "UAV & Drone Tech",
-                "sk-cat3-title": "Software & CAD/BIM",
-                "sk-cat4-title": "Infrastructure & Practice",
-                "demo-title": "3D Point Clouds & Scan-to-BIM Simulation",
-                "demo-btn-terrain": "Corridor DTM",
-                "demo-btn-drone": "UAV Flight Path",
-                "demo-hint1": "Hold & drag to rotate",
-                "demo-hint2": "Interactive 3D geodata model",
-                "demo-pts": "Points",
-                "demo-sensor": "Sensor",
-                "demo-acc": "Accuracy",
-                "contact-title": "Let's Get in Touch",
-                "contact-desc": "Whether discussing UAV photogrammetry, Scan-to-BIM projects, or professional inquiries — I look forward to your message!",
-                "contact-email": "Send Email",
-                "contact-linkedin": "Visit Profile",
-                "footer-role": "Surveying Engineer",
-                "footer-uni": "Hochschule Mainz Alumni"
+                "about-box3-desc": "Scientific background (M.Eng. Geoinformatics) specializing in the modeling of existing structures (Campus Bridge Mainz using NavVis technology).",
+                "exp-badge": "Work Experience",
+                "exp-title": "My Career Milestones",
+                "exp-1-date": "Current Position (Since 2024)",
+                "exp-1-title": "Surveying Engineer",
+                "exp-1-desc": "Overall responsibility for surveying operations in road and civil engineering. Creation of as-built plans, DTM, mass calculation with iTWO, 3D machine control, and site layout.",
+                "exp-2-title": "Software QA & Testing Engineer",
+                "exp-2-desc": "Quality assurance and application testing for Trimble Mobile Manager, Trimble Access Monitoring, and TerraFlex. Executing technical measurement campaigns and international teamwork.",
+                "exp-3-date": "Following Bachelor's Degree",
+                "exp-3-title": "Surveying Engineer",
+                "exp-3-desc": "Participation in major gas, petrochemical, and infrastructure projects (including West Nile Delta Gas Development, Ethydco Complex, and refinery projects). Precise layout and control measurements.",
+                "edu-badge": "Education & Studies",
+                "edu-title": "Academic Background",
+                "edu-1-title": "Master of Engineering (M.Eng.)",
+                "edu-1-inst": "Mainz University of Applied Sciences",
+                "edu-1-desc": "Master thesis on Scan-to-BIM of technical structures using the Campus Bridge Mainz with state-of-the-art NavVis scanning technology.",
+                "edu-2-title": "Bachelor of Engineering (B.Eng.)",
+                "edu-2-inst": "Alexandria University (Egypt)",
+                "edu-2-desc": "Sound education in surveying, geodesy, cartography, and the mathematical fundamentals of civil engineering.",
+                "skills-badge": "Expertise",
+                "skills-title": "Technical Know-how & Software",
+                "skills-col1-title": "Surveying & BIM",
+                "skills-col2-title": "Software & Tools",
+                "skills-col3-title": "Languages",
+                "lang-de": "German (Fluent / C1)",
+                "lang-en": "English (Professional Working)",
+                "lang-ar": "Arabic (Native)",
+                "demo-title": "3D Point Cloud & Scan-to-BIM Simulation",
+                "demo-subtitle": "Interactive 3D model based on Master's thesis (Campus Bridge Mainz)",
+                "demo-caption": "Live 3D PointCloud Mesh (Campus Bridge Mainz)",
+                "demo-reset": "Reset View",
+                "contact-title": "Let's Work Together",
+                "contact-desc": "Do you have questions about projects in engineering surveying, UAV photogrammetry, or Scan-to-BIM? Drop me a message directly.",
+                "footer": "© 2026 Amr Azab, M.Eng. | Surveying Engineer & Geoinformatics. All rights reserved."
             },
             ar: {
-                "nav-subtitle": "مهندس مساحة",
+                "nav-subtitle": "مهندس مساحة وجيوماتكس",
                 "nav-about": "عني",
-                "nav-experience": "الخبرات",
+                "nav-experience": "الخبرة المهنية",
                 "nav-education": "التعليم",
                 "nav-skills": "المهارات",
-                "nav-3d": "نموذج 3D",
+                "nav-3d": "سحابة النقاط 3D",
                 "nav-contact": "اتصل بي",
-                "hero-status": "شركة يوروفيا فرع كوبلنز",
-                "hero-subtitle": "مهندس مساحة ونظم معلومات جغرافية",
-                "hero-desc": "متخصص في المساحة الهندسية، التصوير الجوي بالدرون (UAV)، وتقنيات الـ Scan-to-BIM في مشاريع الطرق والبنية التحتية الحديثة.",
-                "tag-1": "إنشاءات الطرق والبنية التحتية",
-                "tag-4": "نماذج التضاريس والحسابات",
+                "hero-status": "فرع يوروفيا كوبلنز",
+                "hero-subtitle": "مهندس مساحة وخبير جيوماتكس",
+                "hero-desc": "متخصص في المساحة الهندسية، المساحة التصويرية بالدرون (UAV)، وتقنيات Scan-to-BIM في مشاريع الطرق والبنية التحتية الحديثة.",
+                "tag-1": "هندسة الطرق والمدني",
+                "tag-4": "النماذج الرقمية والحسابات",
                 "btn-contact": "تواصل معي",
                 "btn-exp": "الخبرة المهنية",
                 "card-curr-title": "المنصب الحالي",
-                "card-curr-desc": "مشاريع البنية التحتية والطرق وشق الأنفاق",
+                "card-curr-desc": "مشاريع البنية التحتية، الطرق، والأعمال المدنية",
                 "card-master-title": "درجة الماجستير",
-                "card-master-desc": "ماجستير هندسة الجيوماتكس (جسر ماينز Scan-to-BIM)",
+                "card-master-desc": "ماجستير الجيوماتكس (نمذجة جسر ماينتس بتقنية Scan-to-BIM)",
                 "about-badge": "نبذة تعريفيّة",
-                "about-title": "الدقة المساحية تلتقي بالتحول الرقمي الحديث",
-                "about-box1-title": "الخبرة الميدانية بالموقع",
-                "about-box1-desc": "خبرة عملية يومية في مشاريع الطرق والإنشاءات في شركة Eurovia بكوبلنز. مسؤول عن المساحة الإنشائية، التوقيع المساحي، أنظمة التوجيه الآلي، وحساب الكميات بدقة.",
-                "about-box2-title": "الدرون والتصوير الجوي",
-                "about-box2-desc": "شغف باستخدام تقنيات الدرون (UAV) لجمع البيانات ثلاثية الأبعاد بكفاءة عالية، وإنشاء نماذج التضاريس الرقمية (DTM) والسحب السحابية الدقيقة.",
-                "about-box3-title": "Scan-to-BIM والأبحاث",
-                "about-box3-desc": "خلفية أكاديمية متقدمة متخصصة في نمذجة المنشآت القائمة (مثل جسر الجامعة في ماينز باستخدام تقنية NavVis).",
-                "exp-badge": "المسار المهني",
-                "exp-title": "الخبرة العملية",
-                "exp-subtitle": "إنشاءات الطرق • الهندسة المدنية • المساحة",
-                "exp-current": "المنصب الحالي",
-                "exp-pos1-title": "مهندس مساحة",
-                "exp-pos1-li1": "تنفيذ الأعمال المساحية الهندسية والإنشائية في مشاريع الطرق والبنية التحتية.",
-                "exp-pos1-li2": "إعداد ومعالجة نماذج التضاريس الرقمية (DTM) لأنظمة توجيه المعدات الآلية.",
-                "exp-pos1-li3": "حساب الكميات وإعداد مستندات الاستخلاص للمشاريع الكبرى في منطقة كوبلنز.",
-                "exp-pos1-li4": "استخدام أحدث الأجهزة المساحية (التشمل، مستقبلات GNSS) وبرمجيات التحليل.",
-                "exp-side1-top": "البنية التحتية والتنفيذ",
-                "exp-side1-bot": "ضمان أعلى مستويات الجودة الهندسية في موقع العمل.",
-                "exp-master": "رسالة الماجستير والأبحاث",
-                "exp-pos2-title": "السحب السحابية Scan-to-BIM",
-                "exp-pos2-desc": "تركيز عميق على المسح بالليزر ثلاثي الأبعاد، معالجة السحب السحابية، ونذجة المنشآت الهندسية. تطبيق عملي على جسر جامعة ماينز.",
-                "exp-side2-top": "البيانات المكانية والتصوير الجوي",
-                "exp-side2-bot": "الربط بين الابتكار الأكاديمي والممارسة الهندسية الواقعية.",
-                "edu-badge": "التعليم",
-                "edu-title": "المؤهلات الأكاديمية",
-                "edu-m-deg": "ماجستير في الهندسة",
-                "edu-m-date": "تاريخ التخرج: 23.02.2024",
-                "edu-thesis-label": "رسالة الماجستير",
-                "edu-thesis-desc": "التقييم الهندسي والنمذجة ثلاثية الأبعاد لجسر جامعة ماينز باستخدام السحب السحابية الملتقطة بأنظمة NavVis Mobile Mapping.",
-                "edu-chk1": "تحليل وتسجيل السحب السحابية ثلاثية الأبعاد",
-                "edu-chk2": "إعادة بناء نموذج الـ Scan-to-BIM",
-                "edu-b-deg": "بكالوريوس في الهندسة",
-                "edu-b-title": "هندسة المساحة والجيوديسيا",
-                "edu-b-uni": "جامعة الإسكندرية",
-                "edu-b-desc": "تعليم هندسي شامل في الجيوديسيا الكلاسيكية، المحطة الشاملة، نظرية الموازنة، التصوير الجوي، ومساحة الأراضي.",
-                "edu-bchk1": "الجيوديسيا الهندسية وقياس الشبكات",
-                "edu-bchk2": "الجيوديسيا الفضائية (GNSS)",
-                "skills-badge": "الأدوات والخبرات",
-                "skills-title": "المهارات والتقنيات",
-                "sk-cat1-title": "تكنولوجيا المساحة",
-                "sk-cat2-title": "تقنيات الدرون (UAV)",
-                "sk-cat3-title": "البرمجيات و CAD/BIM",
-                "sk-cat4-title": "البنية التحتية والتطبيق",
-                "demo-title": "محاكاة السحب السحابية و Scan-to-BIM",
-                "demo-btn-terrain": "تضاريس المسار",
-                "demo-btn-drone": "مسار طيران الدرون",
-                "demo-hint1": "اضغط مع الاستمرار والسحب للدوران",
-                "demo-hint2": "نموذج بيانات مكانية تفاعلي ثلاثي الأبعاد",
-                "demo-pts": "النقاط",
-                "demo-sensor": "المستشعر",
-                "demo-acc": "الدقة",
-                "contact-title": "تواصل معي",
-                "contact-desc": "سواء كان للنقاش حول التصوير الجوي بالدرون، مشاريع Scan-to-BIM، أو الاستفسارات المهنية — يسعدني جداً تواصلكم!",
-                "contact-email": "إرسال بريد إلكتروني",
-                "contact-linkedin": "زيارة ملف لينكد إن",
-                "footer-role": "مهندس مساحة",
-                "footer-uni": "خريج جامعة ماينز الألمانية"
+                "about-title": "دقة المساحة تلتقي بالتحول الرقمي الحديث",
+                "about-box1-title": "التطبيق العملي بالموقع",
+                "about-box1-desc": "خبرة يومية في مشاريع الطرق والأعمال المدنية في يوروفيا كوبلنز. مسؤول عن المساحة التنفيذية، التوقيع المساحي، توجيه الآلات، وحساب الكميات بدقة عالية.",
+                "about-box2-title": "الطائرات بدون طيار (Drohnen)",
+                "about-box2-desc": " شغف بتوظيف أنظمة الدرون الحديثة لجمع بيانات ثلاثية الأبعاد بكفاءة، إنشاء النماذج الرقمية لسطح الأرض (DTM)، وسحب النقاط فائقة الدقة.",
+                "about-box3-title": "تقنية Scan-to-BIM والأبحاث",
+                "about-box3-desc": "خلفية أكاديمية متقدمة (ماجستير الجيوماتكس) مع تخصص في نمذجة المنشآت القائمة باستخدام تقنية NavVis في جسر ماينتس الجامعي.",
+                "exp-badge": "الخبرة العملية",
+                "exp-title": "محطات مساري المهني",
+                "exp-1-date": "المنصب الحالي (منذ 2024)",
+                "exp-1-title": "مهندس مساحة (Vermessungsingenieur)",
+                "exp-1-desc": "مسؤولية شاملة عن العمليات المساحية في مشاريع الطرق والبنية التحتية. إعداد المخططات التنفيذية، النماذج الرقمية، حساب الكميات ببرنامج iTWO، وتوجيه الحفارات ثلاثية الأبعاد.",
+                "exp-2-title": "مهندس اختبار وضمان جودة البرمجيات",
+                "exp-2-desc": "ضمان الجودة واختبار التطبيقات لبرمجيات Trimble Mobile Manager و TerraFlex وإدارة حملات القياس التقنية والدولية.",
+                "exp-3-date": "بعد تخرج البكالوريوس",
+                "exp-3-title": "مهندس مساحة (Surveyor)",
+                "exp-3-desc": "المشاركة في مشاريع الغاز الكبرى، البوخيميا، والبنية التحتية (مثل مشروع تطوير غاز غرب الدلتا، مجمع إيثيدكو، ومشاريع مصافي التكرير).",
+                "edu-badge": "التعليم والأكاديمية",
+                "edu-title": "الخلفية الأكاديمية",
+                "edu-1-title": "ماجستير في الهندسة (M.Eng.)",
+                "edu-1-inst": "جامعة ماينتس التطبيقية (الجيوماتكس)",
+                "edu-1-desc": "رسالة الماجستير حول نمذجة المنشآت الهندسية بتقنية Scan-to-BIM لتطبيقها على جسر ماينتس الجامعي باستخدام تقنية المسح الحديثة NavVis.",
+                "edu-2-title": "بكالوريوس في الهندسة (B.Eng.)",
+                "edu-2-inst": "جامعة الإسكندرية (مصر)",
+                "edu-2-desc": "تعليم هندسي متين في علم المساحة، الجيوديسيا، الخرائط، والأسس الرياضية للهندسة المدنية.",
+                "skills-badge": "المهارات التخصصية",
+                "skills-title": "الخبرة التقنية والبرمجيات",
+                "skills-col1-title": "المساحة و BIM",
+                "skills-col2-title": "البرمجيات والأدوات",
+                "skills-col3-title": "اللغات",
+                "lang-de": "الألمانية (متقن / C1)",
+                "lang-en": "الإنجليزية (مهني متقدم)",
+                "lang-ar": "العربية (اللغة الأم)",
+                "demo-title": "محاكاة سحابة النقاط ثلاثية الأبعاد",
+                "demo-subtitle": "نموذج ثلاثي الأبعاد تفاعلي مستوحى من رسالة الماجستير (جسر ماينتس)",
+                "demo-caption": "محاكاة حية لسحابة النقاط (جسر ماينتس الجامعي)",
+                "demo-reset": "إعادة ضبط العرض",
+                "contact-title": "دعنا نتعاون معاً",
+                "contact-desc": "هل لديك استفسارات حول مشاريع المساحة الهندسية، المساحة التصويرية بالدرون، أو تقنية Scan-to-BIM؟ راسلني مباشرة.",
+                "footer": "© 2026 عمرو عزب، ماجستير هندسة | مهندس مساحة وجيوماتكس. جميع الحقوق محفوظة."
             }
         };
 
-        let currentLang = 'en'; // Default initial lang
-
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'ar' : 'en';
+        function changeLanguage(lang) {
             const htmlRoot = document.getElementById('html-root');
+            htmlRoot.setAttribute('lang', lang);
             
-            if (currentLang === 'ar') {
+            if (lang === 'ar') {
                 htmlRoot.setAttribute('dir', 'rtl');
-                htmlRoot.setAttribute('lang', 'ar');
-                document.getElementById('lang-label').textContent = 'AR / EN';
-                document.getElementById('mobile-lang-label').textContent = 'Switch to English';
             } else {
                 htmlRoot.setAttribute('dir', 'ltr');
-                htmlRoot.setAttribute('lang', 'de');
-                document.getElementById('lang-label').textContent = 'EN / AR';
-                document.getElementById('mobile-lang-label').textContent = 'Switch to Arabic';
             }
 
-            // Translate all elements with data-i18n attribute
+            // Sync selectors value
+            document.getElementById('langSelect').value = lang;
+            document.getElementById('mobileLangSelect').value = lang;
+
+            // Translate elements
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[currentLang][key]) {
-                    el.textContent = translations[currentLang][key];
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
                 }
             });
         }
 
-        // Mobile Menu Toggle
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
 
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Three.js 3D Point Cloud & Model Viewer
+        // Three.js 3D Point Cloud Visualizer Setup
         let scene, camera, renderer, pointCloud;
-        let isMouseDown = false;
-        let mouseX = 0, mouseY = 0;
-        let targetRotationX = 0, targetRotationY = 0;
-        let currentRotationX = 0, currentRotationY = 0;
 
-        function init3DViewer() {
-            const container = document.getElementById('canvas-container');
+        function init3D() {
+            const container = document.getElementById('three-container');
             if (!container) return;
 
-            const width = container.clientWidth;
-            const height = container.clientHeight;
-
             scene = new THREE.Scene();
-            scene.background = new THREE.Color(0x070d19);
-
-            camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 1000);
-            camera.position.set(0, 15, 35);
-            camera.lookAt(0, 0, 0);
-
-            renderer = new THREE.WebGLRenderer({ antialias: true });
-            renderer.setSize(width, height);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 1000);
+            
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
             container.appendChild(renderer.domElement);
 
-            generateBridgePointCloud();
+            // Create Engineering Point Cloud Mesh Simulation (Bridge Structure representation)
+            const geometry = new THREE.BufferGeometry();
+            const count = 3000;
+            const positions = new Float32Array(count * 3);
+            const colors = new Float32Array(count * 3);
 
-            container.addEventListener('mousedown', (e) => {
-                isMouseDown = true;
-                mouseX = e.clientX;
-                mouseY = e.clientY;
+            for (let i = 0; i < count * 3; i += 3) {
+                positions[i] = (Math.random() - 0.5) * 10;
+                positions[i + 1] = (Math.random() - 0.5) * 4;
+                positions[i + 2] = (Math.random() - 0.5) * 10;
+
+                // Color gradient (Surveying Blue / Orange accents)
+                colors[i] = 0.1 + Math.random() * 0.2;     // R
+                colors[i + 1] = 0.5 + Math.random() * 0.5; // G
+                colors[i + 2] = 0.9;                       // B
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            const material = new THREE.PointsMaterial({
+                size: 0.06,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.85
             });
 
-            window.addEventListener('mouseup', () => {
-                isMouseDown = false;
-            });
+            pointCloud = new THREE.Points(geometry, material);
+            scene.add(pointCloud);
 
-            container.addEventListener('mousemove', (e) => {
-                if (!isMouseDown) return;
-                const deltaX = e.clientX - mouseX;
-                const deltaY = e.clientY - mouseY;
+            camera.position.z = 7;
+            camera.position.y = 2;
+            camera.lookAt(0, 0, 0);
 
-                targetRotationY += deltaX * 0.005;
-                targetRotationX += deltaY * 0.005;
-
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
-
-            container.addEventListener('touchstart', (e) => {
-                if (e.touches.length === 1) {
-                    isMouseDown = true;
-                    mouseX = e.touches[0].clientX;
-                    mouseY = e.touches[0].clientY;
-                }
-            });
-
-            window.addEventListener('touchend', () => {
-                isMouseDown = false;
-            });
-
-            container.addEventListener('touchmove', (e) => {
-                if (!isMouseDown || e.touches.length !== 1) return;
-                const deltaX = e.touches[0].clientX - mouseX;
-                const deltaY = e.touches[0].clientY - mouseY;
-
-                targetRotationY += deltaX * 0.005;
-                targetRotationX += deltaY * 0.005;
-
-                mouseX = e.touches[0].clientX;
-                mouseY = e.touches[0].clientY;
-            });
+            animate3D();
 
             window.addEventListener('resize', onWindowResize);
-            animate();
         }
 
-        function generateBridgePointCloud() {
-            if (pointCloud) scene.remove(pointCloud);
-
-            const particleCount = 25000;
-            const geometry = new THREE.BufferGeometry();
-            const positions = new Float32Array(particleCount * 3);
-            const colors = new Float32Array(particleCount * 3);
-
-            let i = 0;
-            for (let p = 0; p < particleCount; p++) {
-                let x, y, z;
-                if (p < particleCount * 0.6) {
-                    x = (Math.random() - 0.5) * 40;
-                    z = (Math.random() - 0.5) * 8;
-                    y = Math.sin(x * 0.05) * 0.5;
-                } else if (p < particleCount * 0.85) {
-                    x = (Math.random() - 0.5) * 32;
-                    z = (Math.random() > 0.5 ? 4 : -4) + (Math.random() - 0.5);
-                    y = Math.cos(x * 0.08) * 8 - 2;
-                } else {
-                    x = (Math.random() > 0.5 ? 10 : -10) + (Math.random() - 0.5) * 2;
-                    z = (Math.random() - 0.5) * 8;
-                    y = (Math.random() - 0.5) * 12;
-                }
-
-                positions[i] = x;
-                positions[i + 1] = y;
-                positions[i + 2] = z;
-
-                const c = new THREE.Color();
-                if (y > 2) {
-                    c.setHSL(0.08, 0.9, 0.5);
-                } else if (y > -2) {
-                    c.setHSL(0.55, 0.8, 0.6);
-                } else {
-                    c.setHSL(0.4, 0.7, 0.5);
-                }
-
-                colors[i] = c.r;
-                colors[i + 1] = c.g;
-                colors[i + 2] = c.b;
-                i += 3;
-            }
-
-            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-            const material = new THREE.PointsMaterial({
-                size: 0.25,
-                vertexColors: true,
-                transparent: true,
-                opacity: 0.85
-            });
-
-            pointCloud = new THREE.Points(geometry, material);
-            scene.add(pointCloud);
-
-            document.getElementById('point-count-display').textContent = '25,000';
-            document.getElementById('sensor-type-display').textContent = 'NavVis Mobile Scanner (Campus-Brücke)';
-        }
-
-        function generateTerrainPointCloud() {
-            if (pointCloud) scene.remove(pointCloud);
-
-            const particleCount = 30000;
-            const geometry = new THREE.BufferGeometry();
-            const positions = new Float32Array(particleCount * 3);
-            const colors = new Float32Array(particleCount * 3);
-
-            let i = 0;
-            for (let p = 0; p < particleCount; p++) {
-                const x = (Math.random() - 0.5) * 40;
-                const z = (Math.random() - 0.5) * 40;
-                const y = Math.sin(x * 0.15) * Math.cos(z * 0.15) * 4 + Math.sin(x * 0.05) * 2;
-
-                positions[i] = x;
-                positions[i + 1] = y;
-                positions[i + 2] = z;
-
-                const c = new THREE.Color();
-                const normY = (y + 6) / 12;
-                c.setHSL(0.6 - normY * 0.5, 0.8, 0.5);
-
-                colors[i] = c.r;
-                colors[i + 1] = c.g;
-                colors[i + 2] = c.b;
-                i += 3;
-            }
-
-            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-            const material = new THREE.PointsMaterial({
-                size: 0.2,
-                vertexColors: true,
-                transparent: true,
-                opacity: 0.9
-            });
-
-            pointCloud = new THREE.Points(geometry, material);
-            scene.add(pointCloud);
-
-            document.getElementById('point-count-display').textContent = '30,000';
-            document.getElementById('sensor-type-display').textContent = 'UAV Photogrammetrie DGM';
-        }
-
-        function generateDronePathPointCloud() {
-            if (pointCloud) scene.remove(pointCloud);
-
-            const particleCount = 18000;
-            const geometry = new THREE.BufferGeometry();
-            const positions = new Float32Array(particleCount * 3);
-            const colors = new Float32Array(particleCount * 3);
-
-            let i = 0;
-            for (let p = 0; p < particleCount; p++) {
-                let x, y, z;
-                if (p < particleCount * 0.2) {
-                    x = (Math.random() - 0.5) * 36;
-                    z = (Math.random() - 0.5) * 36;
-                    y = 12 + (Math.sin(x * 0.5) * 0.5);
-                } else {
-                    x = (Math.random() - 0.5) * 36;
-                    z = (Math.random() - 0.5) * 36;
-                    y = Math.sin(x * 0.1) * 2;
-                }
-
-                positions[i] = x;
-                positions[i + 1] = y;
-                positions[i + 2] = z;
-
-                const c = new THREE.Color();
-                if (y > 10) {
-                    c.setHex(0xf97316);
-                } else {
-                    c.setHSL(0.55, 0.6, 0.4);
-                }
-
-                colors[i] = c.r;
-                colors[i + 1] = c.g;
-                colors[i + 2] = c.b;
-                i += 3;
-            }
-
-            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-            const material = new THREE.PointsMaterial({
-                size: 0.22,
-                vertexColors: true,
-                transparent: true,
-                opacity: 0.85
-            });
-
-            pointCloud = new THREE.Points(geometry, material);
-            scene.add(pointCloud);
-
-            document.getElementById('point-count-display').textContent = '18,000';
-            document.getElementById('sensor-type-display').textContent = 'RTK UAV Korridor Photogrammetrie';
-        }
-
-        function onWindowResize() {
-            const container = document.getElementById('canvas-container');
-            if (!container || !renderer || !camera) return;
-
-            const width = container.clientWidth;
-            const height = container.clientHeight;
-
-            camera.aspect = width / height;
-            camera.updateProjectionMatrix();
-            renderer.setSize(width, height);
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-
-            currentRotationX += (targetRotationX - currentRotationX) * 0.05;
-            currentRotationY += (targetRotationY - currentRotationY) * 0.05;
-
+        function animate3D() {
+            requestAnimationFrame(animate3D);
             if (pointCloud) {
-                pointCloud.rotation.y = currentRotationY;
-                pointCloud.rotation.x = currentRotationX;
-                if (!isMouseDown) {
-                    targetRotationY += 0.0015;
-                }
+                pointCloud.rotation.y += 0.002;
             }
-
             renderer.render(scene, camera);
         }
 
-        document.getElementById('btn-model-bridge')?.addEventListener('click', function() {
-            generateBridgePointCloud();
-            updateActive3DBtn(this);
-        });
-
-        document.getElementById('btn-model-terrain')?.addEventListener('click', function() {
-            generateTerrainPointCloud();
-            updateActive3DBtn(this);
-        });
-
-        document.getElementById('btn-model-drone')?.addEventListener('click', function() {
-            generateDronePathPointCloud();
-            updateActive3DBtn(this);
-        });
-
-        function updateActive3DBtn(activeBtn) {
-            [
-                document.getElementById('btn-model-bridge'),
-                document.getElementById('btn-model-terrain'),
-                document.getElementById('btn-model-drone')
-            ].forEach(btn => {
-                if (btn) {
-                    btn.className = 'px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 font-mono text-xs transition-all';
-                }
-            });
-            activeBtn.className = 'px-3 py-1.5 rounded bg-sky-600 hover:bg-sky-500 text-white font-mono text-xs font-bold transition-all';
+        function resetCamera() {
+            if (camera) {
+                camera.position.set(0, 2, 7);
+                camera.lookAt(0, 0, 0);
+            }
         }
 
-        window.onload = function() {
-            init3DViewer();
-        };
+        function onWindowResize() {
+            const container = document.getElementById('three-container');
+            if (!container) return;
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        }
+
+        window.addEventListener('DOMContentLoaded', init3D);
     </script>
 </body>
 </html>
