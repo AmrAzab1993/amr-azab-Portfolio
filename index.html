@@ -42,8 +42,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Three.js for 3D Point Cloud Visualizer -->
+    <!-- Three.js & OrbitControls for interactive 3D bridge rotation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 
     <style>
         body {
@@ -257,7 +258,7 @@
                     </div>
                 </div>
 
-                <!-- UPDATED WITH DRONE / PLANE ICON -->
+                <!-- DRONE / PLANE ICON -->
                 <div class="glass-panel p-8 rounded-2xl glass-panel-hover flex flex-col justify-between">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 text-2xl mb-6">
@@ -450,30 +451,27 @@
         </div>
     </section>
 
-    <!-- 3D CAMPUS BRIDGE SIMULATION (ACCURATE MAINZ BRIDGE MODEL) -->
+    <!-- 3D CAMPUS BRIDGE SIMULATION (INTERACTIVE SOLID BRIDGE MODEL) -->
     <section id="3d-demo" class="py-20 relative bg-slate-900/50 border-t border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <h2 class="text-xs font-mono font-bold text-sky-400 uppercase tracking-widest mb-2"><i class="fa-solid fa-cube text-xs mr-1"></i> Masterarbeit Simulation</h2>
                 <p class="text-3xl font-extrabold text-white sm:text-4xl" data-i18n="demo-title">Campus-Brücke Mainz | 3D Scan-to-BIM</p>
-                <p class="text-slate-400 text-sm mt-2" data-i18n="demo-subtitle">Interaktive 3D Brücken- & Querschnitts-Simulation (Masterthesis As-Built Modell)</p>
+                <p class="text-slate-400 text-sm mt-2" data-i18n="demo-subtitle">Interaktives 3D Brücken-Modell (Klicken und Ziehen zum Drehen / Scrollen zum Zoomen)</p>
             </div>
 
             <div class="glass-panel p-4 rounded-2xl max-w-4xl mx-auto relative border border-slate-700/80">
-                <div id="three-container" class="w-full h-[420px] rounded-xl overflow-hidden bg-slate-950 relative"></div>
+                <div id="three-container" class="w-full h-[420px] rounded-xl overflow-hidden bg-slate-950 relative cursor-grab active:cursor-grabbing"></div>
                 
                 <div class="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-900/90 backdrop-blur-md p-4 rounded-xl border border-slate-800">
                     <div class="text-xs font-mono text-slate-300 flex items-center gap-2">
-                        <span class="w-2.5 h-2.5 rounded-full bg-orangeAccent animate-ping"></span>
-                        <span data-i18n="demo-caption">Campus-Brücke Mainz – As-Built Modell & Querschnitte</span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                        <span data-i18n="demo-caption">Campus-Brücke Mainz – Interaktives As-Built Modell</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button onclick="toggleBridgeMode()" id="mode-btn" class="px-3 py-2 rounded-lg bg-orangeAccent hover:bg-orange-600 text-white font-mono text-xs font-bold transition-all shadow-md">
-                            <span data-i18n="demo-mode">Modell umschalten</span>
-                        </button>
-                        <button onclick="resetCamera()" class="px-3 py-2 rounded-lg bg-survey-600 hover:bg-survey-500 text-white font-mono text-xs font-bold transition-all shadow-md">
-                            <i class="fa-solid fa-rotate mr-1"></i> <span data-i18n="demo-reset">Reset</span>
+                        <button onclick="resetCamera()" class="px-4 py-2 rounded-lg bg-survey-600 hover:bg-survey-500 text-white font-mono text-xs font-bold transition-all shadow-md">
+                            <i class="fa-solid fa-rotate mr-1"></i> <span data-i18n="demo-reset">Reset View</span>
                         </button>
                     </div>
                 </div>
@@ -509,7 +507,7 @@
         <p data-i18n="footer">&copy; 2026 Amr Azab, M.Eng. | Vermessungsingenieur & Geoinformatiker. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <!-- TRANSLATIONS & ACCURATE CAMPUS BRIDGE 3D SCRIPT -->
+    <!-- TRANSLATIONS & INTERACTIVE ORBITCONTROLS 3D SCRIPT -->
     <script>
         const translations = {
             de: {
@@ -563,10 +561,9 @@
                 "lang-en": "Englisch (Verhandlungssicher)",
                 "lang-ar": "Arabisch (Muttersprache)",
                 "demo-title": "Campus-Brücke Mainz | 3D Scan-to-BIM",
-                "demo-subtitle": "Interaktive 3D Brücken- & Querschnitts-Simulation (Masterthesis As-Built Modell)",
-                "demo-caption": "Campus-Brücke Mainz – As-Built Modell & Querschnitte",
-                "demo-mode": "Modell umschalten",
-                "demo-reset": "Reset",
+                "demo-subtitle": "Interaktives 3D Brücken-Modell (Klicken und Ziehen zum Drehen / Scrollen zum Zoomen)",
+                "demo-caption": "Campus-Brücke Mainz – Interaktives As-Built Modell",
+                "demo-reset": "Reset View",
                 "contact-title": "Lassen Sie uns zusammenarbeiten",
                 "contact-desc": "Haben Sie Fragen zu Projekten im Bereich Ingenieurvermessung, UAV-Photogrammetrie oder Scan-to-BIM? Schreiben Sie mir direkt.",
                 "footer": "© 2026 Amr Azab, M.Eng. | Vermessungsingenieur & Geoinformatiker. Alle Rechte vorbehalten."
@@ -622,10 +619,9 @@
                 "lang-en": "English (Professional Working)",
                 "lang-ar": "Arabic (Native)",
                 "demo-title": "Campus Bridge Mainz | 3D Scan-to-BIM",
-                "demo-subtitle": "Interactive 3D Bridge & Cross-Section Simulation (Master Thesis As-Built Model)",
-                "demo-caption": "Campus Bridge Mainz – As-Built Model & Cross Sections",
-                "demo-mode": "Toggle Model",
-                "demo-reset": "Reset",
+                "demo-subtitle": "Interactive 3D Bridge Model (Click and drag to rotate / Scroll to zoom)",
+                "demo-caption": "Campus Bridge Mainz – Interactive As-Built Model",
+                "demo-reset": "Reset View",
                 "contact-title": "Let's Work Together",
                 "contact-desc": "Do you have questions about projects in engineering surveying, UAV photogrammetry, or Scan-to-BIM? Drop me a message directly.",
                 "footer": "© 2026 Amr Azab, M.Eng. | Surveying Engineer & Geoinformatics. All rights reserved."
@@ -681,10 +677,9 @@
                 "lang-en": "الإنجليزية (مهني متقدم)",
                 "lang-ar": "العربية (اللغة الأم)",
                 "demo-title": "جسر ماينتس الجامعي | نمذجة 3D Scan-to-BIM",
-                "demo-subtitle": "محاكاة تفاعلية ثلاثية الأبعاد للجسور والمقاطع العرضية (نموذج الماجستير As-Built)",
-                "demo-caption": "جسر ماينتس الجامعي – نموذج As-Built والمقاطع العرضية",
-                "demo-mode": "تغيير الشكل",
-                "demo-reset": "إعادة تعيين",
+                "demo-subtitle": "نموذج جسر ثلاثي الأبعاد تفاعلي (انقر واسحب للدوران / التمرير للتكبير)",
+                "demo-caption": "جسر ماينتس الجامعي – نموذج As-Built تفاعلي",
+                "demo-reset": "إعادة تعيين المنظور",
                 "contact-title": "دعنا نتعاون معاً",
                 "contact-desc": "هل لديك استفسارات حول مشاريع المساحة الهندسية، المساحة التصويرية بالدرون، أو تقنية Scan-to-BIM؟ راسلني مباشرة.",
                 "footer": "© 2026 عمرو عزب، ماجستير هندسة | مهندس مساحة وجيوماتكس. جميع الحقوق محفوظة."
@@ -717,9 +712,8 @@
             menu.classList.toggle('hidden');
         }
 
-        // Accurate Campus-Brücke Mainz 3D Simulation matching Master Thesis Loft Geometry
-        let scene, camera, renderer, bridgeGroup;
-        let isSolidMode = false;
+        // Interactive OrbitControls 3D Solid Bridge Simulation
+        let scene, camera, renderer, controls, bridgeGroup;
 
         function init3D() {
             const container = document.getElementById('three-container');
@@ -733,92 +727,62 @@
             renderer.setPixelRatio(window.devicePixelRatio);
             container.appendChild(renderer.domElement);
 
+            // Orbit Controls for user interaction (Rotate, Zoom, Pan)
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.maxPolarAngle = Math.PI / 2 + 0.1; // Don't go too far below ground
+
             bridgeGroup = new THREE.Group();
             scene.add(bridgeGroup);
 
-            createBridgeModel();
+            createSolidBridgeModel();
 
             camera.position.set(7, 4, 8);
-            camera.lookAt(0, 0, 0);
+            controls.target.set(0, 0, 0);
+            controls.update();
 
             animate3D();
             window.addEventListener('resize', onWindowResize);
         }
 
-        function createBridgeModel() {
+        function createSolidBridgeModel() {
             while(bridgeGroup.children.length > 0){ 
                 bridgeGroup.remove(bridgeGroup.children[0]); 
             }
 
-            if (!isSolidMode) {
-                // Point Cloud Data Simulation matching Mainz Campus Bridge geometry
-                const particleCount = 5000;
-                const geometry = new THREE.BufferGeometry();
-                const positions = new Float32Array(particleCount * 3);
-                const colors = new Float32Array(particleCount * 3);
+            // Accurate Solid Loft Bridge Body Simulation (Campus-Brücke Mainz Masterthesis Design)
+            const deckGeo = new THREE.BoxGeometry(7.5, 0.35, 2.4);
+            const deckMat = new THREE.MeshStandardMaterial({ color: 0x26334a, roughness: 0.35 });
+            const deck = new THREE.Mesh(deckGeo, deckMat);
+            deck.position.y = 0.4;
+            bridgeGroup.add(deck);
 
-                for (let i = 0; i < particleCount * 3; i += 3) {
-                    const x = (Math.random() - 0.5) * 8.5;
-                    const z = (Math.random() - 0.5) * 2.8;
-                    // Campus Bridge longitudinal curve & cross-slope profile
-                    const y = Math.sin(x * 0.5) * 0.35 - Math.abs(z) * 0.18;
+            // Edge parapets / railing strips matching master thesis
+            const edgeGeo = new THREE.BoxGeometry(7.5, 0.15, 0.1);
+            const edgeMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, roughness: 0.2 });
+            
+            const edgeFront = new THREE.Mesh(edgeGeo, edgeMat);
+            edgeFront.position.set(0, 0.6, 1.15);
+            bridgeGroup.add(edgeFront);
 
-                    positions[i] = x;
-                    positions[i + 1] = y;
-                    positions[i + 2] = z;
+            const edgeBack = new THREE.Mesh(edgeGeo, edgeMat);
+            edgeBack.position.set(0, 0.6, -1.15);
+            bridgeGroup.add(edgeBack);
 
-                    colors[i] = 0.05 + Math.random() * 0.1;
-                    colors[i + 1] = 0.55 + Math.random() * 0.3;
-                    colors[i + 2] = 0.95;
-                }
+            // Distinct inclined V-shape piers matching Campus-Brücke Mainz
+            const pierGeo = new THREE.BoxGeometry(0.4, 2.2, 0.6);
+            const pierMat = new THREE.MeshStandardMaterial({ color: 0x94a3b8, roughness: 0.4 });
 
-                geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-                geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            const pierLeft = new THREE.Mesh(pierGeo, pierMat);
+            pierLeft.position.set(-1.8, -0.8, 0);
+            pierLeft.rotation.z = 0.32;
+            bridgeGroup.add(pierLeft);
 
-                const material = new THREE.PointsMaterial({
-                    size: 0.045,
-                    vertexColors: true,
-                    transparent: true,
-                    opacity: 0.9
-                });
-
-                const pointCloud = new THREE.Points(geometry, material);
-                bridgeGroup.add(pointCloud);
-
-            } else {
-                // Accurate Solid Loft Bridge Body Simulation (Campus-Brücke Mainz Masterthesis Design)
-                const deckGeo = new THREE.BoxGeometry(7.5, 0.35, 2.4);
-                const deckMat = new THREE.MeshStandardMaterial({ color: 0x26334a, roughness: 0.35 });
-                const deck = new THREE.Mesh(deckGeo, deckMat);
-                deck.position.y = 0.4;
-                bridgeGroup.add(deck);
-
-                // Edge parapets / railing strips matching the master thesis rendered model
-                const edgeGeo = new THREE.BoxGeometry(7.5, 0.15, 0.1);
-                const edgeMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, roughness: 0.2 });
-                
-                const edgeFront = new THREE.Mesh(edgeGeo, edgeMat);
-                edgeFront.position.set(0, 0.6, 1.15);
-                bridgeGroup.add(edgeFront);
-
-                const edgeBack = new THREE.Mesh(edgeGeo, edgeMat);
-                edgeBack.position.set(0, 0.6, -1.15);
-                bridgeGroup.add(edgeBack);
-
-                // Distinct inclined V-shape / inclined piers matching Campus-Brücke Mainz
-                const pierGeo = new THREE.BoxGeometry(0.4, 2.2, 0.6);
-                const pierMat = new THREE.MeshStandardMaterial({ color: 0x94a3b8, roughness: 0.4 });
-
-                const pierLeft = new THREE.Mesh(pierGeo, pierMat);
-                pierLeft.position.set(-1.8, -0.8, 0);
-                pierLeft.rotation.z = 0.32;
-                bridgeGroup.add(pierLeft);
-
-                const pierRight = new THREE.Mesh(pierGeo, pierMat);
-                pierRight.position.set(1.8, -0.8, 0);
-                pierRight.rotation.z = -0.32;
-                bridgeGroup.add(pierRight);
-            }
+            const pierRight = new THREE.Mesh(pierGeo, pierMat);
+            pierRight.position.set(1.8, -0.8, 0);
+            pierRight.rotation.z = -0.32;
+            bridgeGroup.add(pierRight);
 
             const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
             scene.add(ambientLight);
@@ -827,23 +791,19 @@
             scene.add(directionalLight);
         }
 
-        function toggleBridgeMode() {
-            isSolidMode = !isSolidMode;
-            createBridgeModel();
-        }
-
         function animate3D() {
             requestAnimationFrame(animate3D);
-            if (bridgeGroup) {
-                bridgeGroup.rotation.y += 0.0025;
+            if (controls) {
+                controls.update();
             }
             renderer.render(scene, camera);
         }
 
         function resetCamera() {
-            if (camera) {
+            if (camera && controls) {
                 camera.position.set(7, 4, 8);
-                camera.lookAt(0, 0, 0);
+                controls.target.set(0, 0, 0);
+                controls.update();
             }
         }
 
