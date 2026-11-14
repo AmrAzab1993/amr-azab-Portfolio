@@ -510,7 +510,12 @@
         <p data-i18n="footer">&copy; 2026 Amr Azab, M.Eng. | Vermessungsingenieur & Geoinformatiker. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <!-- TRANSLATIONS & INTERACTIVE 3D BRIDGE SCRIPT -->
+    <!-- SCROLL TO TOP BUTTON -->
+    <button id="scrollToTopBtn" onclick="scrollToTop()" class="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-xl bg-orangeAccent hover:bg-orange-600 text-white shadow-xl shadow-orangeAccent/30 flex items-center justify-center transition-all duration-300 opacity-0 pointer-events-none hover:scale-110">
+        <i class="fa-solid fa-arrow-up text-sm"></i>
+    </button>
+
+    <!-- TRANSLATIONS & INTERACTIVE 3D BRIDGE & SCROLL SCRIPT -->
     <script>
         const translations = {
             de: {
@@ -655,7 +660,7 @@
                 "about-box3-desc": "خلفية أكاديمية متقدمة (ماجستير الجيوماتكس) مع تخصص في نمذجة المنشآت القائمة (جسر ماينتس الجامعي).",
                 "exp-badge": "الخبرة العملية",
                 "exp-title": "محطات مساري المهني",
-                "exp-1-date": "المنصب الحالي ( منذ 2024)",
+                "exp-1-date": "المنصب الحالي (منذ 2024)",
                 "exp-1-title": "مهندس مساحة (Vermessungsingenieur)",
                 "exp-1-desc": "مسؤولية شاملة عن العمليات المساحية في مشاريع الطرق والبنية التحتية. إعداد المخططات التنفيذية، النماذج الرقمية، حساب الكميات ببرنامج iTWO، وتوجيه الحفارات ثلاثية الأبعاد.",
                 "exp-2-title": "مهندس اختبار وضمان جودة البرمجيات",
@@ -713,6 +718,25 @@
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
+        }
+
+        // Scroll to Top Functionality
+        window.addEventListener('scroll', function() {
+            const scrollBtn = document.getElementById('scrollToTopBtn');
+            if (window.scrollY > 300) {
+                scrollBtn.classList.remove('opacity-0', 'pointer-events-none');
+                scrollBtn.classList.add('opacity-100');
+            } else {
+                scrollBtn.classList.remove('opacity-100');
+                scrollBtn.classList.add('opacity-0', 'pointer-events-none');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         }
 
         // Interactive OrbitControls 3D Bridge Simulation with Toggle (Solid <-> PointCloud)
@@ -803,20 +827,17 @@
                     const rand = Math.random();
 
                     if (rand < 0.65) {
-                        // Bridge Deck & Edges Point Cloud
                         x = (Math.random() - 0.5) * 7.5;
                         z = (Math.random() - 0.5) * 2.4;
                         y = 0.4 + (Math.random() - 0.5) * 0.35;
                         r = 0.05; g = 0.55; b = 0.95;
                     } else if (rand < 0.85) {
-                        // V-Piers Point Cloud
                         const isLeft = Math.random() > 0.5;
                         x = (isLeft ? -1.8 : 1.8) + (Math.random() - 0.5) * 0.4;
                         y = -0.8 + (Math.random() - 0.5) * 2.0;
                         z = (Math.random() - 0.5) * 0.6;
                         r = 0.6; g = 0.7; b = 0.85;
                     } else {
-                        // Surrounding Terrain / Ground Point Cloud
                         x = (Math.random() - 0.5) * 10.0;
                         y = -2.1 + (Math.random() - 0.5) * 0.1;
                         z = (Math.random() - 0.5) * 5.0;
