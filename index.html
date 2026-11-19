@@ -111,36 +111,25 @@
                     </div>
                 </a>
 
-                <!-- Desktop Navigation Links with Dropdown -->
-<nav class="hidden md:flex items-center space-x-1 lg:space-x-2 font-medium text-sm rtl:space-x-reverse">
-    <a href="#about" class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50" data-i18n="nav-about">Über mich</a>
-    <a href="#experience" class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50" data-i18n="nav-experience">Erfahrung</a>
-    <a href="#education" class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50" data-i18n="nav-education">Ausbildung</a>
-    
-    <!-- Dropdown Menu -->
-    <div class="relative group">
-        <button class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50 flex items-center gap-1">
-            <span>Projekte & Thesis</span>
-            <i class="fa-solid fa-chevron-down text-[10px]"></i>
-        </button>
-        <div class="absolute top-full left-0 mt-1 w-56 glass-panel rounded-xl shadow-xl border border-slate-700 py-2 hidden group-hover:block z-50">
-            <a href="master-thesis.html" class="block px-4 py-2 text-xs text-slate-200 hover:bg-slate-800 hover:text-orangeAccent">
-                <i class="fa-solid fa-book-open text-sky-400 mr-2"></i> Masterthesis (Scan-to-BIM)
-            </a>
-        </div>
-    </div>
-
-    <a href="#skills" class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50" data-i18n="nav-skills">Kompetenzen</a>
-    <a href="#3d-demo" class="px-3 py-2 text-sky-400 hover:text-sky-300 transition-colors rounded-lg hover:bg-slate-800/50 flex items-center gap-1.5">
-        <i class="fa-solid fa-cube text-xs"></i> <span data-i18n="nav-3d">Campus-Brücke 3D</span>
-    </a>
-</nav>
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 font-medium text-sm rtl:space-x-reverse">
+                    <a href="#about" class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50" data-i18n="nav-about">Über mich</a>
+                    <a href="#experience" class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50" data-i18n="nav-experience">Erfahrung</a>
+                    <a href="#education" class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50" data-i18n="nav-education">Ausbildung</a>
+                    <a href="#skills" class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50" data-i18n="nav-skills">Kompetenzen</a>
+                    <a href="master-thesis.html" class="px-3 py-2 text-orangeAccent hover:text-orange-400 transition-colors rounded-lg hover:bg-slate-800/50 flex items-center gap-1.5 font-semibold">
+                        <i class="fa-solid fa-graduation-cap text-xs"></i> <span data-i18n="nav-thesis">Masterthesis</span>
+                    </a>
+                    <a href="#3d-demo" class="px-3 py-2 text-sky-400 hover:text-sky-300 transition-colors rounded-lg hover:bg-slate-800/50 flex items-center gap-1.5">
+                        <i class="fa-solid fa-cube text-xs"></i> <span data-i18n="nav-3d">Campus-Brücke 3D</span>
+                    </a>
+                </nav>
 
                 <!-- Language Selector & Contact Button -->
                 <div class="hidden md:flex items-center gap-3">
                     <div class="relative">
                         <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-800/90 text-sky-400 font-mono text-xs font-bold border border-slate-700 px-3 py-2 rounded-lg cursor-pointer outline-none hover:bg-slate-700 transition-all">
-                            <option value="de" selected>🇩🇪 DE - Deutsch</option>
+                            <option value="de">🇩🇪 DE - Deutsch</option>
                             <option value="en">🇬🇧 EN - English</option>
                             <option value="ar">🇪🇬 AR - العربية</option>
                         </select>
@@ -164,10 +153,11 @@
             <a href="#experience" class="block px-3 py-2 text-slate-300 hover:text-orangeAccent rounded-lg" data-i18n="nav-experience">Erfahrung</a>
             <a href="#education" class="block px-3 py-2 text-slate-300 hover:text-orangeAccent rounded-lg" data-i18n="nav-education">Ausbildung</a>
             <a href="#skills" class="block px-3 py-2 text-slate-300 hover:text-orangeAccent rounded-lg" data-i18n="nav-skills">Kompetenzen</a>
+            <a href="master-thesis.html" class="block px-3 py-2 text-orangeAccent rounded-lg font-semibold"><i class="fa-solid fa-graduation-cap mr-1"></i> <span data-i18n="nav-thesis">Masterthesis</span></a>
             <a href="#3d-demo" class="block px-3 py-2 text-sky-400 hover:text-sky-300 rounded-lg" data-i18n="nav-3d">Campus-Brücke 3D</a>
             <div class="pt-2 flex flex-col gap-2">
                 <select id="mobileLangSelect" onchange="changeLanguage(this.value)" class="bg-slate-800 text-sky-400 font-mono text-xs font-bold border border-slate-700 px-3 py-2.5 rounded-lg w-full outline-none">
-                    <option value="de" selected>🇩🇪 DE - Deutsch</option>
+                    <option value="de">🇩🇪 DE - Deutsch</option>
                     <option value="en">🇬🇧 EN - English</option>
                     <option value="ar">🇪🇬 AR - العربية</option>
                 </select>
@@ -176,7 +166,7 @@
         </div>
     </header>
 
-    <!-- HERO SECTION WITH PROFILE PICTURE -->
+    <!-- HERO SECTION -->
     <section class="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden grid-pattern">
         
         <div class="absolute top-1/4 left-10 w-96 h-96 bg-sky-600/15 rounded-full blur-3xl pointer-events-none"></div>
@@ -217,18 +207,13 @@
                             <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform rtl:rotate-180"></i>
                         </a>
                         
-                        <a href="#experience" class="w-full sm:w-auto px-6 py-3.5 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold text-sm hover:bg-slate-800/80 transition-all border border-slate-700 flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-briefcase text-sky-400"></i>
-                            <span data-i18n="btn-exp">Berufserfahrung</span>
-                        </a>
-
-                        <a href="#3d-demo" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-800/90 text-sky-400 hover:text-sky-300 font-mono text-xs border border-sky-500/30 hover:border-sky-400 flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-cube"></i> Campus-Brücke 3D
+                        <a href="master-thesis.html" class="w-full sm:w-auto px-6 py-3.5 rounded-xl glass-panel text-slate-200 hover:text-white font-semibold text-sm hover:bg-slate-800/80 transition-all border border-orangeAccent/40 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-graduation-cap text-orangeAccent"></i>
+                            <span data-i18n="btn-thesis">Masterthesis (Scan-to-BIM)</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Profile Picture with clean simple filename: amr.png -->
                 <div class="lg:col-span-5 flex flex-col items-center">
                     <div class="relative mb-6 group">
                         <div class="absolute -inset-1 bg-gradient-to-r from-sky-500 to-orangeAccent rounded-3xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
@@ -249,14 +234,12 @@
     <!-- ABOUT SECTION -->
     <section id="about" class="py-20 relative bg-slate-900/50 border-t border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-xs font-mono font-bold text-orangeAccent uppercase tracking-widest mb-2"><i class="fa-solid fa-user text-xs mr-1"></i> <span data-i18n="about-badge">Über mich</span></h2>
                 <p class="text-3xl font-extrabold text-white sm:text-4xl" data-i18n="about-title">Präzisionsvermessung trifft moderne Digitalisierung</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
                 <div class="glass-panel p-8 rounded-2xl glass-panel-hover flex flex-col justify-between">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-orangeAccent/10 border border-orangeAccent/30 flex items-center justify-center text-orangeAccent text-2xl mb-6">
@@ -267,12 +250,9 @@
                             Tägliche Erfahrung im Straßen- und Tiefbau bei Eurovia Koblenz. Verantwortung für Bauvermessung, Absteckung, Maschinensteuerung und exakte Massenermittlung vor Ort.
                         </p>
                     </div>
-                    <div class="pt-6 mt-6 border-t border-slate-800 text-xs font-mono text-slate-500">
-                        Eurovia Niederlassung Koblenz
-                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-800 text-xs font-mono text-slate-500">Eurovia Niederlassung Koblenz</div>
                 </div>
 
-                <!-- DRONE / PLANE ICON -->
                 <div class="glass-panel p-8 rounded-2xl glass-panel-hover flex flex-col justify-between">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 text-2xl mb-6">
@@ -283,9 +263,7 @@
                             Begeisterung für den Einsatz moderner UAV-Drohnensysteme zur effizienten 3D-Datenerfassung, Erstellung digitaler Geländemodelle (DGM) und hochgenauer Punktwolken.
                         </p>
                     </div>
-                    <div class="pt-6 mt-6 border-t border-slate-800 text-xs font-mono text-slate-500">
-                        UAV / RTK / PPK Workflows
-                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-800 text-xs font-mono text-slate-500">UAV / RTK / PPK Workflows</div>
                 </div>
 
                 <div class="glass-panel p-8 rounded-2xl glass-panel-hover flex flex-col justify-between">
@@ -298,27 +276,21 @@
                             Wissenschaftlicher Hintergrund (M.Eng. Geoinformatik) mit Spezialisierung auf die Modellierung von Bestandsbauwerken (Campus-Brücke Mainz).
                         </p>
                     </div>
-                    <div class="pt-6 mt-6 border-t border-slate-800 text-xs font-mono text-slate-500">
-                        3D-Punktwolken & BIM-Integration
-                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-800 text-xs font-mono text-slate-500">3D-Punktwolken & BIM-Integration</div>
                 </div>
-
             </div>
-
         </div>
     </section>
 
     <!-- EXPERIENCE SECTION -->
     <section id="experience" class="py-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-xs font-mono font-bold text-orangeAccent uppercase tracking-widest mb-2"><i class="fa-solid fa-briefcase text-xs mr-1"></i> <span data-i18n="exp-badge">Berufserfahrung</span></h2>
                 <p class="text-3xl font-extrabold text-white sm:text-4xl" data-i18n="exp-title">Stationen meiner Karriere</p>
             </div>
 
             <div class="space-y-6 max-w-4xl mx-auto">
-                
                 <div class="glass-panel p-6 sm:p-8 rounded-2xl glass-panel-hover border-l-4 border-l-orangeAccent">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
                         <div>
@@ -330,11 +302,6 @@
                     <p class="text-slate-300 text-sm leading-relaxed mb-4" data-i18n="exp-1-desc">
                         Gesamtverantwortung für die vermessungstechnischen Abläufe im Straßen- und Tiefbau. Erstellung von Bestandsplänen, DGM, Massenermittlung mit iTWO, 3D-Baggersteuerung und Baustellen-Absteckung.
                     </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">iTWO civil</span>
-                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">MTS Baggersteuerung</span>
-                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">Straßenbau</span>
-                    </div>
                 </div>
 
                 <div class="glass-panel p-6 sm:p-8 rounded-2xl glass-panel-hover border-l-4 border-l-sky-500">
@@ -348,11 +315,6 @@
                     <p class="text-slate-300 text-sm leading-relaxed mb-4" data-i18n="exp-2-desc">
                         Qualitätssicherung und Applikationstests für Trimble Mobile Manager, Trimble Access Monitoring und TerraFlex. Durchführung technischer Messkampagnen und internationale Teamarbeit.
                     </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">Trimble Access</span>
-                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">TerraFlex</span>
-                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">QA / Testing</span>
-                    </div>
                 </div>
 
                 <div class="glass-panel p-6 sm:p-8 rounded-2xl glass-panel-hover border-l-4 border-l-emerald-500">
@@ -366,29 +328,20 @@
                     <p class="text-slate-300 text-sm leading-relaxed mb-4" data-i18n="exp-3-desc">
                         Mitwirkung an großen Gas-, Petrochemie- und Infrastrukturprojekten (darunter West Nile Delta Gas Development, Ethydco Complex und Raffinerieprojekte). Präzise Absteckungen und Kontrollmessungen.
                     </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">Ingenieurvermessung</span>
-                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">Großprojekte</span>
-                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">Oil & Gas / Infrastructure</span>
-                    </div>
                 </div>
-
             </div>
-
         </div>
     </section>
 
     <!-- EDUCATION SECTION -->
     <section id="education" class="py-20 relative bg-slate-900/50 border-t border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-xs font-mono font-bold text-orangeAccent uppercase tracking-widest mb-2"><i class="fa-solid fa-graduation-cap text-xs mr-1"></i> <span data-i18n="edu-badge">Ausbildung & Studium</span></h2>
                 <p class="text-3xl font-extrabold text-white sm:text-4xl" data-i18n="edu-title">Akademischer Hintergrund</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                
                 <div class="glass-panel p-8 rounded-2xl glass-panel-hover">
                     <div class="text-xs font-mono text-sky-400 mb-2">23.02.2024</div>
                     <h3 class="text-xl font-bold text-white mb-1" data-i18n="edu-1-title">Master of Engineering (M.Eng.)</h3>
@@ -406,23 +359,19 @@
                         Fundierte Ausbildung in Vermessungswesen, Geodäsie, Kartographie und mathematischen Grundlagen des Ingenieurbaus.
                     </p>
                 </div>
-
             </div>
-
         </div>
     </section>
 
     <!-- SKILLS SECTION -->
     <section id="skills" class="py-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-xs font-mono font-bold text-orangeAccent uppercase tracking-widest mb-2"><i class="fa-solid fa-gears text-xs mr-1"></i> <span data-i18n="skills-badge">Fachkompetenzen</span></h2>
                 <p class="text-3xl font-extrabold text-white sm:text-4xl" data-i18n="skills-title">Technisches Know-how & Software</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
                 <div class="glass-panel p-8 rounded-2xl">
                     <div class="w-10 h-10 rounded-lg bg-survey-500/10 text-survey-500 flex items-center justify-center font-bold text-lg mb-4">
                         <i class="fa-solid fa-code-merge"></i>
@@ -459,16 +408,13 @@
                         <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orangeAccent text-xs"></i> <span data-i18n="lang-ar">Arabisch (Muttersprache)</span></li>
                     </ul>
                 </div>
-
             </div>
-
         </div>
     </section>
 
-    <!-- 3D CAMPUS BRIDGE SIMULATION (INTERACTIVE SOLID & POINTCLOUD TOGGLE) -->
+    <!-- 3D CAMPUS BRIDGE SIMULATION -->
     <section id="3d-demo" class="py-20 relative bg-slate-900/50 border-t border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <h2 class="text-xs font-mono font-bold text-sky-400 uppercase tracking-widest mb-2"><i class="fa-solid fa-cube text-xs mr-1"></i> Masterarbeit Simulation</h2>
                 <p class="text-3xl font-extrabold text-white sm:text-4xl" data-i18n="demo-title">Campus-Brücke Mainz | 3D Scan-to-BIM</p>
@@ -493,14 +439,12 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
     <!-- CONTACT SECTION -->
     <section id="contact" class="py-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
             <div class="glass-panel p-8 sm:p-12 rounded-3xl max-w-4xl mx-auto border border-slate-700/80 text-center space-y-6">
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-i18n="contact-title">Lassen Sie uns zusammenarbeiten</h2>
                 <p class="text-slate-400 text-base max-w-xl mx-auto" data-i18n="contact-desc">
@@ -515,7 +459,6 @@
                     </a>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -529,7 +472,7 @@
         <i class="fa-solid fa-arrow-up text-sm"></i>
     </button>
 
-    <!-- TRANSLATIONS & INTERACTIVE 3D BRIDGE & SCROLL SCRIPT -->
+    <!-- TRANSLATIONS & STORAGE SCRIPT -->
     <script>
         const translations = {
             de: {
@@ -538,6 +481,7 @@
                 "nav-experience": "Erfahrung",
                 "nav-education": "Ausbildung",
                 "nav-skills": "Kompetenzen",
+                "nav-thesis": "Masterthesis",
                 "nav-3d": "Campus-Brücke 3D",
                 "nav-contact": "Kontakt",
                 "hero-status": "Eurovia Niederlassung Koblenz",
@@ -546,7 +490,7 @@
                 "tag-1": "Straßen- & Tiefbau",
                 "tag-4": "DGM & Massen",
                 "btn-contact": "Kontakt Aufnehmen",
-                "btn-exp": "Berufserfahrung",
+                "btn-thesis": "Masterthesis (Scan-to-BIM)",
                 "card-master-desc": "M.Eng. Geoinformatik | Masterthesis Campus-Brücke Mainz",
                 "about-badge": "Über mich",
                 "about-title": "Präzisionsvermessung trifft moderne Digitalisierung",
@@ -596,6 +540,7 @@
                 "nav-experience": "Experience",
                 "nav-education": "Education",
                 "nav-skills": "Skills",
+                "nav-thesis": "Master Thesis",
                 "nav-3d": "Campus Bridge 3D",
                 "nav-contact": "Contact",
                 "hero-status": "Eurovia Branch Koblenz",
@@ -604,7 +549,7 @@
                 "tag-1": "Road & Civil Engineering",
                 "tag-4": "DTM & Volumes",
                 "btn-contact": "Get in Touch",
-                "btn-exp": "Work Experience",
+                "btn-thesis": "Master Thesis (Scan-to-BIM)",
                 "card-master-desc": "M.Eng. Geoinformatics | Master Thesis Campus Bridge Mainz",
                 "about-badge": "About Me",
                 "about-title": "Precision Surveying Meets Modern Digitalization",
@@ -654,6 +599,7 @@
                 "nav-experience": "الخبرة المهنية",
                 "nav-education": "التعليم",
                 "nav-skills": "المهارات",
+                "nav-thesis": "رسالة الماجستير",
                 "nav-3d": "جسر ماينتس 3D",
                 "nav-contact": "اتصل بي",
                 "hero-status": "فرع يوروفيا كوبلنز",
@@ -662,7 +608,7 @@
                 "tag-1": "هندسة الطرق والمدني",
                 "tag-4": "النماذج الرقمية والحسابات",
                 "btn-contact": "تواصل معي",
-                "btn-exp": "الخبرة المهنية",
+                "btn-thesis": "رسالة الماجستير (Scan-to-BIM)",
                 "card-master-desc": "ماجستير الجيوماتكس | رسالة الماجستير عن جسر ماينتس الجامعي",
                 "about-badge": "نبذة تعريفيّة",
                 "about-title": "دقة المساحة تلتقي بالتحول الرقمي الحديث",
@@ -709,6 +655,7 @@
         };
 
         function changeLanguage(lang) {
+            localStorage.setItem('preferred_lang', lang);
             const htmlRoot = document.getElementById('html-root');
             htmlRoot.setAttribute('lang', lang);
             
@@ -718,8 +665,10 @@
                 htmlRoot.setAttribute('dir', 'ltr');
             }
 
-            document.getElementById('langSelect').value = lang;
-            document.getElementById('mobileLangSelect').value = lang;
+            const langSelect = document.getElementById('langSelect');
+            const mobileLangSelect = document.getElementById('mobileLangSelect');
+            if(langSelect) langSelect.value = lang;
+            if(mobileLangSelect) mobileLangSelect.value = lang;
 
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
@@ -729,12 +678,18 @@
             });
         }
 
+        // تحميل اللغة المحفوظة تلقائياً عند فتح الصفحة
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferred_lang') || 'de';
+            changeLanguage(savedLang);
+            init3D();
+        });
+
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         }
 
-        // Scroll to Top Functionality
         window.addEventListener('scroll', function() {
             const scrollBtn = document.getElementById('scrollToTopBtn');
             if (window.scrollY > 300) {
@@ -753,7 +708,6 @@
             });
         }
 
-        // Interactive OrbitControls 3D Bridge Simulation with Toggle (Solid <-> PointCloud)
         let scene, camera, renderer, controls, bridgeGroup;
         let isPointCloudMode = false;
 
@@ -769,7 +723,6 @@
             renderer.setPixelRatio(window.devicePixelRatio);
             container.appendChild(renderer.domElement);
 
-            // Interactive Orbit Controls
             controls = new THREE.OrbitControls(camera, renderer.domElement);
             controls.enableDamping = true;
             controls.dampingFactor = 0.05;
@@ -796,7 +749,6 @@
             const captionEl = document.getElementById('model-caption-text');
 
             if (!isPointCloudMode) {
-                // 1. Accurate Solid Bridge Model (Campus-Brücke Mainz Masterthesis Design)
                 const deckGeo = new THREE.BoxGeometry(7.5, 0.35, 2.4);
                 const deckMat = new THREE.MeshStandardMaterial({ color: 0x26334a, roughness: 0.35 });
                 const deck = new THREE.Mesh(deckGeo, deckMat);
@@ -830,7 +782,6 @@
                 if(captionEl) captionEl.innerHTML = "Campus-Brücke Mainz – As-Built Solid Modell";
 
             } else {
-                // 2. Accurate PointCloud Model mapped precisely to the correct bridge geometry (Deck, Parapets, V-Piers)
                 const particleCount = 6500;
                 const geometry = new THREE.BufferGeometry();
                 const positions = new Float32Array(particleCount * 3);
@@ -861,7 +812,6 @@
                     positions[i] = x;
                     positions[i + 1] = y;
                     positions[i + 2] = z;
-
                     colors[i] = r;
                     colors[i + 1] = g;
                     colors[i + 2] = b;
@@ -897,9 +847,7 @@
 
         function animate3D() {
             requestAnimationFrame(animate3D);
-            if (controls) {
-                controls.update();
-            }
+            if (controls) controls.update();
             renderer.render(scene, camera);
         }
 
@@ -918,8 +866,6 @@
             camera.updateProjectionMatrix();
             renderer.setSize(container.clientWidth, container.clientHeight);
         }
-
-        window.addEventListener('DOMContentLoaded', init3D);
     </script>
 </body>
 </html>
