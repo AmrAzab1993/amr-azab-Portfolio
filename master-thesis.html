@@ -25,11 +25,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #0b1120; color: #f1f5f9; font-family: 'Inter', 'Cairo', sans-serif; }
+        body { 
+            background-color: #0b1120; 
+            color: #f1f5f9; 
+            font-family: 'Inter', 'Cairo', sans-serif;
+            user-select: none; /* منع تحديد النص */
+            -webkit-user-select: none;
+        }
         .glass-panel { background: rgba(21, 32, 53, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
     </style>
 </head>
-<body class="selection:bg-orangeAccent selection:text-white">
+<body class="selection:bg-orangeAccent selection:text-white" oncontextmenu="return false;">
 
     <!-- Navbar -->
     <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-slate-800/80">
@@ -47,12 +53,25 @@
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-4xl mx-auto px-4 pt-32 pb-20 space-y-8">
-        <div class="glass-panel p-8 sm:p-10 rounded-3xl border border-slate-700/80 space-y-6">
+    <main class="max-w-5xl mx-auto px-4 pt-32 pb-20 space-y-10">
+
+        <!-- 1. البوستر في منتصف الصفحة فوق -->
+        <section class="flex flex-col items-center justify-center">
+            <div class="glass-panel p-4 sm:p-6 rounded-3xl border border-slate-700/80 shadow-2xl max-w-3xl w-full text-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 text-xs font-mono border border-sky-500/20 mb-4">
+                    <i class="fa-solid fa-image"></i> Scientific Poster • Campus-Brücke Mainz
+                </div>
+                <!-- تأكد أن اسم ملف الصورة مطابق لما رفعته (poster.png أو poster.jpg) -->
+                <img src="poster.png" alt="Masterthesis Poster - Scan-to-BIM" class="w-full h-auto rounded-2xl border border-slate-700 shadow-lg mx-auto pointer-events-none">
+            </div>
+        </section>
+
+        <!-- 2. بقية الكلام وتفاصيل الرسالة تحته -->
+        <section class="glass-panel p-8 sm:p-10 rounded-3xl border border-slate-700/80 space-y-6">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orangeAccent/10 text-orangeAccent text-xs font-mono border border-orangeAccent/20">
                 Hochschule Mainz • Februar 2024
             </div>
-            <h1 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+            <h1 class="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
                 Modellierung technischer Bestandsbauwerke aus 3D-Punktwolken – Scan-To-BIM
             </h1>
             <p class="text-slate-300 text-base leading-relaxed">
@@ -63,18 +82,49 @@
                 <p><strong>Erstprüfer:</strong> Prof. Dr.-Ing. Martin Schlüter</p>
                 <p><strong>Zweitprüfer:</strong> Prof. Dr.-Ing. Fredie Kern</p>
             </div>
-        </div>
+        </section>
 
-        <div class="glass-panel p-8 rounded-3xl border border-slate-700/80 space-y-4">
+        <section class="glass-panel p-8 rounded-3xl border border-slate-700/80 space-y-4">
             <h2 class="text-xl font-bold text-sky-400"><i class="fa-solid fa-circle-info mr-2"></i> Kurzzusammenfassung (Zusammenfassung)</h2>
             <p class="text-slate-300 text-sm leading-relaxed">
                 Das Ziel der vorliegenden Masterarbeit war es, Brücken in allen drei Dimensionen zu erfassen und daraus 3D-Modelle zu generieren, die in CAD-Software verwendet werden können. Am Beispiel des Brückenbauwerks (Campus-Brücke Mainz) wurden verschiedene Laserscanner-Geräte eingesetzt (insbesondere das NavVis VLX2), um hochgenaue Punktwolken zu erzeugen und über Revit und Civil 3D in BIM-Modelle zu überführen.
             </p>
-        </div>
+        </section>
+
+        <!-- 3. عارض ملف الـ PDF (قراءة فقط مع إخفاء شريط التحميل والطباعة) -->
+        <section class="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-700/80 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <h2 class="text-xl font-bold text-orangeAccent flex items-center gap-2">
+                    <i class="fa-solid fa-file-pdf"></i> Volltext der Masterarbeit (Nur-Lese-Modus)
+                </h2>
+                <span class="text-xs font-mono text-slate-400 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
+                    <i class="fa-solid fa-lock text-emerald-400 mr-1"></i> Geschützt (Kein Download)
+                </span>
+            </div>
+
+            <!-- إضافة #toolbar=0&navpanes=0 تخفي أزرار التحميل والطباعة في المتصفحات -->
+            <div class="relative w-full h-[750px] rounded-2xl overflow-hidden border border-slate-700 bg-slate-900">
+                <iframe 
+                    src="master-thesis.pdf#toolbar=0&navpanes=0&scrollbar=1" 
+                    class="w-full h-full border-0"
+                    title="Masterarbeit PDF Viewer">
+                </iframe>
+            </div>
+        </section>
+
     </main>
 
     <footer class="py-8 bg-slate-950 border-t border-slate-800 text-center text-xs text-slate-500 font-mono">
         <p>&copy; 2026 Amr Azab, M.Eng. | Alle Rechte vorbehalten.</p>
     </footer>
+
+    <!-- كود إضافي لمنع اختصارات الحفظ والطباعة من الكيبورد (Ctrl+S / Ctrl+P) -->
+    <script>
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'p' || e.key === 'u')) {
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
