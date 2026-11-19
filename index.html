@@ -111,16 +111,30 @@
                     </div>
                 </a>
 
-                <!-- Desktop Navigation Links -->
-                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 font-medium text-sm rtl:space-x-reverse">
-                    <a href="#about" class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50" data-i18n="nav-about">Über mich</a>
-                    <a href="#experience" class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50" data-i18n="nav-experience">Erfahrung</a>
-                    <a href="#education" class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50" data-i18n="nav-education">Ausbildung</a>
-                    <a href="#skills" class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50" data-i18n="nav-skills">Kompetenzen</a>
-                    <a href="#3d-demo" class="px-3 py-2 text-sky-400 hover:text-sky-300 transition-colors rounded-lg hover:bg-slate-800/50 flex items-center gap-1.5">
-                        <i class="fa-solid fa-cube text-xs"></i> <span data-i18n="nav-3d">Campus-Brücke 3D</span>
-                    </a>
-                </nav>
+                <!-- Desktop Navigation Links with Dropdown -->
+<nav class="hidden md:flex items-center space-x-1 lg:space-x-2 font-medium text-sm rtl:space-x-reverse">
+    <a href="#about" class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50" data-i18n="nav-about">Über mich</a>
+    <a href="#experience" class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50" data-i18n="nav-experience">Erfahrung</a>
+    <a href="#education" class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50" data-i18n="nav-education">Ausbildung</a>
+    
+    <!-- Dropdown Menu -->
+    <div class="relative group">
+        <button class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50 flex items-center gap-1">
+            <span>Projekte & Thesis</span>
+            <i class="fa-solid fa-chevron-down text-[10px]"></i>
+        </button>
+        <div class="absolute top-full left-0 mt-1 w-56 glass-panel rounded-xl shadow-xl border border-slate-700 py-2 hidden group-hover:block z-50">
+            <a href="master-thesis.html" class="block px-4 py-2 text-xs text-slate-200 hover:bg-slate-800 hover:text-orangeAccent">
+                <i class="fa-solid fa-book-open text-sky-400 mr-2"></i> Masterthesis (Scan-to-BIM)
+            </a>
+        </div>
+    </div>
+
+    <a href="#skills" class="px-3 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50" data-i18n="nav-skills">Kompetenzen</a>
+    <a href="#3d-demo" class="px-3 py-2 text-sky-400 hover:text-sky-300 transition-colors rounded-lg hover:bg-slate-800/50 flex items-center gap-1.5">
+        <i class="fa-solid fa-cube text-xs"></i> <span data-i18n="nav-3d">Campus-Brücke 3D</span>
+    </a>
+</nav>
 
                 <!-- Language Selector & Contact Button -->
                 <div class="hidden md:flex items-center gap-3">
