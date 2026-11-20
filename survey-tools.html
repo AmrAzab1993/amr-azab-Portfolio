@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="ar" id="html-root" class="scroll-smooth" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">الأدوات الهندسة والمساحية | Amr Azab, M.Eng.</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        survey: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        orangeAccent: '#f97316',
+                        darkBg: '#0b1120',
+                        darkCard: '#152035',
+                        darkBorder: '#1e2d4a'
+                    },
+                    fontFamily: {
+                        sans: ['Cairo', 'Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Cairo', 'Inter', sans-serif;
+            background-color: #0b1120;
+            color: #f1f5f9;
+        }
+
+        .glass-panel {
+            background: rgba(21, 32, 53, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-panel-hover {
+            transition: all 0.3s ease;
+        }
+
+        .glass-panel-hover:hover {
+            border-color: rgba(249, 115, 22, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px -10px rgba(249, 115, 22, 0.15);
+        }
+
+        .grid-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b1120;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e2d4a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f97316;
+        }
+
+        .tab-btn.active {
+            background-color: rgba(249, 115, 22, 0.15);
+            border-color: #f97316;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="selection:bg-orangeAccent selection:text-white">
+
+    <!-- Header Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 gap-4">
+                
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-survey-500 to-orangeAccent flex items-center justify-center text-white font-mono font-bold text-xl shadow-lg shadow-orangeAccent/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-calculator text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-base sm:text-lg font-bold tracking-tight text-white block leading-tight">Amr Azab <span class="text-orangeAccent text-xs font-mono font-normal">M.Eng.</span></span>
+                        <span class="text-xs text-slate-400 font-mono" data-i18n="nav-subtitle">الأدوات الهندسة والمساحية</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2 font-medium text-xs xl:text-sm rtl:space-x-reverse shrink-0">
+                    <a href="index.html#about" class="px-2.5 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50 whitespace-nowrap" data-i18n="nav-about">عني</a>
+                    <a href="index.html#experience" class="px-2.5 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50 whitespace-nowrap" data-i18n="nav-experience">الخبرة المهنية</a>
+                    <a href="index.html#education" class="px-2.5 py-2 text-slate-300 hover:text-orangeAccent transition-colors rounded-lg hover:bg-slate-800/50 whitespace-nowrap" data-i18n="nav-education">التعليم</a>
+                    <a href="survey-tools.html" class="px-2.5 py-2 text-sky-400 hover:text-sky-300 transition-colors rounded-lg hover:bg-slate-800/50 flex items-center gap-1.5 font-bold whitespace-nowrap">
+                        <i class="fa-solid fa-screwdriver-wrench text-xs"></i> <span data-i18n="nav-tools">الأدوات المساحية</span>
+                    </a>
+                    <a href="master-thesis.html" class="px-2.5 py-2 text-orangeAccent hover:text-orange-400 transition-colors rounded-lg hover:bg-slate-800/50 flex items-center gap-1.5 font-semibold whitespace-nowrap">
+                        <i class="fa-solid fa-graduation-cap text-xs"></i> <span data-i18n="nav-thesis">رسالة الماجستير</span>
+                    </a>
+                </nav>
+
+                <!-- Language Selector & Home Link -->
+                <div class="flex items-center gap-3 shrink-0">
+                    <div class="relative">
+                        <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-800/90 text-sky-400 font-mono text-xs font-bold border border-slate-700 px-3 py-2 rounded-lg cursor-pointer outline-none hover:bg-slate-700 transition-all">
+                            <option value="ar">🇪🇬 AR - العربية</option>
+                            <option value="de">🇩🇪 DE - Deutsch</option>
+                            <option value="en">🇬🇧 EN - English</option>
+                        </select>
+                    </div>
+
+                    <a href="index.html" class="px-4 py-2 text-xs font-semibold text-white bg-slate-800 hover:bg-slate-700 rounded-lg border border-slate-700 transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-house"></i> <span data-i18n="back-home">الرئيسية</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Section Header -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 space-y-10 grid-pattern">
+
+        <!-- Top Announcement & Header Title -->
+        <div class="text-center space-y-4 max-w-3xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orangeAccent/10 border border-orangeAccent/30 text-orangeAccent text-xs font-mono">
+                <i class="fa-solid fa-bolt text-xs animate-pulse"></i>
+                <span data-i18n="banner-text">حسابات المساحة التي تحتاجها كل يوم — تشتغل جوه متصفحك مباشرة بدون تسجيل</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight" data-i18n="header-title">
+                الأدوات الهندسة والمساحية
+            </h1>
+            <p class="text-slate-400 text-sm sm:text-base" data-i18n="header-subtitle">
+                مجموعة أدوات مساحية دقيقة لحساب الإحداثيات، الترافرس، المساحات، المنحنيات الأفقيّة، الحفر والردم وتحويل الملفات.
+            </p>
+
+            <!-- Search Tools Bar -->
+            <div class="relative max-w-md mx-auto pt-2">
+                <i class="fa-solid fa-magnifying-glass absolute right-4 top-5 text-slate-400 text-sm"></i>
+                <input type="text" id="toolSearch" oninput="filterTools()" placeholder="ابحث عن أداة (إحداثيات، ترافرس، منحنى، كميات...)" class="w-full pl-4 pr-11 py-3 rounded-xl bg-slate-900/90 text-white border border-slate-700 focus:border-orangeAccent text-sm outline-none transition-all shadow-inner">
+            </div>
+        </div>
+
+        <!-- Tool Cards Selector Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4" id="toolsGrid">
+            
+            <!-- Tool Card 1: Coordinate Converter -->
+            <button onclick="switchTool('coords')" id="card-coords" class="tab-btn active glass-panel p-4 rounded-2xl border border-slate-700 text-right flex flex-col justify-between transition-all hover:scale-[1.02] group">
+                <div class="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-lg mb-3 group-hover:bg-sky-500 group-hover:text-white transition-colors">
+                    <i class="fa-solid fa-earth-americas"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold text-white mb-1" data-i18n="tool1-title">محول الإحداثيات</h3>
+                    <p class="text-[11px] text-slate-400 leading-tight" data-i18n="tool1-desc">WGS84 ⇌ UTM والشبكات العالمية</p>
+                </div>
+            </button>
+
+            <!-- Tool Card 2: Area & Perimeter -->
+            <button onclick="switchTool('area')" id="card-area" class="tab-btn glass-panel p-4 rounded-2xl border border-slate-700 text-right flex flex-col justify-between transition-all hover:scale-[1.02] group">
+                <div class="w-10 h-10 rounded-xl bg-orangeAccent/10 text-orangeAccent flex items-center justify-center text-lg mb-3 group-hover:bg-orangeAccent group-hover:text-white transition-colors">
+                    <i class="fa-solid fa-draw-polygon"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold text-white mb-1" data-i18n="tool2-title">المساحة والمحيط</h3>
+                    <p class="text-[11px] text-slate-400 leading-tight" data-i18n="tool2-desc">الأضلاع، المتر المربع والفدان والقيراط</p>
+                </div>
+            </button>
+
+            <!-- Tool Card 3: Traverse & Bowditch -->
+            <button onclick="switchTool('traverse')" id="card-traverse" class="tab-btn glass-panel p-4 rounded-2xl border border-slate-700 text-right flex flex-col justify-between transition-all hover:scale-[1.02] group">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-lg mb-3 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                    <i class="fa-solid fa-compass-drafting"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold text-white mb-1" data-i18n="tool3-title">الترافرس والإغلاق</h3>
+                    <p class="text-[11px] text-slate-400 leading-tight" data-i18n="tool3-desc">الانحرافات وتصحيح بودتش (Bowditch)</p>
+                </div>
+            </button>
+
+            <!-- Tool Card 4: Horizontal Curve -->
+            <button onclick="switchTool('curve')" id="card-curve" class="tab-btn glass-panel p-4 rounded-2xl border border-slate-700 text-right flex flex-col justify-between transition-all hover:scale-[1.02] group">
+                <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-lg mb-3 group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                    <i class="fa-solid fa-bezier-curve"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold text-white mb-1" data-i18n="tool4-title">المنحنى الأفقي</h3>
+                    <p class="text-[11px] text-slate-400 leading-tight" data-i18n="tool4-desc">نصف القطر، المماس، الوتر والوتر الكلي</p>
+                </div>
+            </button>
+
+            <!-- Tool Card 5: Cut & Fill -->
+            <button onclick="switchTool('earthwork')" id="card-earthwork" class="tab-btn glass-panel p-4 rounded-2xl border border-slate-700 text-right flex flex-col justify-between transition-all hover:scale-[1.02] group">
+                <div class="w-10 h-10 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center text-lg mb-3 group-hover:bg-yellow-500 group-hover:text-white transition-colors">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold text-white mb-1" data-i18n="tool5-title">الحفر والردم</h3>
+                    <p class="text-[11px] text-slate-400 leading-tight" data-i18n="tool5-desc">متوسط المساحات والهرم الناقص</p>
+                </div>
+            </button>
+
+            <!-- Tool Card 6: CSV / File Converter -->
+            <button onclick="switchTool('converter')" id="card-converter" class="tab-btn glass-panel p-4 rounded-2xl border border-slate-700 text-right flex flex-col justify-between transition-all hover:scale-[1.02] group">
+                <div class="w-10 h-10 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-lg mb-3 group-hover:bg-pink-500 group-hover:text-white transition-colors">
+                    <i class="fa-solid fa-file-code"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold text-white mb-1" data-i18n="tool6-title">تحويل CSV إلى KML</h3>
+                    <p class="text-[11px] text-slate-400 leading-tight" data-i18n="tool6-desc">تحويل النقاط مباشرة لملف Google Earth</p>
+                </div>
+            </button>
+        </div>
+
+        <!-- ================= TOOL INTERFACE PANELS ================= -->
+        <div id="toolPanels">
+
+            <!-- PANEL 1: COORDINATE CONVERTER & INTERACTIVE IFRAME -->
+            <div id="panel-coords" class="tool-panel glass-panel p-6 sm:p-8 rounded-3xl border border-slate-700/80 space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+                    <div>
+                        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-earth-americas text-sky-400"></i> محول الإحداثيات العالمي (WGS84 ⇌ UTM)
+                        </h2>
+                        <p class="text-xs text-slate-400 mt-1">التحويل بين الإحداثيات الجغرافية (خط العرض والطلب بالدرجات العشرية) وإحداثيات UTM بالمتريات.</p>
+                    </div>
+                    <!-- Sub-tabs for Calculator vs External Tool Iframe -->
+                    <div class="flex items-center gap-2 bg-slate-900 p-1 rounded-xl border border-slate-800 self-start sm:self-auto">
+                        <button onclick="toggleCoordSubTab('native')" id="subtab-native" class="px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-slate-800 border border-slate-700">الحاسبة المباشرة</button>
+                        <button onclick="toggleCoordSubTab('iframe')" id="subtab-iframe" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white">موقع Koordinaten Umrechner <i class="fa-solid fa-up-right-from-square text-[10px] mr-1"></i></button>
+                    </div>
+                </div>
+
+                <!-- Native Calculator -->
+                <div id="coord-native-view" class="space-y-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        
+                        <!-- WGS84 to UTM -->
+                        <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 space-y-4">
+                            <h3 class="text-sm font-bold text-orangeAccent flex items-center gap-2">
+                                <i class="fa-solid fa-arrow-left-long"></i> من جغرافي (WGS84) إلى UTM
+                            </h3>
+                            
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="block text-xs font-mono text-slate-400 mb-1">خط العرض (Latitude) - بالدرجات العشرية</label>
+                                    <input type="number" step="any" id="input-lat" value="30.044420" placeholder="مثال: 30.044420" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 text-white border border-slate-700 font-mono text-sm focus:border-sky-500 outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-mono text-slate-400 mb-1">خط الطول (Longitude) - بالدرجات العشرية</label>
+                                    <input type="number" step="any" id="input-lon" value="31.235712" placeholder="مثال: 31.235712" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 text-white border border-slate-700 font-mono text-sm focus:border-sky-500 outline-none">
+                                </div>
+                                <button onclick="convertLatLonToUtm()" class="w-full py-2.5 rounded-xl bg-orangeAccent hover:bg-orange-600 text-white text-xs font-bold shadow-md transition-all">
+                                    تحويل إلى UTM ←
+                                </button>
+                            </div>
+
+                            <div id="result-utm" class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono space-y-1.5 text-slate-300">
+                                <div><strong class="text-sky-400">Easting (X):</strong> <span id="res-easting">330263.12 م</span></div>
+                                <div><strong class="text-sky-400">Northing (Y):</strong> <span id="res-northing">3325141.85 م</span></div>
+                                <div><strong class="text-sky-400">UTM Zone:</strong> <span id="res-zone">36 N</span></div>
+                            </div>
+                        </div>
+
+                        <!-- UTM to WGS84 -->
+                        <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 space-y-4">
+                            <h3 class="text-sm font-bold text-sky-400 flex items-center gap-2">
+                                <i class="fa-solid fa-arrow-right-long"></i> من UTM إلى جغرافي (WGS84)
+                            </h3>
+                            
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="block text-xs font-mono text-slate-400 mb-1">الشرق (Easting - X) بالمتر</label>
+                                    <input type="number" step="any" id="input-utm-e" value="330000.00" placeholder="330000.00" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 text-white border border-slate-700 font-mono text-sm focus:border-orangeAccent outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-mono text-slate-400 mb-1">الشمال (Northing - Y) بالمتر</label>
+                                    <input type="number" step="any" id="input-utm-n" value="3325000.00" placeholder="3325000.00" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 text-white border border-slate-700 font-mono text-sm focus:border-orangeAccent outline-none">
+                                </div>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div>
+                                        <label class="block text-xs font-mono text-slate-400 mb-1">Zone (المنطقة)</label>
+                                        <input type="number" id="input-utm-zone" value="36" class="w-full px-3 py-2 rounded-xl bg-slate-950 text-white border border-slate-700 font-mono text-sm outline-none">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-mono text-slate-400 mb-1">النصف</label>
+                                        <select id="input-utm-hemi" class="w-full px-3 py-2 rounded-xl bg-slate-950 text-white border border-slate-700 font-mono text-sm outline-none">
+                                            <option value="N">شمالي (North)</option>
+                                            <option value="S">جنوبي (South)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button onclick="convertUtmToLatLon()" class="w-full py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold shadow-md transition-all">
+                                    تحويل إلى جغرافي ←
+                                </button>
+                            </div>
+
+                            <div id="result-latlon" class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono space-y-1.5 text-slate-300">
+                                <div><strong class="text-orangeAccent">Latitude:</strong> <span id="res-lat">30.043138°</span></div>
+                                <div><strong class="text-orangeAccent">Longitude:</strong> <span id="res-lon">31.232981°</span></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Iframe View to External Site -->
+                <div id="coord-iframe-view" class="hidden space-y-3">
+                    <div class="flex items-center justify-between text-xs text-slate-400 font-mono bg-slate-900 p-3 rounded-xl border border-slate-800">
+                        <span><i class="fa-solid fa-link text-orangeAccent"></i> موقع التحويل المباشر: Koordinaten Umrechner</span>
+                        <a href="https://www.koordinaten-umrechner.de/" target="_blank" class="text-sky-400 hover:underline">فتح في نافذة مستقلة <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
+                    </div>
+                    <div class="w-full h-[650px] rounded-2xl overflow-hidden border border-slate-700 bg-slate-900">
+                        <iframe src="https://www.koordinaten-umrechner.de/" class="w-full h-full border-0" title="Koordinaten Umrechner"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL 2: AREA & PERIMETER CALCULATOR -->
+            <div id="panel-area" class="tool-panel hidden glass-panel p-6 sm:p-8 rounded-3xl border border-slate-700/80 space-y-6">
+                <div class="border-b border-slate-800 pb-4">
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-draw-polygon text-orangeAccent"></i> حساب المساحة والمحيط للأضلاع والقطع
+                    </h2>
+                    <p class="text-xs text-slate-400 mt-1">أدخل إحداثيات رؤوس القطعة (X, Y) لحساب المساحة والمحيط فورياً ورسم المضلع التفاعلي.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- Point Input Table -->
+                    <div class="lg:col-span-7 space-y-4">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-xs text-right border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-900 text-slate-300 font-mono border-b border-slate-800">
+                                        <th class="p-3 rounded-r-lg">رقم النقطة</th>
+                                        <th class="p-3">الإحداثي الشرقي X (E)</th>
+                                        <th class="p-3">الإحداثي الشمالي Y (N)</th>
+                                        <th class="p-3 rounded-l-lg text-center">حذف</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="areaPointsBody" class="divide-y divide-slate-800/60 font-mono">
+                                    <!-- Points injected by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <button onclick="addAreaRow()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold border border-slate-700 flex items-center gap-1.5">
+                                <i class="fa-solid fa-plus text-sky-400"></i> إضافة نقطة جديدة
+                            </button>
+                            <button onclick="calculateAreaPolygon()" class="px-5 py-2 rounded-xl bg-orangeAccent hover:bg-orange-600 text-white text-xs font-bold shadow-md">
+                                احسب المساحة والمحيط
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Output Results & SVG Preview -->
+                    <div class="lg:col-span-5 space-y-4">
+                        <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800 space-y-3">
+                            <h3 class="text-xs font-mono font-bold text-sky-400 uppercase tracking-widest"><i class="fa-solid fa-square-poll-vertical"></i> نتائج المساحة</h3>
+                            
+                            <div class="space-y-2 text-sm font-mono text-slate-200">
+                                <div class="flex justify-between border-b border-slate-800 pb-1.5">
+                                    <span class="text-slate-400">المساحة (م²):</span>
+                                    <strong id="res-area-m2" class="text-orangeAccent">0.00 م²</strong>
+                                </div>
+                                <div class="flex justify-between border-b border-slate-800 pb-1.5">
+                                    <span class="text-slate-400">فدان / قيراط / سهم:</span>
+                                    <strong id="res-area-egypt" class="text-emerald-400">0 فدان - 0 قيراط - 0 سهم</strong>
+                                </div>
+                                <div class="flex justify-between border-b border-slate-800 pb-1.5">
+                                    <span class="text-slate-400">هكتار (Hectare):</span>
+                                    <span id="res-area-ha">0.0000 ha</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">المحيط الكلي (م):</span>
+                                    <strong id="res-perimeter" class="text-sky-400">0.00 م</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SVG Map Preview -->
+                        <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800 flex flex-col items-center">
+                            <span class="text-[10px] font-mono text-slate-400 mb-2">مخطط توضيحي للمضلع (Polygon Canvas)</span>
+                            <svg id="areaSvg" class="w-full h-48 bg-slate-900 rounded-xl border border-slate-800" viewBox="0 0 300 200">
+                                <text x="150" y="100" fill="#64748b" font-size="12" text-anchor="middle">أدخل النقاط لاضهار المخطط</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL 3: TRAVERSE & BOWDITCH CALCULATOR -->
+            <div id="panel-traverse" class="tool-panel hidden glass-panel p-6 sm:p-8 rounded-3xl border border-slate-700/80 space-y-6">
+                <div class="border-b border-slate-800 pb-4">
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-compass-drafting text-emerald-400"></i> حساب الترافرس وتصحيح خطأ الإغلاق (Bowditch Adjustment)
+                    </h2>
+                    <p class="text-xs text-slate-400 mt-1">حساب خطأ الإغلاق المضلعي والنسبة النسبية والدقة ($1 : N$) وتصحيح الإحداثيات.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <div class="lg:col-span-8 space-y-4">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-xs text-right border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-900 text-slate-300 font-mono border-b border-slate-800">
+                                        <th class="p-3 rounded-r-lg">الضلع</th>
+                                        <th class="p-3">الانحراف (Azimuth °)</th>
+                                        <th class="p-3">المسافة (م)</th>
+                                        <th class="p-3 rounded-l-lg text-center">حذف</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="traverseBody" class="divide-y divide-slate-800/60 font-mono">
+                                    <!-- Injected by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <button onclick="addTraverseRow()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold border border-slate-700 flex items-center gap-1.5">
+                                <i class="fa-solid fa-plus text-emerald-400"></i> إضافة ضلع جديد
+                            </button>
+                            <button onclick="calculateTraverse()" class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-md">
+                                حساب الترافرس والإغلاق
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-4 space-y-4">
+                        <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800 space-y-3 font-mono text-xs">
+                            <h3 class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest"><i class="fa-solid fa-chart-pie"></i> تقرير الترافرس</h3>
+                            
+                            <div class="space-y-2 text-slate-300">
+                                <div class="flex justify-between border-b border-slate-800 pb-1">
+                                    <span>المحيط الكلي:</span>
+                                    <strong id="trav-perimeter">0.00 م</strong>
+                                </div>
+                                <div class="flex justify-between border-b border-slate-800 pb-1">
+                                    <span>خطأ الشرق (dx):</span>
+                                    <span id="trav-dx" class="text-orangeAccent">0.000 م</span>
+                                </div>
+                                <div class="flex justify-between border-b border-slate-800 pb-1">
+                                    <span>خطأ الشمال (dy):</span>
+                                    <span id="trav-dy" class="text-orangeAccent">0.000 م</span>
+                                </div>
+                                <div class="flex justify-between border-b border-slate-800 pb-1">
+                                    <span>خطأ الإغلاق الكلي (Ec):</span>
+                                    <strong id="trav-ec" class="text-red-400">0.000 م</strong>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>نسبة الدقة (Precision):</span>
+                                    <strong id="trav-precision" class="text-emerald-400">1 : 0</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL 4: HORIZONTAL CURVE CALCULATOR -->
+            <div id="panel-curve" class="tool-panel hidden glass-panel p-6 sm:p-8 rounded-3xl border border-slate-700/80 space-y-6">
+                <div class="border-b border-slate-800 pb-4">
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-bezier-curve text-purple-400"></i> حسابات المنحنى الأفقي الدائري (Horizontal Curve Geometry)
+                    </h2>
+                    <p class="text-xs text-slate-400 mt-1">أدخل نصف القطر وزاوية الانحراف لحساب جميع عناصر المنحنى الأفقي في الطرق والتخطيط.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Form -->
+                    <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 space-y-4">
+                        <div>
+                            <label class="block text-xs font-mono text-slate-300 mb-1">نصف القطر (Radius - R) بالمتر</label>
+                            <input type="number" step="any" id="curve-r" value="250" placeholder="250" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 text-white border border-slate-700 font-mono text-sm focus:border-purple-400 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-slate-300 mb-1">زاوية الانحراف (Deflection Angle - Δ) بالدرجات العشرية</label>
+                            <input type="number" step="any" id="curve-delta" value="45" placeholder="45" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 text-white border border-slate-700 font-mono text-sm focus:border-purple-400 outline-none">
+                        </div>
+                        <button onclick="calculateCurve()" class="w-full py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold shadow-md transition-all">
+                            احسب عناصر المنحنى
+                        </button>
+                    </div>
+
+                    <!-- Output Results -->
+                    <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 space-y-3 font-mono text-xs">
+                        <h3 class="text-xs font-mono font-bold text-purple-400 uppercase tracking-widest"><i class="fa-solid fa-square-check"></i> عناصر المنحنى المحسوبة</h3>
+                        
+                        <div class="space-y-2 text-slate-200">
+                            <div class="flex justify-between border-b border-slate-800 pb-1.5">
+                                <span class="text-slate-400">طول المماس (Tangent - T):</span>
+                                <strong id="res-curve-t" class="text-orangeAccent">103.55 م</strong>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800 pb-1.5">
+                                <span class="text-slate-400">طول المنحنى (Length - L):</span>
+                                <strong id="res-curve-l" class="text-sky-400">196.35 م</strong>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800 pb-1.5">
+                                <span class="text-slate-400">طول الوتر الكلي (Long Chord - C):</span>
+                                <strong id="res-curve-c" class="text-emerald-400">191.34 م</strong>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800 pb-1.5">
+                                <span class="text-slate-400">المسافة الخارجية (External - E):</span>
+                                <span id="res-curve-e">20.60 م</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">السهم / الانتصاف (Mid-ordinate - M):</span>
+                                <span id="res-curve-m">18.98 م</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL 5: CUT & FILL EARTHWORK CALCULATOR -->
+            <div id="panel-earthwork" class="tool-panel hidden glass-panel p-6 sm:p-8 rounded-3xl border border-slate-700/80 space-y-6">
+                <div class="border-b border-slate-800 pb-4">
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-layer-group text-yellow-400"></i> حساب كميات الحفر والردم (Earthwork Cut & Fill Volume)
+                    </h2>
+                    <p class="text-xs text-slate-400 mt-1">حساب الحجم بين القطاعات العرضية بطريقة متوسط المساحات (Average End Area) وطريقة الهرم الناقص.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 space-y-4">
+                        <div>
+                            <label class="block text-xs font-mono text-slate-300 mb-1">مساحة القطاع الأول A1 (م²)</label>
+                            <input type="number" step="any" id="ew-a1" value="120.5" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 text-white border border-slate-700 font-mono text-sm focus:border-yellow-400 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-slate-300 mb-1">مساحة القطاع الثاني A2 (م²)</label>
+                            <input type="number" step="any" id="ew-a2" value="185.0" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 text-white border border-slate-700 font-mono text-sm focus:border-yellow-400 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-slate-300 mb-1">المسافة بين القطاعين L (متر)</label>
+                            <input type="number" step="any" id="ew-len" value="50.0" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 text-white border border-slate-700 font-mono text-sm focus:border-yellow-400 outline-none">
+                        </div>
+                        <button onclick="calculateEarthwork()" class="w-full py-2.5 rounded-xl bg-yellow-600 hover:bg-yellow-500 text-white text-xs font-bold shadow-md transition-all">
+                            احسب الحجم والكميات
+                        </button>
+                    </div>
+
+                    <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 space-y-4 font-mono text-xs">
+                        <h3 class="text-xs font-mono font-bold text-yellow-400 uppercase tracking-widest"><i class="fa-solid fa-boxes-stacked"></i> نتائج حجم الأتربة</h3>
+                        
+                        <div class="space-y-3 text-slate-200">
+                            <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+                                <div class="text-slate-400 text-[11px] mb-1">طريقة متوسط المساحات (Average End Area):</div>
+                                <strong id="res-ew-avg" class="text-base text-orangeAccent">7,637.50 م³</strong>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+                                <div class="text-slate-400 text-[11px] mb-1">طريقة الهرم الناقص (Prismoidal Formula):</div>
+                                <strong id="res-ew-pris" class="text-base text-sky-400">7,552.18 م³</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL 6: CSV TO KML FILE CONVERTER -->
+            <div id="panel-converter" class="tool-panel hidden glass-panel p-6 sm:p-8 rounded-3xl border border-slate-700/80 space-y-6">
+                <div class="border-b border-slate-800 pb-4">
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-file-code text-pink-400"></i> محول النقاط من CSV إلى KML (Google Earth Generator)
+                    </h2>
+                    <p class="text-xs text-slate-400 mt-1">قم بلصق قائمة النقاط (ID, Longitude/Easting, Latitude/Northing, Elevation) لتحويلها فورياً وتنزيل ملف .kml جاهز للعرض على Google Earth.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-mono text-slate-300 mb-1">البيانات (الصيغة: PointID, Lon/East, Lat/North, Elevation, Code)</label>
+                        <textarea id="csvInput" rows="7" class="w-full p-4 rounded-2xl bg-slate-950 text-white border border-slate-700 font-mono text-xs focus:border-pink-400 outline-none leading-relaxed" placeholder="1, 31.235712, 30.044420, 15.2, Point_1&#10;2, 31.238900, 30.046100, 16.0, Point_2&#10;3, 31.241200, 30.042500, 14.8, Point_3"></textarea>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <button onclick="generateKML()" class="px-6 py-3 rounded-xl bg-pink-600 hover:bg-pink-500 text-white text-xs font-bold shadow-md transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-download"></i> توليد وتنزيل ملف KML
+                        </button>
+                        <span id="kmlStatus" class="text-xs font-mono text-emerald-400 hidden"><i class="fa-solid fa-circle-check"></i> تم إنشاء الملف بنجاح!</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-slate-950 border-t border-slate-800 text-center text-xs text-slate-500 font-mono">
+        <p>&copy; 2026 Amr Azab, M.Eng. | الأدوات الهندسة والمساحية. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <!-- LOGIC & CALCULATIONS SCRIPT -->
+    <script>
+        // Language Storage & Translations
+        const translations = {
+            ar: {
+                "nav-subtitle": "الأدوات الهندسة والمساحية",
+                "nav-about": "عني",
+                "nav-experience": "الخبرة المهنية",
+                "nav-education": "التعليم",
+                "nav-tools": "الأدوات المساحية",
+                "nav-thesis": "رسالة الماجستير",
+                "back-home": "الرئيسية",
+                "banner-text": "حسابات المساحة التي تحتاجها كل يوم — تشتغل جوه متصفحك مباشرة بدون تسجيل",
+                "header-title": "الأدوات الهندسة والمساحية",
+                "header-subtitle": "مجموعة أدوات مساحية دقيقة لحساب الإحداثيات، الترافرس، المساحات، المنحنيات الأفقيّة، الحفر والردم وتحويل الملفات.",
+                "tool1-title": "محول الإحداثيات",
+                "tool1-desc": "WGS84 ⇌ UTM والشبكات العالمية",
+                "tool2-title": "المساحة والمحيط",
+                "tool2-desc": "الأضلاع، المتر المربع والفدان والقيراط",
+                "tool3-title": "الترافرس والإغلاق",
+                "tool3-desc": "الانحرافات وتصحيح بودتش (Bowditch)",
+                "tool4-title": "المنحنى الأفقي",
+                "tool4-desc": "نصف القطر، المماس، الوتر والوتر الكلي",
+                "tool5-title": "الحفر والردم",
+                "tool5-desc": "متوسط المساحات والهرم الناقص",
+                "tool6-title": "تحويل CSV إلى KML",
+                "tool6-desc": "تحويل النقاط مباشرة لملف Google Earth"
+            },
+            de: {
+                "nav-subtitle": "Vermessungswerkzeuge",
+                "nav-about": "Über mich",
+                "nav-experience": "Erfahrung",
+                "nav-education": "Ausbildung",
+                "nav-tools": "Geodätische Tools",
+                "nav-thesis": "Masterthesis",
+                "back-home": "Hauptseite",
+                "banner-text": "Präzise Vermessungswerkzeuge – Direkt im Browser ohne Registrierung",
+                "header-title": "Geodätische & Ingenieur-Tools",
+                "header-subtitle": "Umfassende Werkzeuge für Koordinatenumrechnung, Polychor-Flächen, Trassierung und Erdmassen.",
+                "tool1-title": "Koordinaten-Umrechner",
+                "tool1-desc": "WGS84 ⇌ UTM & Geodätische Netze",
+                "tool2-title": "Fläche & Umfang",
+                "tool2-desc": "Polygonfläche in m², Hektar & Acre",
+                "tool3-title": "Polygonzug & Ausgleichung",
+                "tool3-desc": "Bowditch-Verfahren & Abschlussfehler",
+                "tool4-title": "Horizontalbogen",
+                "tool4-desc": "Radius, Tangente, Bogenlänge & Sehne",
+                "tool5-title": "Erdmassenberechnung",
+                "tool5-desc": "Prismoid & Mittelflächenverfahren",
+                "tool6-title": "CSV zu KML Konverter",
+                "tool6-desc": "Punkte direkt für Google Earth exportieren"
+            },
+            en: {
+                "nav-subtitle": "Surveying & Geodesy Tools",
+                "nav-about": "About",
+                "nav-experience": "Experience",
+                "nav-education": "Education",
+                "nav-tools": "Surveying Tools",
+                "nav-thesis": "Master Thesis",
+                "back-home": "Home",
+                "banner-text": "Professional Surveying Tools – Instant client-side calculation in your browser",
+                "header-title": "Engineering & Surveying Tools",
+                "header-subtitle": "High-precision tools for coordinate transformation, polygon area, traverse adjustment, curves & volume calculation.",
+                "tool1-title": "Coordinate Converter",
+                "tool1-desc": "WGS84 ⇌ UTM & Geodetic Grids",
+                "tool2-title": "Area & Perimeter",
+                "tool2-desc": "Polygon Area in Sq. Meters, Ha & Acres",
+                "tool3-title": "Traverse & Closure",
+                "tool3-desc": "Bowditch adjustment & Linear error",
+                "tool4-title": "Horizontal Curve",
+                "tool4-desc": "Radius, Tangent, Length & Long Chord",
+                "tool5-title": "Cut & Fill Volume",
+                "tool5-desc": "Average end area & Prismoidal method",
+                "tool6-title": "CSV to KML Converter",
+                "tool6-desc": "Export points directly for Google Earth"
+            }
+        };
+
+        function changeLanguage(lang) {
+            localStorage.setItem('preferred_lang', lang);
+            const htmlRoot = document.getElementById('html-root');
+            htmlRoot.setAttribute('lang', lang);
+            htmlRoot.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+            const langSelect = document.getElementById('langSelect');
+            if (langSelect) langSelect.value = lang;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+
+        // TOOL SWITCHING LOGIC
+        function switchTool(toolId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tool-panel').forEach(panel => panel.classList.add('hidden'));
+
+            const targetCard = document.getElementById('card-' + toolId);
+            const targetPanel = document.getElementById('panel-' + toolId);
+
+            if (targetCard) targetCard.classList.add('active');
+            if (targetPanel) targetPanel.classList.remove('hidden');
+        }
+
+        function filterTools() {
+            const query = document.getElementById('toolSearch').value.toLowerCase();
+            document.querySelectorAll('.tab-btn').forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // COORD SUBTAB TOGGLE
+        function toggleCoordSubTab(type) {
+            const nativeView = document.getElementById('coord-native-view');
+            const iframeView = document.getElementById('coord-iframe-view');
+            const btnNative = document.getElementById('subtab-native');
+            const btnIframe = document.getElementById('subtab-iframe');
+
+            if (type === 'native') {
+                nativeView.classList.remove('hidden');
+                iframeView.classList.add('hidden');
+                btnNative.className = "px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-slate-800 border border-slate-700";
+                btnIframe.className = "px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white";
+            } else {
+                nativeView.classList.add('hidden');
+                iframeView.classList.remove('hidden');
+                btnIframe.className = "px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-slate-800 border border-slate-700";
+                btnNative.className = "px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white";
+            }
+        }
+
+        // WGS84 to UTM MATHEMATICAL CONVERSION
+        function convertLatLonToUtm() {
+            const lat = parseFloat(document.getElementById('input-lat').value);
+            const lon = parseFloat(document.getElementById('input-lon').value);
+
+            if (isNaN(lat) || isNaN(lon)) return;
+
+            const zone = Math.floor((lon + 180) / 6) + 1;
+            const latRad = lat * Math.PI / 180;
+            const lonRad = lon * Math.PI / 180;
+            const lon0 = ((zone - 1) * 6 - 180 + 3) * Math.PI / 180;
+
+            const a = 6378137.0;
+            const f = 1 / 298.257223563;
+            const k0 = 0.9996;
+            const e2 = 2 * f - f * f;
+            const e4 = e2 * e2;
+            const e6 = e4 * e2;
+            const ep2 = e2 / (1 - e2);
+
+            const N = a / Math.sqrt(1 - e2 * Math.sin(latRad) * Math.sin(latRad));
+            const T = Math.tan(latRad) * Math.tan(latRad);
+            const C = ep2 * Math.cos(latRad) * Math.cos(latRad);
+            const A = (lonRad - lon0) * Math.cos(latRad);
+
+            const M = a * ((1 - e2/4 - 3*e4/64 - 5*e6/256)*latRad - (3*e2/8 + 3*e4/32 + 45*e6/1024)*Math.sin(2*latRad) + (15*e4/256 + 45*e6/1024)*Math.sin(4*latRad) - (35*e6/3072)*Math.sin(6*latRad));
+
+            const easting = k0 * N * (A + (1-T+C)*Math.pow(A,3)/6 + (5-18*T+T*T+72*C-5*ep2)*Math.pow(A,5)/120) + 500000.0;
+            let northing = k0 * (M + N*Math.tan(latRad)*(A*A/2 + (5-T+9*C+4*C*C)*Math.pow(A,4)/24 + (61-58*T+T*T+600*C-330*ep2)*Math.pow(A,6)/720));
+            if (lat < 0) northing += 10000000.0;
+
+            document.getElementById('res-easting').textContent = easting.toFixed(2) + " م";
+            document.getElementById('res-northing').textContent = northing.toFixed(2) + " م";
+            document.getElementById('res-zone').textContent = zone + (lat >= 0 ? " N" : " S");
+        }
+
+        function convertUtmToLatLon() {
+            const easting = parseFloat(document.getElementById('input-utm-e').value);
+            const northing = parseFloat(document.getElementById('input-utm-n').value);
+            const zone = parseInt(document.getElementById('input-utm-zone').value);
+            const hemi = document.getElementById('input-utm-hemi').value;
+
+            if (isNaN(easting) || isNaN(northing) || isNaN(zone)) return;
+
+            const a = 6378137.0;
+            const f = 1 / 298.257223563;
+            const k0 = 0.9996;
+            const e2 = 2 * f - f * f;
+            const e1 = (1 - Math.sqrt(1 - e2)) / (1 + Math.sqrt(1 - e2));
+
+            const x = easting - 500000.0;
+            let y = northing;
+            if (hemi === 'S') y -= 10000000.0;
+
+            const lon0 = ((zone - 1) * 6 - 180 + 3) * Math.PI / 180;
+            const M = y / k0;
+            const mu = M / (a * (1 - e2/4 - 3*e2*e2/64 - 5*Math.pow(e2,3)/256));
+
+            const phi1Rad = mu + (3*e1/2 - 27*Math.pow(e1,3)/32)*Math.sin(2*mu) + (21*e1*e1/16 - 55*Math.pow(e1,4)/32)*Math.sin(4*mu) + (151*Math.pow(e1,3)/96)*Math.sin(6*mu);
+
+            const N1 = a / Math.sqrt(1 - e2 * Math.sin(phi1Rad) * Math.sin(phi1Rad));
+            const T1 = Math.tan(phi1Rad) * Math.tan(phi1Rad);
+            const C1 = (e2 / (1 - e2)) * Math.cos(phi1Rad) * Math.cos(phi1Rad);
+            const R1 = a * (1 - e2) / Math.pow(1 - e2 * Math.sin(phi1Rad) * Math.sin(phi1Rad), 1.5);
+            const D = x / (N1 * k0);
+
+            const lat = phi1Rad - (N1 * Math.tan(phi1Rad) / R1) * (D*D/2 - (5 + 3*T1 + 10*C1 - 4*C1*C1 - 9*(e2/(1-e2)))*Math.pow(D,4)/24 + (61 + 90*T1 + 298*C1 + 45*T1*T1 - 252*(e2/(1-e2)) - 3*C1*C1)*Math.pow(D,6)/720);
+            const lon = lon0 + (D - (1 + 2*T1 + C1)*Math.pow(D,3)/6 + (5 - 2*C1 + 28*T1 - 3*C1*C1 + 8*(e2/(1-e2)) + 24*T1*T1)*Math.pow(D,5)/120) / Math.cos(phi1Rad);
+
+            document.getElementById('res-lat').textContent = (lat * 180 / Math.PI).toFixed(6) + "°";
+            document.getElementById('res-lon').textContent = (lon * 180 / Math.PI).toFixed(6) + "°";
+        }
+
+        // AREA & PERIMETER POLYGON LOGIC
+        let areaPoints = [
+            { id: 1, x: 330000, y: 3325000 },
+            { id: 2, x: 330250, y: 3325000 },
+            { id: 3, x: 330250, y: 3325180 },
+            { id: 4, x: 330000, y: 3325150 }
+        ];
+
+        function renderAreaPoints() {
+            const tbody = document.getElementById('areaPointsBody');
+            tbody.innerHTML = '';
+            areaPoints.forEach((pt, idx) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="p-2 text-slate-400 font-bold">P${pt.id}</td>
+                    <td class="p-2"><input type="number" step="any" value="${pt.x}" onchange="updateAreaPoint(${idx}, 'x', this.value)" class="w-full px-2 py-1 bg-slate-950 border border-slate-700 rounded text-white text-xs outline-none"></td>
+                    <td class="p-2"><input type="number" step="any" value="${pt.y}" onchange="updateAreaPoint(${idx}, 'y', this.value)" class="w-full px-2 py-1 bg-slate-950 border border-slate-700 rounded text-white text-xs outline-none"></td>
+                    <td class="p-2 text-center"><button onclick="removeAreaPoint(${idx})" class="text-red-400 hover:text-red-300"><i class="fa-solid fa-trash"></i></button></td>
+                `;
+                tbody.appendChild(tr);
+            });
+            calculateAreaPolygon();
+        }
+
+        function addAreaRow() {
+            const nextId = areaPoints.length > 0 ? areaPoints[areaPoints.length - 1].id + 1 : 1;
+            const lastX = areaPoints.length > 0 ? areaPoints[areaPoints.length - 1].x + 50 : 330000;
+            const lastY = areaPoints.length > 0 ? areaPoints[areaPoints.length - 1].y : 3325000;
+            areaPoints.push({ id: nextId, x: lastX, y: lastY });
+            renderAreaPoints();
+        }
+
+        function updateAreaPoint(idx, field, val) {
+            areaPoints[idx][field] = parseFloat(val) || 0;
+            calculateAreaPolygon();
+        }
+
+        function removeAreaPoint(idx) {
+            if (areaPoints.length <= 3) return;
+            areaPoints.splice(idx, 1);
+            renderAreaPoints();
+        }
+
+        function calculateAreaPolygon() {
+            const n = areaPoints.length;
+            if (n < 3) return;
+
+            let area = 0;
+            let perimeter = 0;
+
+            for (let i = 0; i < n; i++) {
+                const j = (i + 1) % n;
+                area += areaPoints[i].x * areaPoints[j].y;
+                area -= areaPoints[j].x * areaPoints[i].y;
+
+                const dx = areaPoints[j].x - areaPoints[i].x;
+                const dy = areaPoints[j].y - areaPoints[i].y;
+                perimeter += Math.sqrt(dx * dx + dy * dy);
+            }
+
+            area = Math.abs(area) / 2.0;
+
+            document.getElementById('res-area-m2').textContent = area.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " م²";
+            document.getElementById('res-perimeter').textContent = perimeter.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " م";
+
+            // Egyptian units conversion
+            const feddan = Math.floor(area / 4200.83);
+            const rem1 = area % 4200.83;
+            const kirat = Math.floor(rem1 / 175.035);
+            const sahm = ((rem1 % 175.035) / 7.293).toFixed(1);
+            document.getElementById('res-area-egypt').textContent = `${feddan} فدان - ${kirat} قيراط - ${sahm} سهم`;
+
+            document.getElementById('res-area-ha').textContent = (area / 10000).toFixed(4) + " ha";
+
+            drawAreaSvg();
+        }
+
+        function drawAreaSvg() {
+            const svg = document.getElementById('areaSvg');
+            if (!svg || areaPoints.length < 3) return;
+
+            const xs = areaPoints.map(p => p.x);
+            const ys = areaPoints.map(p => p.y);
+
+            const minX = Math.min(...xs), maxX = Math.max(...xs);
+            const minY = Math.min(...ys), maxY = Math.max(...ys);
+
+            const rangeX = (maxX - minX) || 1;
+            const rangeY = (maxY - minY) || 1;
+
+            const pointsStr = areaPoints.map(p => {
+                const px = 30 + ((p.x - minX) / rangeX) * 240;
+                const py = 170 - ((p.y - minY) / rangeY) * 140;
+                return `${px},${py}`;
+            }).join(' ');
+
+            svg.innerHTML = `
+                <polygon points="${pointsStr}" fill="rgba(249, 115, 22, 0.2)" stroke="#f97316" stroke-width="2"/>
+                ${areaPoints.map(p => {
+                    const px = 30 + ((p.x - minX) / rangeX) * 240;
+                    const py = 170 - ((p.y - minY) / rangeY) * 140;
+                    return `<circle cx="${px}" cy="${py}" r="4" fill="#0284c7"/><text x="${px}" y="${py-8}" fill="#f1f5f9" font-size="9" font-family="monospace" text-anchor="middle">P${p.id}</text>`;
+                }).join('')}
+            `;
+        }
+
+        // TRAVERSE LOGIC
+        let traverseLines = [
+            { name: "1-2", azimuth: 45.0, distance: 120.0 },
+            { name: "2-3", azimuth: 135.0, distance: 100.0 },
+            { name: "3-4", azimuth: 225.0, distance: 118.5 },
+            { name: "4-1", azimuth: 315.0, distance: 102.0 }
+        ];
+
+        function renderTraverseRows() {
+            const tbody = document.getElementById('traverseBody');
+            tbody.innerHTML = '';
+            traverseLines.forEach((line, idx) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="p-2 text-slate-400 font-bold">${line.name}</td>
+                    <td class="p-2"><input type="number" step="any" value="${line.azimuth}" onchange="updateTraverseLine(${idx}, 'azimuth', this.value)" class="w-full px-2 py-1 bg-slate-950 border border-slate-700 rounded text-white text-xs outline-none"></td>
+                    <td class="p-2"><input type="number" step="any" value="${line.distance}" onchange="updateTraverseLine(${idx}, 'distance', this.value)" class="w-full px-2 py-1 bg-slate-950 border border-slate-700 rounded text-white text-xs outline-none"></td>
+                    <td class="p-2 text-center"><button onclick="removeTraverseLine(${idx})" class="text-red-400 hover:text-red-300"><i class="fa-solid fa-trash"></i></button></td>
+                `;
+                tbody.appendChild(tr);
+            });
+            calculateTraverse();
+        }
+
+        function addTraverseRow() {
+            const nextIdx = traverseLines.length + 1;
+            traverseLines.push({ name: `${nextIdx}-${nextIdx === 4 ? 1 : nextIdx+1}`, azimuth: 90.0, distance: 100.0 });
+            renderTraverseRows();
+        }
+
+        function updateTraverseLine(idx, field, val) {
+            traverseLines[idx][field] = parseFloat(val) || 0;
+            calculateTraverse();
+        }
+
+        function removeTraverseLine(idx) {
+            if (traverseLines.length <= 3) return;
+            traverseLines.splice(idx, 1);
+            renderTraverseRows();
+        }
+
+        function calculateTraverse() {
+            let sumDx = 0, sumDy = 0, totalDist = 0;
+
+            traverseLines.forEach(line => {
+                const rad = line.azimuth * Math.PI / 180.0;
+                const dx = line.distance * Math.sin(rad);
+                const dy = line.distance * Math.cos(rad);
+                sumDx += dx;
+                sumDy += dy;
+                totalDist += line.distance;
+            });
+
+            const ec = Math.sqrt(sumDx * sumDx + sumDy * sumDy);
+            const precision = ec > 0 ? Math.round(totalDist / ec) : 0;
+
+            document.getElementById('trav-perimeter').textContent = totalDist.toFixed(2) + " م";
+            document.getElementById('trav-dx').textContent = sumDx.toFixed(3) + " م";
+            document.getElementById('trav-dy').textContent = sumDy.toFixed(3) + " م";
+            document.getElementById('trav-ec').textContent = ec.toFixed(3) + " م";
+            document.getElementById('trav-precision').textContent = "1 : " + precision.toLocaleString();
+        }
+
+        // HORIZONTAL CURVE LOGIC
+        function calculateCurve() {
+            const R = parseFloat(document.getElementById('curve-r').value);
+            const delta = parseFloat(document.getElementById('curve-delta').value);
+
+            if (isNaN(R) || isNaN(delta) || R <= 0 || delta <= 0) return;
+
+            const deltaRad = delta * Math.PI / 180.0;
+            const T = R * Math.tan(deltaRad / 2.0);
+            const L = R * deltaRad;
+            const C = 2 * R * Math.sin(deltaRad / 2.0);
+            const E = R * (1 / Math.cos(deltaRad / 2.0) - 1);
+            const M = R * (1 - Math.cos(deltaRad / 2.0));
+
+            document.getElementById('res-curve-t').textContent = T.toFixed(2) + " م";
+            document.getElementById('res-curve-l').textContent = L.toFixed(2) + " م";
+            document.getElementById('res-curve-c').textContent = C.toFixed(2) + " م";
+            document.getElementById('res-curve-e').textContent = E.toFixed(2) + " م";
+            document.getElementById('res-curve-m').textContent = M.toFixed(2) + " م";
+        }
+
+        // EARTHWORK LOGIC
+        function calculateEarthwork() {
+            const A1 = parseFloat(document.getElementById('ew-a1').value);
+            const A2 = parseFloat(document.getElementById('ew-a2').value);
+            const L = parseFloat(document.getElementById('ew-len').value);
+
+            if (isNaN(A1) || isNaN(A2) || isNaN(L)) return;
+
+            const vAvg = ((A1 + A2) / 2.0) * L;
+            const vPris = (L / 6.0) * (A1 + 4 * Math.sqrt(A1 * A2) + A2);
+
+            document.getElementById('res-ew-avg').textContent = vAvg.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " م³";
+            document.getElementById('res-ew-pris').textContent = vPris.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " م³";
+        }
+
+        // GENERATE KML LOGIC
+        function generateKML() {
+            const raw = document.getElementById('csvInput').value.trim();
+            if (!raw) return;
+
+            const lines = raw.split('\n');
+            let kmlPlacemarks = '';
+
+            lines.forEach(line => {
+                const parts = line.split(',').map(s => s.trim());
+                if (parts.length >= 3) {
+                    const id = parts[0];
+                    const lon = parts[1];
+                    const lat = parts[2];
+                    const ele = parts[3] || '0';
+                    const desc = parts[4] || `Point ${id}`;
+
+                    kmlPlacemarks += `
+    <Placemark>
+      <name>${id} - ${desc}</name>
+      <Point>
+        <coordinates>${lon},${lat},${ele}</coordinates>
+      </Point>
+    </Placemark>`;
+                }
+            });
+
+            const kmlContent = `<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Survey Points Export</name>
+    ${kmlPlacemarks}
+  </Document>
+</kml>`;
+
+            const blob = new Blob([kmlContent], { type: 'application/vnd.google-earth.kml+xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'survey_points.kml';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            const status = document.getElementById('kmlStatus');
+            status.classList.remove('hidden');
+            setTimeout(() => status.classList.add('hidden'), 4000);
+        }
+
+        // INIT ON LOAD
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferred_lang') || 'ar';
+            changeLanguage(savedLang);
+
+            renderAreaPoints();
+            renderTraverseRows();
+            convertLatLonToUtm();
+            calculateCurve();
+            calculateEarthwork();
+        });
+    </script>
+</body>
+</html>
