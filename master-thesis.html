@@ -83,12 +83,12 @@
             </div>
         </section>
 
-        <!-- 2. تفاصيل الرسالة -->
+        <!-- 2. تفاصيل الرسالة والعنوان الرئيسي -->
         <section class="glass-panel p-8 sm:p-10 rounded-3xl border border-slate-700/80 space-y-6">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orangeAccent/10 text-orangeAccent text-xs font-mono border border-orangeAccent/20">
                 <span data-i18n="thesis-date">Hochschule Mainz • Februar 2024</span>
             </div>
-            <h1 class="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+            <h1 class="text-2xl sm:text-4xl font-extrabold text-white leading-tight" data-i18n="thesis-title">
                 Modellierung technischer Bestandsbauwerke aus 3D-Punktwolken – Scan-To-BIM
             </h1>
             <p class="text-slate-300 text-base leading-relaxed" data-i18n="thesis-desc">
@@ -101,12 +101,27 @@
             </div>
         </section>
 
-        <!-- 3. الملخص -->
-        <section class="glass-panel p-8 sm:p-10 rounded-3xl border border-slate-700/80 space-y-4">
-            <h2 class="text-xl font-bold text-sky-400"><i class="fa-solid fa-circle-info mr-2"></i> <span data-i18n="summary-title">Kurzzusammenfassung (Zusammenfassung)</span></h2>
-            <p class="text-slate-300 text-sm leading-relaxed" data-i18n="summary-desc">
-                Das Ziel der vorliegenden Masterarbeit war es, Brücken in allen drei Dimensionen zu erfassen und daraus 3D-Modelle zu generieren, die in CAD-Software verwendet werden können. Am Beispiel des Brückenbauwerks (Campus-Brücke Mainz) wurden verschiedene Laserscanner-Geräte eingesetzt (insbesondere das NavVis VLX2), um hochgenaue Punktwolken zu erzeugen und über Revit und Civil 3D in BIM-Modelle zu überführen.
-            </p>
+        <!-- 3. الملخص والكلمات المفتاحية -->
+        <section class="glass-panel p-8 sm:p-10 rounded-3xl border border-slate-700/80 space-y-6">
+            <div>
+                <h2 class="text-xl font-bold text-sky-400 mb-3"><i class="fa-solid fa-circle-info mr-2"></i> <span data-i18n="summary-title">Kurzzusammenfassung (Zusammenfassung)</span></h2>
+                <p class="text-slate-300 text-sm leading-relaxed" data-i18n="summary-desc">
+                    Das Ziel der vorliegenden Masterarbeit war es, Brücken in allen drei Dimensionen zu erfassen und daraus 3D-Modelle zu generieren, die in CAD-Software verwendet werden können. Am Beispiel des Brückenbauwerks (Campus-Brücke Mainz) wurden verschiedene Laserscanner-Geräte eingesetzt (insbesondere das NavVis VLX2), um hochgenaue Punktwolken zu erzeugen und über Revit und Civil 3D in BIM-Modelle zu überführen.
+                </p>
+            </div>
+
+            <!-- قسم الكلمات المفتاحية الجديد -->
+            <div class="border-t border-slate-800 pt-6">
+                <h3 class="text-xs font-mono font-bold text-orangeAccent uppercase tracking-widest mb-3"><i class="fa-solid fa-tags mr-1"></i> <span data-i18n="keywords-title">Schlagwörter / Keywords</span></h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono border border-slate-700">Scan-to-BIM</span>
+                    <span class="px-3 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono border border-slate-700">3D-Punktwolke</span>
+                    <span class="px-3 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono border border-slate-700">NavVis VLX2</span>
+                    <span class="px-3 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono border border-slate-700">Autodesk Revit</span>
+                    <span class="px-3 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono border border-slate-700">Civil 3D</span>
+                    <span class="px-3 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono border border-slate-700">Ingenieurvermessung</span>
+                </div>
+            </div>
         </section>
 
         <!-- 4. عارض ملف الـ PDF (قراءة فقط) -->
@@ -142,6 +157,7 @@
                 "back-home": "Hauptseite",
                 "poster-badge": "Scientific Poster • Campus-Brücke Mainz",
                 "thesis-date": "Hochschule Mainz • Februar 2024",
+                "thesis-title": "Modellierung technischer Bestandsbauwerke aus 3D-Punktwolken – Scan-To-BIM",
                 "thesis-desc": "Masterarbeit zur Erlangung des akademischen Grades Master of Engineering (M.Eng.) im Studiengang Geoinformatik an der Hochschule Mainz.",
                 "author-label": "Verfasser:",
                 "author-name": "Amr Elsayed Mabrouk Azab (M.Eng. Amr Azab)",
@@ -149,6 +165,7 @@
                 "advisor2-label": "Zweitprüfer:",
                 "summary-title": "Kurzzusammenfassung (Zusammenfassung)",
                 "summary-desc": "Das Ziel der vorliegenden Masterarbeit war es, Brücken in allen drei Dimensionen zu erfassen und daraus 3D-Modelle zu generieren, die in CAD-Software verwendet werden können. Am Beispiel des Brückenbauwerks (Campus-Brücke Mainz) wurden verschiedene Laserscanner-Geräte eingesetzt (insbesondere das NavVis VLX2), um hochgenaue Punktwolken zu erzeugen und über Revit und Civil 3D in BIM-Modelle zu überführen.",
+                "keywords-title": "Schlagwörter",
                 "pdf-title": "Volltext der Masterarbeit (Nur-Lese-Modus)",
                 "pdf-badge": "Geschützt (Kein Download)",
                 "footer": "© 2026 Amr Azab, M.Eng. | Alle Rechte vorbehalten."
@@ -157,6 +174,7 @@
                 "back-home": "Home",
                 "poster-badge": "Scientific Poster • Campus Bridge Mainz",
                 "thesis-date": "Mainz University of Applied Sciences • February 2024",
+                "thesis-title": "Modeling of Existing Technical Structures from 3D Point Clouds – Scan-To-BIM",
                 "thesis-desc": "Master's Thesis submitted in partial fulfillment of the requirements for the degree of Master of Engineering (M.Eng.) in Geoinformatics.",
                 "author-label": "Author:",
                 "author-name": "Amr Elsayed Mabrouk Azab (M.Eng. Amr Azab)",
@@ -164,6 +182,7 @@
                 "advisor2-label": "Secondary Advisor:",
                 "summary-title": "Summary / Abstract",
                 "summary-desc": "The aim of this master's thesis was to capture bridges in all three dimensions and generate 3D models that can be used in CAD software. Using the Campus Bridge Mainz as an example, various laser scanning devices (especially the NavVis VLX2) were deployed to create high-precision point clouds and convert them into BIM models via Revit and Civil 3D.",
+                "keywords-title": "Keywords",
                 "pdf-title": "Master's Thesis Full Text (Read-Only)",
                 "pdf-badge": "Protected (No Download)",
                 "footer": "© 2026 Amr Azab, M.Eng. | All rights reserved."
@@ -172,6 +191,7 @@
                 "back-home": "الرئيسية",
                 "poster-badge": "البوستر العلمي • جسر ماينتس الجامعي",
                 "thesis-date": "جامعة ماينتس التطبيقية • فبراير 2024",
+                "thesis-title": "نمذجة المنشآت الهندسية القائمة باستخدام سحاب النقاط ثلاثي الأبعاد – تقنية Scan-To-BIM",
                 "thesis-desc": "رسالة ماجستير للحصول على درجة الماجستير في الهندسة (M.Eng.) في تخصص الجيوماتكس من جامعة ماينتس.",
                 "author-label": "الباحث:",
                 "author-name": "عمرو السيد مبروك عزب (M.Eng. Amr Azab)",
@@ -179,6 +199,7 @@
                 "advisor2-label": "المشرف الثاني:",
                 "summary-title": "ملخص البحث (Kurzzusammenfassung)",
                 "summary-desc": "هدفت رسالة الماجستير الحالية إلى رصد الجسور في الأبعاد الثلاثة وتوليد نماذج ثلاثية الأبعاد قابلة للاستخدام في برامج الـ CAD. باستخدام جسر ماينتس الجامعي كمثال، تم استخدام أجهزة ماسح ضوئي ليزري مختلفة (لا سيما NavVis VLX2) لإنتاج سحاب نقاط فائقة الدقة وتحويلها إلى نماذج BIM عبر برنامجي Revit و Civil 3D.",
+                "keywords-title": "الكلمات الدلالية",
                 "pdf-title": "النص الكامل لرسالة الماجستير (قراءة فقط)",
                 "pdf-badge": "محمي (بدون تحميل)",
                 "footer": "© 2026 عمرو عزب، ماجستير هندسة | جميع الحقوق محفوظة."
