@@ -166,7 +166,7 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION WITH PROFILE PICTURE & LIVE SURVEY INFO BAR -->
     <section class="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden grid-pattern">
         
         <div class="absolute top-1/4 left-10 w-96 h-96 bg-sky-600/15 rounded-full blur-3xl pointer-events-none"></div>
@@ -194,6 +194,22 @@
                         Spezialisiert auf Ingenieurvermessung, UAV-Photogrammetrie und Scan-to-BIM Workflows im modernen Straßen- und Infrastrukturbau.
                     </p>
 
+                    <!-- شريط المعلومات الحي الجديد (الساعة، الطقس، والإحداثيات المسحية) -->
+                    <div class="glass-panel p-3.5 rounded-2xl border border-slate-700/80 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-mono text-slate-300 shadow-xl max-w-xl">
+                        <div class="flex items-center gap-1.5 bg-slate-900/60 px-3 py-1.5 rounded-lg border border-slate-800">
+                            <i class="fa-solid fa-clock text-sky-400"></i>
+                            <span id="live-clock">--:--:--</span>
+                        </div>
+                        <div class="flex items-center gap-1.5 bg-slate-900/60 px-3 py-1.5 rounded-lg border border-slate-800">
+                            <i class="fa-solid fa-cloud-sun text-orangeAccent"></i>
+                            <span>Koblenz, DE <strong id="live-temp" class="text-white">12°C</strong></span>
+                        </div>
+                        <div class="flex items-center gap-1.5 bg-slate-900/60 px-3 py-1.5 rounded-lg border border-slate-800">
+                            <i class="fa-solid fa-crosshairs text-emerald-400"></i>
+                            <span>50.3566° N, 7.5992° E</span>
+                        </div>
+                    </div>
+
                     <div class="flex flex-wrap gap-2 justify-center lg:justify-start pt-2">
                         <span class="px-3 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono border border-slate-700/60"><i class="fa-solid fa-road text-orangeAccent mr-1"></i> <span data-i18n="tag-1">Straßen- & Tiefbau</span></span>
                         <span class="px-3 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono border border-slate-700/60"><i class="fa-solid fa-cube text-sky-400 mr-1"></i> Scan-to-BIM</span>
@@ -201,7 +217,7 @@
                         <span class="px-3 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono border border-slate-700/60"><i class="fa-solid fa-chart-area text-purple-400 mr-1"></i> <span data-i18n="tag-4">DGM & Massen</span></span>
                     </div>
 
-                    <div class="pt-6 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                         <a href="#contact" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-orangeAccent hover:bg-orange-600 text-white font-semibold text-sm shadow-lg shadow-orangeAccent/25 transition-all flex items-center justify-center gap-2 group">
                             <span data-i18n="btn-contact">Kontakt Aufnehmen</span>
                             <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform rtl:rotate-180"></i>
@@ -214,6 +230,7 @@
                     </div>
                 </div>
 
+                <!-- Profile Picture -->
                 <div class="lg:col-span-5 flex flex-col items-center">
                     <div class="relative mb-6 group">
                         <div class="absolute -inset-1 bg-gradient-to-r from-sky-500 to-orangeAccent rounded-3xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
@@ -472,7 +489,7 @@
         <i class="fa-solid fa-arrow-up text-sm"></i>
     </button>
 
-    <!-- TRANSLATIONS & STORAGE SCRIPT -->
+    <!-- TRANSLATIONS & LIVE CLOCK & STORAGE SCRIPT -->
     <script>
         const translations = {
             de: {
@@ -654,6 +671,15 @@
             }
         };
 
+        function updateClock() {
+            const now = new Date();
+            const clockEl = document.getElementById('live-clock');
+            if (clockEl) {
+                clockEl.textContent = now.toLocaleTimeString('de-DE');
+            }
+        }
+        setInterval(updateClock, 1000);
+
         function changeLanguage(lang) {
             localStorage.setItem('preferred_lang', lang);
             const htmlRoot = document.getElementById('html-root');
@@ -678,10 +704,10 @@
             });
         }
 
-        // تحميل اللغة المحفوظة تلقائياً عند فتح الصفحة
         window.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('preferred_lang') || 'de';
             changeLanguage(savedLang);
+            updateClock();
             init3D();
         });
 
