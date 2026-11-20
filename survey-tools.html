@@ -65,8 +65,8 @@
         }
         .tool-card:hover {
             border-color: rgba(249, 115, 22, 0.5);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px -10px rgba(249, 115, 22, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px -10px rgba(249, 115, 22, 0.2);
         }
         .tool-card.active {
             border-color: #f97316;
@@ -141,82 +141,94 @@
     </header>
 
     <!-- HEADER TITLE & SEARCH -->
-    <section class="pt-32 pb-12 grid-pattern relative border-b border-slate-800/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-            <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight" data-i18n="page-main-title">
+    <section class="pt-28 pb-8 grid-pattern relative border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+            <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight" data-i18n="page-main-title">
                 Geodätische & Ingenieur-Tools
             </h1>
-            <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto font-normal" data-i18n="page-main-desc">
+            <p class="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto font-normal" data-i18n="page-main-desc">
                 Umfassende Werkzeuge für Koordinatenumrechnung, Polygonflächen, Trassierung und Erdmassen.
             </p>
 
-            <div class="max-w-md mx-auto pt-2">
+            <div class="max-w-sm mx-auto pt-1">
                 <div class="relative">
                     <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                         <i class="fa-solid fa-magnifying-glass text-xs"></i>
                     </span>
-                    <input type="text" id="toolSearch" onkeyup="filterTools()" placeholder="Suche nach Tool (Koordinaten, Travers...)" class="w-full bg-slate-900/90 text-white font-mono text-xs pl-10 pr-4 py-3 rounded-xl border border-slate-700 focus:border-orangeAccent focus:outline-none shadow-inner" data-i18n-placeholder="search-placeholder">
+                    <input type="text" id="toolSearch" onkeyup="filterTools()" placeholder="Suche nach Tool..." class="w-full bg-slate-900/90 text-white font-mono text-xs pl-9 pr-3 py-2 rounded-xl border border-slate-700 focus:border-orangeAccent focus:outline-none shadow-inner" data-i18n-placeholder="search-placeholder">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TOOLS GRID SELECTION -->
-    <section class="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="tools-grid-container">
+    <!-- TOOLS GRID SELECTION (Compact Cards) -->
+    <section class="py-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3" id="tools-grid-container">
             
             <!-- Tool 1: Koordinaten-Umrechner -->
-            <div onclick="switchTool('coord')" id="card-coord" class="tool-card glass-panel p-6 rounded-2xl active border border-slate-700/80">
-                <div class="w-10 h-10 rounded-xl bg-survey-500/10 text-survey-500 flex items-center justify-center font-bold text-lg mb-4">
-                    <i class="fa-solid fa-globe"></i>
+            <div onclick="switchTool('coord')" id="card-coord" class="tool-card glass-panel p-4 rounded-xl active border border-slate-700/80 flex flex-col justify-between">
+                <div>
+                    <div class="w-8 h-8 rounded-lg bg-survey-500/10 text-survey-500 flex items-center justify-center font-bold text-sm mb-2.5">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h3 class="text-xs font-bold text-white mb-1 leading-snug" data-i18n="tool1-title">Koordinaten-Umrechner</h3>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-1" data-i18n="tool1-title">Koordinaten-Umrechner</h3>
-                <p class="text-slate-400 text-xs leading-relaxed" data-i18n="tool1-desc">WGS84 ⇌ UTM & Geodätische Netze.</p>
+                <p class="text-slate-400 text-[10px] leading-tight mt-1" data-i18n="tool1-desc">WGS84 ⇌ UTM & Netze.</p>
             </div>
 
             <!-- Tool 2: Fläche & Umfang -->
-            <div onclick="switchTool('area')" id="card-area" class="tool-card glass-panel p-6 rounded-2xl border border-slate-700/80">
-                <div class="w-10 h-10 rounded-xl bg-orangeAccent/10 text-orangeAccent flex items-center justify-center font-bold text-lg mb-4">
-                    <i class="fa-solid fa-draw-polygon"></i>
+            <div onclick="switchTool('area')" id="card-area" class="tool-card glass-panel p-4 rounded-xl border border-slate-700/80 flex flex-col justify-between">
+                <div>
+                    <div class="w-8 h-8 rounded-lg bg-orangeAccent/10 text-orangeAccent flex items-center justify-center font-bold text-sm mb-2.5">
+                        <i class="fa-solid fa-draw-polygon"></i>
+                    </div>
+                    <h3 class="text-xs font-bold text-white mb-1 leading-snug" data-i18n="tool2-title">Fläche & Umfang</h3>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-1" data-i18n="tool2-title">Fläche & Umfang</h3>
-                <p class="text-slate-400 text-xs leading-relaxed" data-i18n="tool2-desc">Polygonfläche in m², Hektar & Acre.</p>
+                <p class="text-slate-400 text-[10px] leading-tight mt-1" data-i18n="tool2-desc">Polygon in m², ha & Acre.</p>
             </div>
 
             <!-- Tool 3: Traver & Ausgleichung -->
-            <div onclick="switchTool('traverse')" id="card-traverse" class="tool-card glass-panel p-6 rounded-2xl border border-slate-700/80">
-                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-lg mb-4">
-                    <i class="fa-solid fa-route"></i>
+            <div onclick="switchTool('traverse')" id="card-traverse" class="tool-card glass-panel p-4 rounded-xl border border-slate-700/80 flex flex-col justify-between">
+                <div>
+                    <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-sm mb-2.5">
+                        <i class="fa-solid fa-route"></i>
+                    </div>
+                    <h3 class="text-xs font-bold text-white mb-1 leading-snug" data-i18n="tool3-title">Polygonzug & Ausgleichung</h3>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-1" data-i18n="tool3-title">Polygonzug & Ausgleichung</h3>
-                <p class="text-slate-400 text-xs leading-relaxed" data-i18n="tool3-desc">Bowditch-Verfahren & Abschlussfehler.</p>
+                <p class="text-slate-400 text-[10px] leading-tight mt-1" data-i18n="tool3-desc">Bowditch & Fehler.</p>
             </div>
 
             <!-- Tool 4: Horizontalbogen -->
-            <div onclick="switchTool('curve')" id="card-curve" class="tool-card glass-panel p-6 rounded-2xl border border-slate-700/80">
-                <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center font-bold text-lg mb-4">
-                    <i class="fa-solid fa-archway"></i>
+            <div onclick="switchTool('curve')" id="card-curve" class="tool-card glass-panel p-4 rounded-xl border border-slate-700/80 flex flex-col justify-between">
+                <div>
+                    <div class="w-8 h-8 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center font-bold text-sm mb-2.5">
+                        <i class="fa-solid fa-archway"></i>
+                    </div>
+                    <h3 class="text-xs font-bold text-white mb-1 leading-snug" data-i18n="tool4-title">Horizontalbogen</h3>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-1" data-i18n="tool4-title">Horizontalbogen</h3>
-                <p class="text-slate-400 text-xs leading-relaxed" data-i18n="tool4-desc">Radius, Tangente, Bogenlänge & Sehne.</p>
+                <p class="text-slate-400 text-[10px] leading-tight mt-1" data-i18n="tool4-desc">Radius, Tangente & Bogen.</p>
             </div>
 
             <!-- Tool 5: Erdmassenberechnung -->
-            <div onclick="switchTool('earthwork')" id="card-earthwork" class="tool-card glass-panel p-6 rounded-2xl border border-slate-700/80">
-                <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-lg mb-4">
-                    <i class="fa-solid fa-mountain"></i>
+            <div onclick="switchTool('earthwork')" id="card-earthwork" class="tool-card glass-panel p-4 rounded-xl border border-slate-700/80 flex flex-col justify-between">
+                <div>
+                    <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-sm mb-2.5">
+                        <i class="fa-solid fa-mountain"></i>
+                    </div>
+                    <h3 class="text-xs font-bold text-white mb-1 leading-snug" data-i18n="tool5-title">Erdmassenberechnung</h3>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-1" data-i18n="tool5-title">Erdmassenberechnung</h3>
-                <p class="text-slate-400 text-xs leading-relaxed" data-i18n="tool5-desc">Prismoid & Mittelflächenverfahren.</p>
+                <p class="text-slate-400 text-[10px] leading-tight mt-1" data-i18n="tool5-desc">Prismoid & Mittelfläche.</p>
             </div>
 
             <!-- Tool 6: CSV to KML -->
-            <div onclick="switchTool('kml')" id="card-kml" class="tool-card glass-panel p-6 rounded-2xl border border-slate-700/80">
-                <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center font-bold text-lg mb-4">
-                    <i class="fa-solid fa-file-code"></i>
+            <div onclick="switchTool('kml')" id="card-kml" class="tool-card glass-panel p-4 rounded-xl border border-slate-700/80 flex flex-col justify-between">
+                <div>
+                    <div class="w-8 h-8 rounded-lg bg-rose-500/10 text-rose-400 flex items-center justify-center font-bold text-sm mb-2.5">
+                        <i class="fa-solid fa-file-code"></i>
+                    </div>
+                    <h3 class="text-xs font-bold text-white mb-1 leading-snug" data-i18n="tool6-title">CSV zu KML Konverter</h3>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-1" data-i18n="tool6-title">CSV zu KML Konverter</h3>
-                <p class="text-slate-400 text-xs leading-relaxed" data-i18n="tool6-desc">Punkte direkt für Google Earth exportieren.</p>
+                <p class="text-slate-400 text-[10px] leading-tight mt-1" data-i18n="tool6-desc">Export für Google Earth.</p>
             </div>
 
         </div>
@@ -225,7 +237,7 @@
     <!-- ACTIVE TOOL INTERACTIVE CONTAINER -->
     <section class="pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- 1. COORDINATE CONVERTER TOOL (WITH EXTERNAL WEBSITE EMBED) -->
+        <!-- 1. COORDINATE CONVERTER TOOL -->
         <div id="tool-panel-coord" class="tool-panel glass-panel p-6 sm:p-10 rounded-3xl border border-slate-700/80 space-y-6">
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
                 <div>
@@ -341,7 +353,7 @@
                             <div id="res-ha" class="text-base font-mono font-bold text-orangeAccent mt-1">1.0000</div>
                         </div>
                         <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
-                            <div class="text-[10px] font-mono text-slate-400">Fدان (Feddan)</div>
+                            <div class="text-[10px] font-mono text-slate-400">فدان (Feddan)</div>
                             <div id="res-feddan" class="text-base font-mono font-bold text-emerald-400 mt-1">2.3805</div>
                         </div>
                         <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
@@ -452,19 +464,19 @@
                 "nav-home": "Hauptseite",
                 "page-main-title": "Geodätische & Ingenieur-Tools",
                 "page-main-desc": "Umfassende Werkzeuge für Koordinatenumrechnung, Polygonflächen, Trassierung und Erdmassen.",
-                "search-placeholder": "Suche nach Tool (Koordinaten, Travers...)",
+                "search-placeholder": "Suche nach Tool...",
                 "tool1-title": "Koordinaten-Umrechner",
-                "tool1-desc": "WGS84 ⇌ UTM & Geodätische Netze.",
+                "tool1-desc": "WGS84 ⇌ UTM & Netze.",
                 "tool2-title": "Fläche & Umfang",
-                "tool2-desc": "Polygonfläche in m², Hektar & Acre.",
+                "tool2-desc": "Polygon in m², ha & Acre.",
                 "tool3-title": "Polygonzug & Ausgleichung",
-                "tool3-desc": "Bowditch-Verfahren & Abschlussfehler.",
+                "tool3-desc": "Bowditch & Fehler.",
                 "tool4-title": "Horizontalbogen",
-                "tool4-desc": "Radius, Tangente, Bogenlänge & Sehne.",
+                "tool4-desc": "Radius, Tangente & Bogen.",
                 "tool5-title": "Erdmassenberechnung",
-                "tool5-desc": "Prismoid & Mittelflächenverfahren.",
+                "tool5-desc": "Prismoid & Mittelfläche.",
                 "tool6-title": "CSV zu KML Konverter",
-                "tool6-desc": "Punkte direkt für Google Earth exportieren.",
+                "tool6-desc": "Export für Google Earth.",
                 "t1-panel-title": "Koordinaten-Umrechner (WGS84 ⇌ UTM)",
                 "t1-panel-desc": "Direkte Berechnung oder Nutzung des externen professionellen Umrechners.",
                 "t1-tab-calc": "Rechner",
@@ -511,19 +523,19 @@
                 "nav-home": "Home",
                 "page-main-title": "Geodetic & Engineering Tools",
                 "page-main-desc": "Comprehensive tools for coordinate conversion, polygon areas, alignment, and earthworks.",
-                "search-placeholder": "Search tool (coordinates, traverse...)",
+                "search-placeholder": "Search tool...",
                 "tool1-title": "Coordinate Converter",
-                "tool1-desc": "WGS84 ⇌ UTM & Geodetic Networks.",
+                "tool1-desc": "WGS84 ⇌ UTM & Networks.",
                 "tool2-title": "Area & Perimeter",
-                "tool2-desc": "Polygon area in m², Hectares & Acres.",
+                "tool2-desc": "Polygon in m², ha & Acres.",
                 "tool3-title": "Traverse & Adjustment",
-                "tool3-desc": "Bowditch method & closure error.",
+                "tool3-desc": "Bowditch & closure error.",
                 "tool4-title": "Horizontal Curve",
-                "tool4-desc": "Radius, Tangent, Arc length & Chord.",
+                "tool4-desc": "Radius, Tangent & Arc.",
                 "tool5-title": "Earthwork Volume",
-                "tool5-desc": "Prismoidal & Average End Area method.",
+                "tool5-desc": "Prismoidal & Average End.",
                 "tool6-title": "CSV to KML Converter",
-                "tool6-desc": "Export points directly for Google Earth.",
+                "tool6-desc": "Export for Google Earth.",
                 "t1-panel-title": "Coordinate Converter (WGS84 ⇌ UTM)",
                 "t1-panel-desc": "Direct calculation or use of the external professional converter.",
                 "t1-tab-calc": "Calculator",
@@ -570,26 +582,26 @@
                 "nav-home": "الرئيسية",
                 "page-main-title": "الأدوات المساحية والهندسية",
                 "page-main-desc": "أدوات شاملة لتحويل الإحداثيات، حساب المساحات، المنحنيات الأفقية، وحسابات الكميات.",
-                "search-placeholder": "ابحث عن أداة (إحداثيات، ترافرس، منحنى، كميات...)",
+                "search-placeholder": "ابحث عن أداة...",
                 "tool1-title": "محول الإحداثيات",
-                "tool1-desc": "WGS84 ⇌ UTM بالمنطقة والنصف الكروي لأي بلد.",
+                "tool1-desc": "WGS84 ⇌ UTM بالمنطقة.",
                 "tool2-title": "المساحة والمحيط",
-                "tool2-desc": "الزق إحداثيات القطعة (شمال وشرق) وخذ المساحة بالمتر والفدان والقيراط والسهم.",
+                "tool2-desc": "المضلع بالمتر والـ ha والفدان.",
                 "tool3-title": "الترافرس والإغلاق",
-                "tool3-desc": "انحرافات ومسافات ⇒ إحداثيات، وخطأ الإغلاق ونسبته وتصحيح Bowditch.",
+                "tool3-desc": "Bowditch ونسبة الخطأ.",
                 "tool4-title": "المنحنى الأفقي",
-                "tool4-desc": "نصف القطر وزاوية الانحراف ⇒ T، L، C، والوتر ومحطات PTg PC.",
+                "tool4-desc": "نصف القطر والزاوية والـ T و L.",
                 "tool5-title": "الحفر والردم",
-                "tool5-desc": "مقاطع بمساحاتها ⇒ الحجم بطريقة متوسط المساحات وطريقة الهرم الناقص.",
+                "tool5-desc": "متوسط المساحات والهرم الناقص.",
                 "tool6-title": "تحويل الملفات",
-                "tool6-desc": "حول نقاطك لملف يفتح في جوجل إيرث – من غير أي رفع للسرفر.",
+                "tool6-desc": "تصدير النقاط لـ Google Earth.",
                 "t1-panel-title": "محول الإحداثيات — WGS84 ⇌ UTM",
-                "t1-panel-desc": "التحويل على إبسُويد WGS84 (EPSG:4326 ⇌ EPSG:326xx/327xx). للشبكات المحلية (الحزام الأحمر المصري - Ain el Abd) لازم معاملات إضافة إضافية — جايين في تحديث جاي.",
+                "t1-panel-desc": "التحويل على إبسُويد WGS84 (EPSG:4326 ⇌ EPSG:326xx/327xx).",
                 "t1-tab-calc": "الحاسبة الفورية",
                 "t1-tab-iframe": "موقع Koordinaten-Umrechner",
                 "t1-geo-to-utm": "من جغرافي إلى UTM",
-                "t1-lat": "خط العرض (Latitude) بالدرجات العشرية",
-                "t1-lon": "خط الطول (Longitude) بالدرجات العشرية",
+                "t1-lat": "خط العرض (Latitude)",
+                "t1-lon": "خط الطول (Longitude)",
                 "t1-btn-conv1": "حول ←",
                 "t1-utm-to-geo": "من UTM إلى جغرافي",
                 "t1-btn-conv2": "حول ←",
@@ -761,7 +773,7 @@
             document.querySelectorAll('#tools-grid-container > div').forEach(card => {
                 const text = card.textContent.toLowerCase();
                 if (text.includes(query)) {
-                    card.style.display = "block";
+                    card.style.display = "flex";
                 } else {
                     card.style.display = "none";
                 }
