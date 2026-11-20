@@ -95,7 +95,7 @@
                 Masterarbeit zur Erlangung des akademischen Grades Master of Engineering (M.Eng.) im Studiengang Geoinformatik an der Hochschule Mainz.
             </p>
             <div class="border-t border-slate-800 pt-4 text-sm text-slate-400 space-y-2">
-                <p><strong data-i18n="author-label">Verfasser:</strong> عمرو السيد مبروك عزب (M.Eng. Amr Azab)</p>
+                <p><strong data-i18n="author-label">Verfasser:</strong> <span data-i18n="author-name">Amr Elsayed Mabrouk Azab (M.Eng. Amr Azab)</span></p>
                 <p><strong data-i18n="advisor1-label">Erstprüfer:</strong> Prof. Dr.-Ing. Martin Schlüter</p>
                 <p><strong data-i18n="advisor2-label">Zweitprüfer:</strong> Prof. Dr.-Ing. Fredie Kern</p>
             </div>
@@ -144,6 +144,7 @@
                 "thesis-date": "Hochschule Mainz • Februar 2024",
                 "thesis-desc": "Masterarbeit zur Erlangung des akademischen Grades Master of Engineering (M.Eng.) im Studiengang Geoinformatik an der Hochschule Mainz.",
                 "author-label": "Verfasser:",
+                "author-name": "Amr Elsayed Mabrouk Azab (M.Eng. Amr Azab)",
                 "advisor1-label": "Erstprüfer:",
                 "advisor2-label": "Zweitprüfer:",
                 "summary-title": "Kurzzusammenfassung (Zusammenfassung)",
@@ -158,6 +159,7 @@
                 "thesis-date": "Mainz University of Applied Sciences • February 2024",
                 "thesis-desc": "Master's Thesis submitted in partial fulfillment of the requirements for the degree of Master of Engineering (M.Eng.) in Geoinformatics.",
                 "author-label": "Author:",
+                "author-name": "Amr Elsayed Mabrouk Azab (M.Eng. Amr Azab)",
                 "advisor1-label": "Primary Advisor:",
                 "advisor2-label": "Secondary Advisor:",
                 "summary-title": "Summary / Abstract",
@@ -172,6 +174,7 @@
                 "thesis-date": "جامعة ماينتس التطبيقية • فبراير 2024",
                 "thesis-desc": "رسالة ماجستير للحصول على درجة الماجستير في الهندسة (M.Eng.) في تخصص الجيوماتكس من جامعة ماينتس.",
                 "author-label": "الباحث:",
+                "author-name": "عمرو السيد مبروك عزب (M.Eng. Amr Azab)",
                 "advisor1-label": "المشرف الرئيسي:",
                 "advisor2-label": "المشرف الثاني:",
                 "summary-title": "ملخص البحث (Kurzzusammenfassung)",
@@ -204,7 +207,6 @@
             });
         }
 
-        // تحميل اللغة المحفوظة تلقائياً عند تحميل الصفحة
         window.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('preferred_lang') || 'de';
             changeLanguage(savedLang);
